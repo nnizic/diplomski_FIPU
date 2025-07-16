@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1752692790.02681 "main.aux" "main.bbl" "main" 1752692790.48588 0
+["bibtex main"] 1752692790.02681 "main.aux" "main.bbl" "main" 1752694643.87541 0
   "./literatura.bib" 1752688794.0654 1390 f8392bdfc26766fc14f6d333436ef269 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1752692790.39187 2276 1f0d6b5bc82e2f30251f0b1627a2132e "pdflatex"
+  "main.aux" 1752694643.80238 2276 1f0d6b5bc82e2f30251f0b1627a2132e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1752692790.05737 "main.tex" "main.pdf" "main" 1752692790.48623 0
+["pdflatex"] 1752694643.52503 "main.tex" "main.pdf" "main" 1752694643.87561 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -75,15 +75,15 @@
   "2-poglavlje.tex" 1752685039.33993 4089 83ddf5ac93835a8c5501ad60ee673e0f ""
   "3-novo-poglavlje.tex" 1752685039.33993 3489 25dcc60fb279c4894552769c58b282b7 ""
   "X-zakljucak.tex" 1752685039.33993 255 356a26e548642e245e93130951f1df7e ""
-  "main.aux" 1752692790.39187 2276 1f0d6b5bc82e2f30251f0b1627a2132e "pdflatex"
+  "main.aux" 1752694643.80238 2276 1f0d6b5bc82e2f30251f0b1627a2132e "pdflatex"
   "main.bbl" 1752692790.04854 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.lof" 1752692790.39521 203 14fda80a9d36d8b8c36a82463ea3a1f2 "pdflatex"
-  "main.lot" 1752692790.39521 204 aef242722b6c665bb15fe04fa52776c7 "pdflatex"
+  "main.lof" 1752694643.80571 203 14fda80a9d36d8b8c36a82463ea3a1f2 "pdflatex"
+  "main.lot" 1752694643.80571 204 aef242722b6c665bb15fe04fa52776c7 "pdflatex"
   "main.tex" 1752685039.33993 1206 7c134b388693d29645c6c9ca7aae6dc3 ""
-  "main.toc" 1752692790.39521 999 e19b40d092839044e90f81a0be6df13f "pdflatex"
+  "main.toc" 1752694643.80571 999 e19b40d092839044e90f81a0be6df13f "pdflatex"
   "prva-i-druga-stranica/druga-stranica.tex" 1752685180.14467 670 cf2ad007c12c00668737bfbb3e4337ed ""
   "prva-i-druga-stranica/prva-stranica.tex" 1752685148.45844 262 5fd47c09effdc165a982aaf11e13e3e3 ""
-  "sazetak.tex" 1752685039.33993 2056 2b77a02eaedb7ee7f352fe2ee50a9cc1 ""
+  "sazetak.tex" 1752694642.35573 2035 0bddd19ffe115128450fd26851a28973 ""
   "slike/test-slika.png" 1752685039.34326 36050 54083633bd1b44db46317e3ed827855c ""
   "tablice/1-tablica.tex" 1752685039.34326 327 e6af76ada3b25b719d34c4843d62e7ba ""
   (generated)
