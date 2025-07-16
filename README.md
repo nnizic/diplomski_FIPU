@@ -1,1 +1,5 @@
-# Thesis template for Faculty of Informatics in Pula
+# FIPU
+
+## Diplomski rad
+
+### Modeliranje i simulacije
