@@ -1,0 +1,18 @@
+\babel@toc {english}{}\relax 
+\babel@toc {croatian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {croatian}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Motivacija}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Rizici i nesigurnosti u projektnom upravljanju}{1}{}%
+\contentsline {subsection}{\numberline {1.3}Monte Carlo simulacija i genetski algoritmi}{1}{}%
+\contentsline {subsection}{\numberline {1.4}Cilj rada}{2}{}%
+\contentsline {section}{\numberline {2}Poglavlje}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Podpoglavlje}{3}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}PodPodPoglavlje}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Drugo podpoglavlje}{4}{}%
+\contentsline {section}{\numberline {3}Novo poglavlje}{5}{}%
+\contentsline {section}{\numberline {4}Zaključak}{6}{}%
+\contentsline {section}{Literatura}{7}{}%
+\contentsline {section}{Popis slika}{8}{}%
+\contentsline {section}{Popis tablica}{9}{}%
