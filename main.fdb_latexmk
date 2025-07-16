@@ -1,0 +1,28 @@
+# Fdb version 4
+["pdflatex"] 1752691340.75761 "main.tex" "main.pdf" "main" 1752691340.8913 2
+  "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1742685315 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1742685315 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
+  "/usr/share/texmf-dist/tex/generic/babel/babel.sty" 1742685315 143388 b008e1666520ff43d0878397f2926242 ""
+  "/usr/share/texmf-dist/tex/generic/babel/errbabel.def" 1742685315 8981 98ab153dc9ca2dfe1d1abb8eaa263794 ""
+  "/usr/share/texmf-dist/tex/generic/babel/locale/en/babel-en.ini" 1742685315 3966 caeee5a9e5771d4446aa1ca9015ba1b2 ""
+  "/usr/share/texmf-dist/tex/generic/babel/locale/en/babel-english.tex" 1742685315 336 ed676b5e7dfd862bc78d634f6a973f37 ""
+  "/usr/share/texmf-dist/tex/generic/babel/locale/hr/babel-croatian.tex" 1742685315 336 55eb3e260074c6ee6df5fffc2a532aaf ""
+  "/usr/share/texmf-dist/tex/generic/babel/txtbabel.def" 1742685315 6945 a248d839b1f26b388440c973966647b5 ""
+  "/usr/share/texmf-dist/tex/generic/iftex/iftex.sty" 1742685315 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
+  "/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty" 1742685315 1057 525c2192b5febbd8c1f662c9468335bb ""
+  "/usr/share/texmf-dist/tex/latex/base/article.cls" 1742685315 20144 63d8bacaf52e5abf4db3bc322373e1d4 ""
+  "/usr/share/texmf-dist/tex/latex/base/inputenc.sty" 1742685315 5048 0270515b828149155424600fd2d58ac5 ""
+  "/usr/share/texmf-dist/tex/latex/base/size12.clo" 1742685315 8449 ffe4ba2166a344827c3a832d1d5e0a91 ""
+  "/usr/share/texmf-dist/tex/latex/geometry/geometry.sty" 1742685315 41601 9cf6c5257b1bc7af01a58859749dd37a ""
+  "/usr/share/texmf-dist/tex/latex/graphics/keyval.sty" 1742685315 2671 70891d50dac933918b827d326687c6e8 ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1752691324 2008251 a93e07e18dc7b24f460ecbd6acfa7162 ""
+  "main.aux" 1752691340.75074 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1752685039.33993 1206 7c134b388693d29645c6c9ca7aae6dc3 ""
+  "tocbibind.sty" 0 -1 0 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)
