@@ -1,27 +1,31 @@
 \section{Uvod}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ovako radim listu:
-\begin{enumerate}
-    \item Jedan
-    \item \textbf{Dva}
-    \item \textit{Tri}
-\end{enumerate}
+Upravljanje projektima je ključna aktivnost u brojnim industrijama, od građevine i IT-a do farmaceutike i financija. Jedan od najzahtjevnijih aspekata upravljanja projektima jest učinkovita raspodjela aktivnosti i resursa kroz vrijeme, pri čemu se mora zadovoljiti niz ograničenja, uključujući budžet, vremenski rok, kapacitete resursa i međusobne ovisnosti između zadataka. U složenim projektima s velikim brojem aktivnosti, tradicionalni pristupi često nisu dostatni jer ne uspijevaju adresirati neizvjesnosti i varijabilnost koje prate realne projekte.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ovako radim listu bez redosljeda:
+\subsection{Motivacija}
+
+Raspodjela projektnih aktivnosti i resursa u uvjetima nesigurnosti i ograničenja predstavlja NP-težak problem, što znači da se broj mogućih kombinacija rješenja eksponencijalno povećava s veličinom problema. Tradicionalne metode kao što su CPM (Critical Path Method) i PERT (Program Evaluation and Review Technique) podrazumijevaju determinističke vremenske procjene i ne uključuju varijabilnost stvarnih uvjeta, što može dovesti do suboptimalnih ili čak neizvedivih planova.
+
+Potreba za metodama koje mogu obuhvatiti stohastičku prirodu trajanja aktivnosti, dinamiku projektnog okruženja i složene međusobne odnose među aktivnostima, motivira primjenu naprednih optimizacijskih i simulacijskih tehnika.
+
+\subsection{Rizici i nesigurnosti u projektnom upravljanju}
+
+U stvarnim projektima, trajanja aktivnosti često nisu poznata unaprijed s potpunom sigurnošću. Kašnjenja, nedostatak resursa, promjene u specifikacijama ili nepredviđene okolnosti mogu značajno utjecati na tijek projekta. Zbog toga je važno uključiti kvantitativne metode za procjenu rizika i analizu nesigurnosti. Upravo tu se Monte Carlo simulacija ističe kao snažan alat koji omogućuje evaluaciju raspodjele mogućih ishoda i procjenu vjerojatnosti završetka projekta unutar zadanih rokova.
+
+\subsection{Monte Carlo simulacija i genetski algoritmi}
+
+Monte Carlo simulacija koristi slučajne uzorke za kvantificiranje nesigurnosti u modelima i omogućuje realističnije procjene vremenskih i troškovnih distribucija. U kontekstu projektnog upravljanja, ova metoda može simulirati tisuće mogućih scenarija izvedbe aktivnosti na temelju probabilističkih ulaza (npr. optimističnog, realnog i pesimističnog trajanja).
+
+Genetski algoritmi (GA) predstavljaju jednu od najčešće korištenih metaheurističkih metoda za rješavanje složenih problema optimizacije. Temelje se na principima evolucije i prirodne selekcije te su učinkoviti u pretraživanju velikih prostora rješenja, što ih čini pogodnima za optimizaciju projektnih rasporeda.
+
+\subsection{Cilj rada}
+
+Cilj ovog rada je razviti model koji kombinira genetski algoritam s Monte Carlo simulacijom radi dobivanja robusnog plana raspodjele aktivnosti u projektu. Kombinacija ovih dviju metoda omogućava simultano:
 \begin{itemize}
-    \item Jedan
-    \item $2 \times 1 = 2$
-    \item $\frac{9}{3} = 3$
+    \item optimiziranje projektnih rasporeda u uvjetima složenih ograničenja,
+    \item kvantifikaciju rizika i nesigurnosti u izvedbi projekta,
+    \item donošenje boljih odluka u upravljanju resursima.
 \end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ovako radim formulu u svom redu koja nije oznacena referencom:
+Predloženi pristup testira se na simuliranim podacima i evaluira s obzirom na pouzdanost završetka projekta unutar vremenskog roka i efikasnost raspodjele resursa.
 
-\[ c^2 = a^2 + b^2 \]
-
-Ovako radim formulu sa referencom:
-
-\begin{equation}\label{formula}
-    E = m c^2
-\end{equation}
-
-I ovako referenciram formulu \ref{formula}.
