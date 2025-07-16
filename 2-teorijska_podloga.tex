@@ -1,0 +1,59 @@
+\section{Teorijska podloga}
+
+\subsection{Knapsack problem}
+Problem ruksaka (engl. \textit{Knapsack Problem}) jedan je od klasičnih problema kombinatorne optimizacije i pripada klasi NP-teških problema. U osnovnoj verziji, cilj je odabrati podskup objekata s pripadajućim težinama i vrijednostima, tako da ukupna težina ne prelazi određeni kapacitet, a ukupna vrijednost je maksimalna.
+
+Formalno, za skup $n$ objekata s težinama $w_i$ i vrijednostima $v_i$, te kapacitet $W$, cilj je maksimizirati:
+
+\[
+\max \sum_{i=1}^n v_i x_i \quad \text{uz ograničenje} \quad \sum_{i=1}^n w_i x_i \leq W,\ x_i \in \{0,1\}
+\]
+
+U kontekstu upravljanja projektima, aktivnosti se mogu interpretirati kao objekti s određenim trajanjem i vrijednošću (npr. važnost, doprinos cilju), a resursi (vremenski ili financijski) kao kapacitet. Knapsack model se tada koristi za optimalnu raspodjelu resursa među projektnim aktivnostima.
+
+\subsection{Genetski algoritmi}
+
+Genetski algoritmi (GA) su metaheurističke metode inspirirane prirodnim procesom evolucije. Rješenja problema predstavljaju se kao kromosomi (obično binarni nizovi), a operacije evolucije uključuju selekciju, križanje (crossover) i mutaciju. Tipični koraci uključuju:
+
+\begin{enumerate}
+    \item Inicijalizacija populacije
+    \item Evaluacija funkcije cilja (fitness)
+    \item Selekcija roditelja (npr. turnirska selekcija, rulet)
+    \item Primjena operatora križanja i mutacije
+    \item Zamjena stare populacije novom generacijom
+\end{enumerate}
+
+Kodiranje rješenja ovisi o problemu — za raspodjelu aktivnosti često se koristi binarno ili cijelobrojno kodiranje. GA su prikladni za probleme s velikim i nepreglednim prostorom rješenja jer ne zahtijevaju informacije o gradijentima.
+
+\subsection{Monte Carlo simulacija}
+
+Monte Carlo simulacija koristi nasumično generirane ulazne podatke kako bi procijenila ponašanje složenog sustava. Ključni elementi uključuju:
+
+\begin{itemize}
+    \item Definiranje slučajnih varijabli (npr. trajanje aktivnosti)
+    \item Odabir prikladne distribucije (npr. uniformna, normalna, trokutasta)
+    \item Velik broj iteracija ($n > 10^3$) za stabilne rezultate
+\end{itemize}
+
+Simulacijom velikog broja scenarija može se procijeniti rizik projekta, očekivano trajanje, kao i distribucija mogućih ishoda. U ovom radu, MC simulacija koristi se za uvođenje nesigurnosti u trajanje aktivnosti.
+
+\subsection{PERT metoda i trokutasta distribucija}
+
+PERT (Program Evaluation and Review Technique) je metoda upravljanja projektima koja uzima u obzir nesigurnost trajanja aktivnosti koristeći tri vremenske procjene:
+
+\[
+T_E = \frac{T_o + 4T_m + T_p}{6}
+\]
+
+gdje su:
+\begin{itemize}
+    \item $T_o$ – optimistična procjena trajanja,
+    \item $T_m$ – najvjerojatnija procjena,
+    \item $T_p$ – pesimistična procjena.
+\end{itemize}
+
+Za simulacije se često koristi trokutasta distribucija jer je jednostavna za implementaciju i dovoljno fleksibilna. Vrijednosti se biraju unutar intervala $[T_o, T_p]$ s maksimumom u $T_m$.
+
+Monte Carlo simulacija s trokutastom distribucijom omogućuje realniji prikaz varijabilnosti trajanja aktivnosti u projektnom planiranju, osobito kada nedostaju povijesni podaci.
+
+
