@@ -1,3 +1,32 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Kerzner2017}
+Harold Kerzner.
+\newblock {\em Project Management: A Systems Approach to Planning, Scheduling, and Controlling}.
+\newblock Wiley, 12th edition, 2017.
+
+\bibitem{PMI2021}
+{Project Management Institute}.
+\newblock A guide to the project management body of knowledge (pmbok guide), 2021.
+
+\bibitem{Vose2008}
+David Vose.
+\newblock {\em Risk Analysis: A Quantitative Guide}.
+\newblock John Wiley \& Sons, 2008.
+
+\bibitem{Goldberg1989}
+David~E. Goldberg.
+\newblock {\em Genetic Algorithms in Search, Optimization, and Machine Learning}.
+\newblock Addison-Wesley, 1989.
+
+\bibitem{Mitchell1998}
+Melanie Mitchell.
+\newblock {\em An Introduction to Genetic Algorithms}.
+\newblock MIT Press, 1998.
+
+\bibitem{Law2015}
+Averill~M. Law.
+\newblock {\em Simulation Modeling and Analysis}.
+\newblock McGraw-Hill Education, 5th edition, 2015.
 
 \end{thebibliography}

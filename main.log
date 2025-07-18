@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  16 JUL 2025 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  18 JUL 2025 21:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -308,61 +308,79 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 ] (./1-uvod.tex
+Overfull \hbox (3.77803pt too wide) in paragraph at lines 7--8
+\OT1/cmr/m/n/12 Jedan od klju^^Tcnih pro-blema u uprav-lja-nju pro-jek-tima je kako ras-po-re-diti ograni^^Tcene
+ []
+
+
+Overfull \hbox (2.43825pt too wide) in paragraph at lines 13--13
+[]\OT1/cmr/bx/n/14.4 Heuristi^^Tcki pris-tup op-ti-mi-za-ciji uprav-lja-nja pro-jek-tima
+ []
+
+
+Overfull \hbox (2.70303pt too wide) in paragraph at lines 18--19
+\OT1/cmr/m/n/12 op-ti-malne ras-po-djele pro-jek-t-nih ak-tiv-nosti, uzi-maju^^Sci u ob-zir nji-hovu va^^Tznost
+ []
+
+
 
 [1
 
-])
+]
+Overfull \hbox (11.77238pt too wide) in paragraph at lines 29--30
+[]\OT1/cmr/m/n/12 Upravljanje pro-jek-tima je klju^^Tcna ak-tiv-nost u broj-nim in-dus-tri-jama, od gra[]devine
+ []
 
-[2] (./2-teorijska_podloga.tex
+
+
+[2])
+
+[3] (./2-teorijska_podloga.tex
 Overfull \hbox (1.00583pt too wide) in paragraph at lines 38--39
 []\OT1/cmr/m/n/12 Simulacijom ve-li-kog broja sce-na-rija mo^^Tze se pro-ci-je-niti ri-zik pro-jekta, o^^Tcekivano
  []
 
 
 
-[3])
+[4])
 
-[4] (./3-novo-poglavlje.tex)
+[5] (./3-novo-poglavlje.tex)
 
-[5] (./X-zakljucak.tex)
+[6] (./X-zakljucak.tex)
 
-[6] (./main.bbl
+[7] (./main.bbl)
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
-
-[7] (./main.lof)
+[8] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
 
 
-[8] (./main.lot)
+[9] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
 
 
-[9] (./main.aux)
+[10] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5530 strings out of 474560
- 93711 string characters out of 5750494
- 500387 words of memory out of 5000000
- 28491 multiletter control sequences out of 15000+600000
+ 5540 strings out of 474560
+ 93826 string characters out of 5750494
+ 500405 words of memory out of 5000000
+ 28501 multiletter control sequences out of 15000+600000
  565057 words of font info for 57 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  67i,5n,77p,2149b,171s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (13 pages, 141519 bytes).
+Output written on main.pdf (14 pages, 152352 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
