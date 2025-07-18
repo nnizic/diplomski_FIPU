@@ -1,5 +1,31 @@
 \section{Uvod}
 
+Upravljanje projektima obuhvaća niz izazova, osobito kada je riječ o optimizaciji raspodjele ograničenih resursa među konkurentskim aktivnostima. Projektni menadžeri često se suočavaju s neizvjesnostima vezanima uz trajanje zadataka, dostupnost resursa i dinamičnost okruženja. Upravo te nesigurnosti zahtijevaju robusne metode koje mogu osigurati učinkovitu alokaciju resursa unatoč stohastičkoj prirodi ulaznih podataka.
+
+\subsection{Motivacija}
+
+Jedan od ključnih problema u upravljanju projektima je kako rasporediti ograničene resurse (vremenske, ljudske, financijske) na skup aktivnosti tako da se minimizira ukupno trajanje projekta ili maksimizira ukupna vrijednost. Klasične determinističke metode često zanemaruju nesigurnosti koje su prisutne u stvarnim projektima, što dovodi do planova koji su nerealni i teško provedivi \cite{Kerzner2017, PMI2021}. Stoga raste interes za primjenom heurističkih i stohastičkih metoda u projektnoj optimizaciji.
+
+\subsection{Rizici i nesigurnosti u projektnom upravljanju}
+
+Neizvjesnost u trajanju aktivnosti, nepredviđeni događaji, promjene prioriteta i ograničeni resursi stvaraju kompleksno i promjenjivo okruženje. Klasifikacija rizika i kvantifikacija njihove vjerojatnosti ključni su za izradu kvalitetnog plana. Upravo zbog toga se uvode stohastičke metode kao što su Monte Carlo simulacija, koje omogućuju analizu različitih scenarija i procjenu vjerojatnosti uspjeha projekta \cite{Vose2008}.
+
+\subsection{Heuristički pristup optimizaciji upravljanja projektima korištenjem kombiniranog stohastičkog modela}
+
+U ovom radu predlaže se heuristički pristup optimizaciji upravljanja projektima korištenjem kombiniranog stohastičkog modela. Pritom se kombiniraju dva komplementarna pristupa:
+
+\begin{itemize}
+    \item \textbf{Genetski algoritam (GA)} – koristi se za pronalaženje optimalne ili blizu optimalne raspodjele projektnih aktivnosti, uzimajući u obzir njihovu važnost i vremenska ograničenja. GA su pokazali visoku učinkovitost kod NP-teških problema poput problema ruksaka \cite{Goldberg1989, Mitchell1998}.
+    \item \textbf{Monte Carlo simulacija (MCS)} – koristi se za modeliranje neizvjesnosti u trajanju aktivnosti, često koristeći trokutastu distribuciju, posebno kada nije dostupna pouzdana povijesna statistika \cite{Law2015}.
+\end{itemize}
+
+Ova kombinacija omogućuje istraživanje velikog prostora rješenja, pri čemu se u svakoj iteraciji genetskog algoritma evaluira kvaliteta rješenja putem više Monte Carlo simulacija. Time se dobiva robusnije rješenje koje bolje odražava nesigurnost u ulaznim podacima.
+
+\subsection{Cilj rada}
+
+Cilj ovog rada je razviti model koji integrira genetski algoritam i Monte Carlo simulaciju u svrhu optimizacije raspodjele projektnih aktivnosti pod uvjetima nesigurnosti. Model se temelji na knapsack formulaciji problema, gdje se svaka aktivnost karakterizira očekivanim trajanjem, varijabilnošću i vrijednošću. Kroz eksperimente će se testirati učinkovitost predloženog pristupa te usporediti dobivena rješenja u kontekstu robustnosti i izvedivosti plana projekta.
+
+
 Upravljanje projektima je ključna aktivnost u brojnim industrijama, od građevine i IT-a do farmaceutike i financija. Jedan od najzahtjevnijih aspekata upravljanja projektima jest učinkovita raspodjela aktivnosti i resursa kroz vrijeme, pri čemu se mora zadovoljiti niz ograničenja, uključujući budžet, vremenski rok, kapacitete resursa i međusobne ovisnosti između zadataka. U složenim projektima s velikim brojem aktivnosti, tradicionalni pristupi često nisu dostatni jer ne uspijevaju adresirati neizvjesnosti i varijabilnost koje prate realne projekte.
 
 \subsection{Motivacija}
