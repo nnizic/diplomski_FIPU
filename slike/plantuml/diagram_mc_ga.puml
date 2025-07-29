@@ -1,0 +1,34 @@
+@startuml
+title Usporedba jednostavne i modularne verzije programa
+
+start
+
+:Pokrenuti program;
+
+partition "Jednostavna verzija (bez modula)" {
+    :Generirati početnu populaciju;
+    :Pokrenuti Monte Carlo simulaciju;
+    if ("Je li rješenje prihvatljivo?") then (Da)
+        :Zadržati rješenje;
+    else (Ne)
+        :Odbaciti rješenje;
+    endif
+    :Ponoviti dok se ne postigne cilj;
+}
+
+partition "Modularna verzija" {
+    :Generirati početnu populaciju;
+    :Pokrenuti Monte Carlo modul;
+    :Proslijediti rezultate Monte Carla GA modulu;
+    :Izračunati fitness;
+    if ("Je li fitness prihvatljiv?") then (Da)
+        :Zadržati rješenje;
+    else (Ne)
+        :Primijeniti GA operatore (selekcija, križanje, mutacija);
+    endif
+    :Ponoviti dok se ne postigne cilj;
+}
+
+stop
+@enduml
+

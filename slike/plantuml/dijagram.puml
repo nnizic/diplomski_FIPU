@@ -1,0 +1,29 @@
+@startuml
+title Proces optimizacije - Monte Carlo + Genetski algoritam
+
+start
+
+:Unos projektnih aktivnosti i parametara;
+:Definiranje optimističnog, najvjerojatnijeg i pesimističnog trajanja zadataka;
+
+if ("Pokrenuti Monte Carlo simulaciju?") then (da)
+  :Generiranje nasumičnih trajanja za svaki zadatak;
+  :Izračun distribucija trajanja (prosjek, medijan, SD);
+else (ne)
+  :Koristi postojeće distribucije;
+endif
+
+:Inicijalizacija populacije rješenja (GA);
+repeat
+  :Izračun fitness funkcije koristeći Monte Carlo rezultate;
+  :Selekcija najboljih rješenja;
+  :Primjena križanja (crossover);
+  :Primjena mutacije;
+  :Generiranje nove populacije;
+repeat while (Generacija < MaxGeneracija)
+
+:Prikaz najboljeg rješenja;
+:Analiza konvergencije GA;
+stop
+@enduml
+

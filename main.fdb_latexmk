@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1753783040.67455 "main.aux" "main.bbl" "main" 1753783040.99401 0
+["bibtex main"] 1753806890.20947 "main.aux" "main.bbl" "main" 1753807509.65892 0
   "./literatura.bib" 1753778325.94611 2467 da8b77b50a917fba47118285de60fd50 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1753783040.92618 3937 8ede46b2a2483e038cfe6aedd1f36b2a "pdflatex"
+  "main.aux" 1753807509.58881 4862 db1565d2fe4d510f9a596de52a5727ba "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1753783040.6938 "main.tex" "main.pdf" "main" 1753783040.99419 0
+["pdflatex"] 1753807509.35092 "main.tex" "main.pdf" "main" 1753807509.65908 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -28,6 +28,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1742685315 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1742685315 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1742685315 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1742685315 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1742685315 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1742685315 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1742685315 30251 6afa5cb1d0204815a708a080681d4674 ""
@@ -38,6 +39,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1742685315 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1742685315 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1742685315 36118 fad905eba93cff5bce1e185fe980a177 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1742685315 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1742685315 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/babel-croatian/croatian.ldf" 1742685315 3782 a56229fda5a4b74e064321444518e058 ""
   "/usr/share/texmf-dist/tex/generic/babel-english/english.ldf" 1742685315 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -79,16 +81,18 @@
   "1-uvod.tex" 1752868696.90372 6617 1e02bf87308f674e039c7b72e8553cfb ""
   "2-teorijska-podloga.tex" 1752694994.17405 3222 1808f8710b8ce82680c8c4263fea5c69 ""
   "3-model-problema.tex" 1753782790.76405 2507 e27bc696b85fc0c562adf3b374db704d ""
+  "4-implementacija.tex" 1753807506.57219 4750 013b5b441b4ed2659375fdef4b8fef42 ""
   "X-zakljucak.tex" 1753783034.48297 2709 e8c2b650defe7271aec02d737e3b8435 ""
-  "main.aux" 1753783040.92618 3937 8ede46b2a2483e038cfe6aedd1f36b2a "pdflatex"
-  "main.bbl" 1753783040.68952 1802 34eba163053b8d49efd6b1e061bd9b60 "bibtex main"
-  "main.lof" 1753783040.92618 244 e197adf8215dfe6ec19f87ee63acda5c "pdflatex"
-  "main.lot" 1753783040.92618 122 1ffa4b194634b23235b4b2f1db352f43 "pdflatex"
-  "main.tex" 1753782555.9283 1214 1f1ea59e1836ebe616b9ebdacf22bab3 ""
-  "main.toc" 1753783040.92618 1760 431de2ce08f9f3e316df77013cd9a344 "pdflatex"
+  "main.aux" 1753807509.58881 4862 db1565d2fe4d510f9a596de52a5727ba "pdflatex"
+  "main.bbl" 1753806890.22343 1802 34eba163053b8d49efd6b1e061bd9b60 "bibtex main"
+  "main.lof" 1753807509.59214 399 1833eed99b5ccf381a49545d929a9a2e "pdflatex"
+  "main.lot" 1753807509.59214 122 1ffa4b194634b23235b4b2f1db352f43 "pdflatex"
+  "main.tex" 1753806336.43359 1249 3943b02f14af1a45b0848c9395892753 ""
+  "main.toc" 1753807509.59214 2191 bfb7e248ebc60d881a8c2bdcb6c190dd "pdflatex"
   "prva-i-druga-stranica/druga-stranica.tex" 1753775805.86223 775 08b8bdec9fc84560370ced4eba460118 ""
   "prva-i-druga-stranica/prva-stranica.tex" 1753775856.83461 349 9b0ebf992ed001aa0ea470e6b0c8ddb3 ""
   "sazetak.tex" 1752694642.35573 2035 0bddd19ffe115128450fd26851a28973 ""
+  "slike/diagram_mc_ga.png" 1753807449.85323 48756 82fd656ae90f071d06baf521e30c862a ""
   "slike/model_problema.png" 1753777683.05328 76407 e357841dd75d0de9d2b5172371017102 ""
   (generated)
   "main.aux"

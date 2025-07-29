@@ -1,0 +1,34 @@
+@startuml
+!theme blueprint
+
+title Proces optimizacije: Monte Carlo + Genetski algoritam
+
+start
+
+:Unos projektnih aktivnosti i parametara;
+:Definiranje optimističnog, najvjerojatnijeg i pesimističnog trajanja zadataka;
+
+partition "Monte Carlo modul" #LightBlue {
+    :Generiranje nasumičnih trajanja za svaki zadatak;
+    :Izračun distribucija trajanja (prosjek, medijan, SD);
+}
+
+partition "Genetski algoritam (GA)" #LightGreen {
+    :Inicijalizacija populacije rješenja;
+    repeat
+      :Izračun fitness funkcije koristeći Monte Carlo rezultate;
+      :Selekcija najboljih rješenja;
+      :Primjena križanja (crossover);
+      :Primjena mutacije;
+      :Generiranje nove populacije;
+    repeat while (Generacija < MaxGeneracija)
+}
+
+partition "Vizualizacija i analiza" #LightYellow {
+    :Prikaz najboljeg rješenja;
+    :Analiza konvergencije GA;
+}
+
+stop
+@enduml
+

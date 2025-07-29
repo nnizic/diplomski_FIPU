@@ -146,6 +146,17 @@ INPUT ./slike/model_problema.png
 INPUT ./slike/model_problema.png
 INPUT ./slike/model_problema.png
 INPUT ./slike/model_problema.png
+INPUT ./4-implementacija.tex
+INPUT ./4-implementacija.tex
+INPUT ./4-implementacija.tex
+INPUT ./4-implementacija.tex
+INPUT 4-implementacija.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./slike/diagram_mc_ga.png
+INPUT ./slike/diagram_mc_ga.png
+INPUT ./slike/diagram_mc_ga.png
+INPUT ./slike/diagram_mc_ga.png
+INPUT ./slike/diagram_mc_ga.png
 INPUT ./X-zakljucak.tex
 INPUT ./X-zakljucak.tex
 INPUT ./X-zakljucak.tex
@@ -174,3 +185,4 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
