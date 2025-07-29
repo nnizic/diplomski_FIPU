@@ -16,8 +16,12 @@
 \contentsline {subsection}{\numberline {2.2}Genetski algoritmi}{4}{}%
 \contentsline {subsection}{\numberline {2.3}Monte Carlo simulacija}{4}{}%
 \contentsline {subsection}{\numberline {2.4}PERT metoda i trokutasta distribucija}{5}{}%
-\contentsline {section}{\numberline {3}Novo poglavlje}{6}{}%
-\contentsline {section}{\numberline {4}Zaključak}{7}{}%
-\contentsline {section}{Literatura}{8}{}%
-\contentsline {section}{Popis slika}{9}{}%
-\contentsline {section}{Popis tablica}{10}{}%
+\contentsline {section}{\numberline {3}Model problema}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Ograničenja}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Cilj optimizacije}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Grafički prikaz modela}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Zaključak poglavlja}{7}{}%
+\contentsline {section}{\numberline {4}Zaključak}{8}{}%
+\contentsline {section}{Literatura}{9}{}%
+\contentsline {section}{Popis slika}{10}{}%
+\contentsline {section}{Popis tablica}{11}{}%

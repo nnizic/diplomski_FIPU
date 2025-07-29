@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  18 JUL 2025 21:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  29 JUL 2025 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -335,7 +335,7 @@ Overfull \hbox (11.77238pt too wide) in paragraph at lines 29--30
 
 [2])
 
-[3] (./2-teorijska_podloga.tex
+[3] (./2-teorijska-podloga.tex
 Overfull \hbox (1.00583pt too wide) in paragraph at lines 38--39
 []\OT1/cmr/m/n/12 Simulacijom ve-li-kog broja sce-na-rija mo^^Tze se pro-ci-je-niti ri-zik pro-jekta, o^^Tcekivano
  []
@@ -344,43 +344,56 @@ Overfull \hbox (1.00583pt too wide) in paragraph at lines 38--39
 
 [4])
 
-[5] (./3-novo-poglavlje.tex)
+[5] (./3-model-problema.tex
+<slike/model_problema.png, id=42, 995.72pt x 801.99625pt>
+File: slike/model_problema.png Graphic file (type png)
+<use slike/model_problema.png>
+Package pdftex.def Info: slike/model_problema.png  used on input line 36.
+(pdftex.def)             Requested size: 375.14705pt x 302.16739pt.
+)
 
-[6] (./X-zakljucak.tex)
+[6]
 
-[7] (./main.bbl)
+[7 <./slike/model_problema.png (PNG copy)>] (./X-zakljucak.tex
+Overfull \hbox (6.94604pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/12 Zaklju^^Tcno, ovaj rad potvr[]duje va^^Tznost pri-mjene na-pred-nih al-go-ri-tam-skih rje^^Tsenja
+ []
 
-[8] (./main.lof)
+)
+
+[8] (./main.bbl)
+
+[9] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
 
 
-[9] (./main.lot)
+[10] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
 
 
-[10] (./main.aux)
+[11] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5542 strings out of 474560
- 93847 string characters out of 5750494
- 500408 words of memory out of 5000000
- 28503 multiletter control sequences out of 15000+600000
+ 5570 strings out of 474560
+ 94499 string characters out of 5750494
+ 500559 words of memory out of 5000000
+ 28531 multiletter control sequences out of 15000+600000
  565057 words of font info for 57 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 67i,5n,77p,2149b,171s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,11n,77p,860b,305s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (14 pages, 153611 bytes).
+Output written on main.pdf (15 pages, 236895 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 109 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Kerzner2017}
 Harold Kerzner.
@@ -7,7 +7,8 @@ Harold Kerzner.
 
 \bibitem{PMI2021}
 {Project Management Institute}.
-\newblock A guide to the project management body of knowledge (pmbok guide), 2021.
+\newblock {\em A Guide to the Project Management Body of Knowledge (PMBOK Guide)}.
+\newblock PMI, 7th edition, 2021.
 
 \bibitem{Vose2008}
 David Vose.
@@ -33,5 +34,20 @@ Melanie Mitchell.
 Averill~M. Law.
 \newblock {\em Simulation Modeling and Analysis}.
 \newblock McGraw-Hill Education, 5th edition, 2015.
+
+\bibitem{Glover1986}
+Fred Glover.
+\newblock Future paths for integer programming and links to artificial intelligence.
+\newblock {\em Computers \& Operations Research}, 13(5):533--549, 1986.
+
+\bibitem{Miller2009}
+Roger Miller and Donald Lessard.
+\newblock Project risk management using monte carlo simulation.
+\newblock {\em Project Management Journal}, 40(3):23--33, 2009.
+
+\bibitem{Gandomi2013}
+Amir~H. Gandomi, Xin-She Yang, Siamak Talatahari, and Amir~H. Alavi.
+\newblock Metaheuristic algorithms in modeling and optimization.
+\newblock {\em Applied Soft Computing}, 13(1):1--11, 2013.
 
 \end{thebibliography}

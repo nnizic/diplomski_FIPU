@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1752868709.70648 "main.aux" "main.bbl" "main" 1752868710.06961 0
-  "./literatura.bib" 1752868531.26927 2251 e81d5ca6a769463d3a73c173f32fd6d0 ""
+["bibtex main"] 1753783040.67455 "main.aux" "main.bbl" "main" 1753783040.99401 0
+  "./literatura.bib" 1753778325.94611 2467 da8b77b50a917fba47118285de60fd50 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1752868709.98716 2689 bbf748dc24e1a5c90b916798debc789c "pdflatex"
+  "main.aux" 1753783040.92618 3937 8ede46b2a2483e038cfe6aedd1f36b2a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1752868709.72724 "main.tex" "main.pdf" "main" 1752868710.06991 0
+["pdflatex"] 1753783040.6938 "main.tex" "main.pdf" "main" 1753783040.99419 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -77,18 +77,19 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1752691835 33112 0f8776ef2c4c6eb705f50fa4e38d06c8 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1752691835 2653828 039640c5a4721eed375bf3dc6dd75207 ""
   "1-uvod.tex" 1752868696.90372 6617 1e02bf87308f674e039c7b72e8553cfb ""
-  "2-teorijska_podloga.tex" 1752694994.17405 3222 1808f8710b8ce82680c8c4263fea5c69 ""
-  "3-novo-poglavlje.tex" 1752685039.33993 3489 25dcc60fb279c4894552769c58b282b7 ""
-  "X-zakljucak.tex" 1752685039.33993 255 356a26e548642e245e93130951f1df7e ""
-  "main.aux" 1752868709.98716 2689 bbf748dc24e1a5c90b916798debc789c "pdflatex"
-  "main.bbl" 1752868709.72049 1176 18f97334b4ee55fd8fe89738d3f89348 "bibtex main"
-  "main.lof" 1752868709.98716 122 1ffa4b194634b23235b4b2f1db352f43 "pdflatex"
-  "main.lot" 1752868709.98716 122 1ffa4b194634b23235b4b2f1db352f43 "pdflatex"
-  "main.tex" 1752695400.98835 1214 ad753c71980513b3de849e7cc9679374 ""
-  "main.toc" 1752868709.98716 1479 af2e35600611be0e263227fc80ab7135 "pdflatex"
-  "prva-i-druga-stranica/druga-stranica.tex" 1752685180.14467 670 cf2ad007c12c00668737bfbb3e4337ed ""
-  "prva-i-druga-stranica/prva-stranica.tex" 1752685148.45844 262 5fd47c09effdc165a982aaf11e13e3e3 ""
+  "2-teorijska-podloga.tex" 1752694994.17405 3222 1808f8710b8ce82680c8c4263fea5c69 ""
+  "3-model-problema.tex" 1753782790.76405 2507 e27bc696b85fc0c562adf3b374db704d ""
+  "X-zakljucak.tex" 1753783034.48297 2709 e8c2b650defe7271aec02d737e3b8435 ""
+  "main.aux" 1753783040.92618 3937 8ede46b2a2483e038cfe6aedd1f36b2a "pdflatex"
+  "main.bbl" 1753783040.68952 1802 34eba163053b8d49efd6b1e061bd9b60 "bibtex main"
+  "main.lof" 1753783040.92618 244 e197adf8215dfe6ec19f87ee63acda5c "pdflatex"
+  "main.lot" 1753783040.92618 122 1ffa4b194634b23235b4b2f1db352f43 "pdflatex"
+  "main.tex" 1753782555.9283 1214 1f1ea59e1836ebe616b9ebdacf22bab3 ""
+  "main.toc" 1753783040.92618 1760 431de2ce08f9f3e316df77013cd9a344 "pdflatex"
+  "prva-i-druga-stranica/druga-stranica.tex" 1753775805.86223 775 08b8bdec9fc84560370ced4eba460118 ""
+  "prva-i-druga-stranica/prva-stranica.tex" 1753775856.83461 349 9b0ebf992ed001aa0ea470e6b0c8ddb3 ""
   "sazetak.tex" 1752694642.35573 2035 0bddd19ffe115128450fd26851a28973 ""
+  "slike/model_problema.png" 1753777683.05328 76407 e357841dd75d0de9d2b5172371017102 ""
   (generated)
   "main.aux"
   "main.lof"

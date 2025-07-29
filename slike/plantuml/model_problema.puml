@@ -1,0 +1,66 @@
+
+@startuml
+title Model problema - Detaljni prikaz
+
+package "Projekt" {
+  class Projekt {
+    + naziv: String
+    + ukupnoVrijeme: float
+    + budzet: float
+    + brojRadnika: int
+  }
+}
+
+package "Zadatak" {
+  class Zadatak {
+    + id: int
+    + naziv: String
+    + procijenjenoTrajanje: float
+    + trosak: float
+    + vrijednost: float
+    + distribucijaNesigurnosti: String
+  }
+}
+
+package "Ograničenja" {
+  class Ogranicenje {
+    + tip: String
+    + vrijednost: float
+  }
+}
+
+package "Cilj" {
+  class Cilj {
+    + opis: String
+  }
+}
+
+' Veze
+Projekt "1" o-- "*" Zadatak : sadrzi
+Projekt "1" o-- "*" Ogranicenje : definira
+Projekt "1" o-- "1" Cilj : ima
+
+'Ograničenja specifikacije
+Ogranicenje <|-- VrijemeOgranicenje : tip = "vrijeme"
+Ogranicenje <|-- BudzetOgranicenje : tip = "budzet"
+Ogranicenje <|-- RadniciOgranicenje : tip = "broj radnika"
+
+' Tekstualni komentari
+note top of Projekt
+  Projekt je skup aktivnosti (zadataka)
+  koje imaju procijenjena trajanja,
+  troškove i vrijednosti (ROI)
+end note
+
+note top of Ogranicenje
+  Ograničenja uključuju ukupno
+  vrijeme, budžet i broj radnika
+end note
+
+note bottom of Cilj
+  Cilj je maksimizirati ukupnu
+  vrijednost projekta
+  unutar zadanih ograničenja
+end note
+
+@enduml
