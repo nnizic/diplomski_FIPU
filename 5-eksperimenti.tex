@@ -1,0 +1,46 @@
+\section{Eksperimenti}
+
+Cilj ovog poglavlja je provesti eksperimentalnu evaluaciju razvijenog modela optimizacije raspodjele projektnih aktivnosti koji kombinira genetske algoritme (GA) i Monte Carlo simulaciju (MC). U ovoj fazi rada eksperimenti će biti okvirno opisani, dok će se stvarni rezultati i detaljne analize dodati nakon provedbe testiranja.
+
+\subsection{Testni podaci}
+Za potrebe eksperimenta koristit će se sintetički skupovi podataka koji će uključivati:
+\begin{itemize}
+    \item različite vrijednosti projektnih aktivnosti,
+    \item različite troškove resursa,
+    \item varijabilna trajanja aktivnosti (optimistično, realno, pesimistično).
+\end{itemize}
+Takav pristup omogućava kontrolu nad parametrima te usporedivost rezultata između različitih scenarija.
+
+\subsection{Scenariji testiranja}
+Eksperimenti će biti podijeljeni u tri osnovna scenarija:
+\begin{enumerate}
+    \item \textbf{Samo GA} — Genetski algoritam optimizira raspodjelu bez uključivanja Monte Carlo simulacije (baseline pristup).
+    \item \textbf{Samo MC} — Monte Carlo simulacija koristi se za procjenu trajanja i uspješnosti bez GA optimizacije.
+    \item \textbf{Kombinacija GA + MC} — Predloženi hibridni pristup gdje se GA koristi za optimizaciju, a MC za evaluaciju potencijalnih rješenja (finalni model).
+\end{enumerate}
+
+\subsection{Metodologija}
+Za svaki scenarij provodit će se više ponavljanja kako bi se smanjio utjecaj slučajnih varijacija.  
+Planirane metrike koje će se prikupljati:
+\begin{itemize}
+    \item \textbf{Broj uspješnih projekata} — koliko projekata je završilo unutar planiranog roka i budžeta.
+    \item \textbf{Ukupna ROI vrijednost} — ukupni povrat investicije iz optimizirane raspodjele.
+    \item \textbf{Stabilnost rješenja} — varijacija rezultata kroz ponavljanja eksperimenta.
+\end{itemize}
+
+\subsection{Plan prezentacije rezultata}
+Nakon provedbe eksperimenata, rezultati će biti prikazani:
+\begin{itemize}
+    \item tablicama (kvantitativni rezultati i usporedbe),
+    \item grafovima (vizualizacija trendova i distribucija),
+    \item opisnim analizama (interpretacija dobivenih rezultata).
+\end{itemize}
+
+Sljedeći grafikon prikazat će usporedbu prosječne uspješnosti između triju scenarija:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{slike/usporedba_scenarija.png}
+    \caption{Primjer usporedbe prosječne uspješnosti za tri scenarija (primjer, podaci privremeni).}
+    \label{fig:usporedba_scenarija}
+\end{figure}

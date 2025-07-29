@@ -21,6 +21,13 @@ Implementacija je podijeljena u tri glavna modula:
     \item \textbf{Modul za vizualizaciju} -- omogućuje analizu rezultata kroz grafičke prikaze i usporedbe.
 \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{slike/diagram_mc_ga.png}
+    \caption{Dijagram toka procesa optimizacije korištenjem Monte Carlo simulacije i genetskog algoritma}
+    \label{fig:diagram_ga_mc}
+\end{figure}
+
 \subsubsection{Monte Carlo modul}
 
 Monte Carlo simulacija implementirana je korištenjem biblioteka \texttt{NumPy} i \texttt{random}. Za svaki zadatak definirana je procijenjena vrijednost trajanja (optimistična, pesimistična i najvjerojatnija procjena). Generiranjem velikog broja simulacija (npr. $10^4$ iteracija), dobivena je empirijska distribucija trajanja svakog zadatka.
@@ -34,13 +41,6 @@ procijeni prosjek, medijan i standardnu devijaciju trajanja
 \end{verbatim}
 
 Rezultat Monte Carlo simulacije je skup distribucija koji se koristi u evaluacijskoj funkciji genetskog algoritma.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{slike/diagram_mc_ga.png}
-    \caption{Dijagram toka procesa optimizacije korištenjem Monte Carlo simulacije i genetskog algoritma}
-    \label{fig:diagram_ga_mc}
-\end{figure}
 
 
 \subsubsection{GA modul}
