@@ -1,15 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Kerzner2017}
-Harold Kerzner.
-\newblock {\em Project Management: A Systems Approach to Planning, Scheduling, and Controlling}.
-\newblock Wiley, 12th edition, 2017.
-
-\bibitem{GareyJohnson1979}
-Michael~R. Garey and David~S. Johnson.
-\newblock {\em Computers and Intractability: A Guide to the Theory of NP-Completeness}.
-\newblock W. H. Freeman, 1979.
-
 \bibitem{Kellerer2004}
 Hans Kellerer, Ulrich Pferschy, and David Pisinger.
 \newblock {\em Knapsack Problems}.
@@ -19,6 +9,11 @@ Hans Kellerer, Ulrich Pferschy, and David Pisinger.
 D.~G. Malcolm, J.~H. Roseboom, C.~E. Clark, and W.~Fazar.
 \newblock Application of a technique for research and development program evaluation.
 \newblock {\em Operations Research}, 7(5):646--669, 1959.
+
+\bibitem{Kerzner2017}
+Harold Kerzner.
+\newblock {\em Project Management: A Systems Approach to Planning, Scheduling, and Controlling}.
+\newblock Wiley, 12th edition, 2017.
 
 \bibitem{Holland1975}
 John~H. Holland.
@@ -70,20 +65,20 @@ David Vose.
 \newblock {\em Risk Analysis: A Quantitative Guide}.
 \newblock John Wiley \& Sons, 2008.
 
-\bibitem{Glover1986}
-Fred Glover.
-\newblock Future paths for integer programming and links to artificial intelligence.
-\newblock {\em Computers \& Operations Research}, 13(5):533--549, 1986.
-
-\bibitem{Law2015}
-Averill~M. Law.
-\newblock {\em Simulation Modeling and Analysis}.
-\newblock McGraw-Hill Education, 5th edition, 2015.
-
 \bibitem{Mitchell1998}
 Melanie Mitchell.
 \newblock {\em An Introduction to Genetic Algorithms}.
 \newblock MIT Press, 1998.
+
+\bibitem{Gandomi2013}
+Amir~H. Gandomi, Xin-She Yang, Siamak Talatahari, and Amir~H. Alavi.
+\newblock Metaheuristic algorithms in modeling and optimization.
+\newblock {\em Applied Soft Computing}, 13(1):1--11, 2013.
+
+\bibitem{Kaveh2012}
+A.~Kaveh and S.~Talatahari.
+\newblock A comparative study of metaheuristic optimization algorithms for optimal design of truss structures.
+\newblock {\em Computers \& Structures}, 102:66--75, 2012.
 
 \bibitem{Miller2009}
 Roger Miller and Donald Lessard.
@@ -95,9 +90,14 @@ Gordana Avlijaš, Krzysztof Grabiński, and Dragana Milinković.
 \newblock Using monte carlo simulation in project management.
 \newblock {\em Management - Journal of Sustainable Business and Management Solutions in Emerging Economies}, 13(47):33--38, 2008.
 
-\bibitem{Gandomi2013}
-Amir~H. Gandomi, Xin-She Yang, Siamak Talatahari, and Amir~H. Alavi.
-\newblock Metaheuristic algorithms in modeling and optimization.
-\newblock {\em Applied Soft Computing}, 13(1):1--11, 2013.
+\bibitem{Law2015}
+Averill~M. Law.
+\newblock {\em Simulation Modeling and Analysis}.
+\newblock McGraw-Hill Education, 5th edition, 2015.
+
+\bibitem{Glover1986}
+Fred Glover.
+\newblock Future paths for integer programming and links to artificial intelligence.
+\newblock {\em Computers \& Operations Research}, 13(5):533--549, 1986.
 
 \end{thebibliography}
