@@ -1,67 +1,77 @@
+
 \section{Implementacija}
 
-Implementacija razvijenog modela optimizacije provedena je u programskom jeziku Python, zbog njegove fleksibilnosti, bogatog ekosustava biblioteka te široke primjene u znanstvenom računarstvu i optimizacijskim metodama. Python omogućuje brz razvoj prototipa, jednostavnu integraciju različitih modula te učinkovitu vizualizaciju rezultata.
+Razvijeni model optimizacije implementiran je u programskom jeziku \textbf{Python}, odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. Python omogućuje brzu izradu prototipa, jednostavnu integraciju modula te učinkovitu obradu i vizualizaciju podataka.
 
 \subsection{Korištene biblioteke}
 
-Za potrebe izrade sustava korištene su sljedeće biblioteke:
-\begin{itemize}
-    \item \textbf{NumPy} -- osnovna biblioteka za rad s višedimenzionalnim poljima i vektorima, pruža optimizirane matematičke funkcije te omogućuje učinkovito generiranje slučajnih brojeva potrebnih za Monte Carlo simulacije.
-    \item \textbf{random} -- ugrađeni Python modul za generiranje slučajnih vrijednosti, korišten u inicijalnim fazama simulacije i generiranja početnih populacija u genetskom algoritmu.
-    \item \textbf{matplotlib} -- biblioteka za vizualizaciju podataka, korištena za grafički prikaz distribucija trajanja zadataka, konvergencije genetskog algoritma i usporedbu dobivenih rješenja.
-    \item \textbf{DEAP} (Distributed Evolutionary Algorithms in Python) -- opcionalna biblioteka za implementaciju genetskih algoritama i drugih evolucijskih metoda. Omogućuje jednostavnu definiciju operatora selekcije, križanja i mutacije, kao i prilagodbu parametara evolucijskog procesa.
-\end{itemize}
+Za izradu sustava korištene su sljedeće biblioteke (Tablica~\ref{tab:biblioteke}):
 
-\subsection{Struktura implementacije}
+\begin{table}[H]
+\centering
+\caption{Korištene biblioteke u implementaciji}
+\label{tab:biblioteke}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Biblioteka} & \textbf{Namjena} \\ \hline
+NumPy & Numeričke operacije, generiranje slučajnih brojeva, vektorizacija izračuna. \\ \hline
+SciPy & Statističke distribucije i znanstveno računarstvo; korišten za modeliranje PERT distribucije. \\ \hline
+Matplotlib & Vizualizacija rezultata simulacija i optimizacijskih procesa. \\ \hline
+DEAP & Implementacija genetskog algoritma, definiranje operatora selekcije, križanja i mutacije. \\ \hline
+\end{tabular}
+\end{table}
 
-Implementacija je podijeljena u tri glavna modula:
+\subsection{Struktura sustava}
+
+Sustav se sastoji od tri modula:
 \begin{enumerate}
-    \item \textbf{Monte Carlo modul} -- odgovoran za generiranje distribucija trajanja zadataka i procjenu nesigurnosti.
-    \item \textbf{Genetski algoritam (GA) modul} -- provodi optimizaciju raspodjele projektnih aktivnosti koristeći rezultate Monte Carlo simulacije.
-    \item \textbf{Modul za vizualizaciju} -- omogućuje analizu rezultata kroz grafičke prikaze i usporedbe.
+    \item \textbf{Monte Carlo modul} – generira distribucije trajanja zadataka i procjenjuje nesigurnosti.
+    \item \textbf{Genetski algoritam modul} – optimizira raspodjelu aktivnosti na temelju rezultata Monte Carlo simulacija.
+    \item \textbf{Modul za vizualizaciju} – grafički prikazuje distribucije, rezultate i tijek optimizacije.
 \end{enumerate}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{slike/diagram_mc_ga.png}
-    \caption{Dijagram toka procesa optimizacije korištenjem Monte Carlo simulacije i genetskog algoritma}
-    \label{fig:diagram_ga_mc}
-\end{figure}
+\subsection{Monte Carlo simulacija}
 
-\subsubsection{Monte Carlo modul}
+Za svaki zadatak definirane su tri procjene trajanja: optimistična $(a)$, najvjerojatnija $(m)$ i pesimistična $(b)$.  
+Distribucija trajanja modelirana je pomoću \textit{PERT distribucije} (Beta-PERT), gdje se očekivana vrijednost računa kao:
 
-Monte Carlo simulacija implementirana je korištenjem biblioteka \texttt{NumPy} i \texttt{random}. Za svaki zadatak definirana je procijenjena vrijednost trajanja (optimistična, pesimistična i najvjerojatnija procjena). Generiranjem velikog broja simulacija (npr. $10^4$ iteracija), dobivena je empirijska distribucija trajanja svakog zadatka.
+\[
+\mu = \frac{a + 4m + b}{6}
+\]
 
-Pseudokod implementacije Monte Carlo modula:
-\begin{verbatim}
-for svaki zadatak u projektu:
-    generiraj nasumične vrijednosti trajanja prema odabranoj distribuciji
-    spremi rezultate u niz
-procijeni prosjek, medijan i standardnu devijaciju trajanja
-\end{verbatim}
+Parametri $\alpha_1$ i $\alpha_2$ Beta distribucije izračunavaju se prema \cite{Vose2008}:
 
-Rezultat Monte Carlo simulacije je skup distribucija koji se koristi u evaluacijskoj funkciji genetskog algoritma.
+\[
+\alpha_1 = \frac{(\mu - a) \cdot (2m - a - b)}{(m - \mu)(b - a)}, \quad
+\alpha_2 = \frac{\alpha_1 \cdot (b - \mu)}{(\mu - a)}
+\]
 
+Ako $\alpha_1 \leq 0$ ili $\alpha_2 \leq 0$, vrijednost se postavlja na $1.0$ radi numeričke stabilnosti.
 
-\subsubsection{GA modul}
+\subsection{Genetski algoritam}
 
-Genetski algoritam implementiran je pomoću biblioteke \texttt{DEAP}, a u slučaju jednostavnije implementacije korišteni su osnovni Python moduli \texttt{random} i \texttt{NumPy}. Ključne komponente GA modula su:
+Implementacija genetskog algoritma provedena je pomoću biblioteke DEAP \cite{DEAP2012}.  
+Svaki kromosom predstavlja potencijalni raspored aktivnosti, a optimizacija se temelji na višekriterijskoj funkciji pogodnosti koja uključuje:
 \begin{itemize}
-    \item \textbf{Inicijalizacija populacije} -- generira se početna populacija rješenja koja predstavlja različite načine raspodjele projektnih aktivnosti.
-    \item \textbf{Funkcija prilagodbe (fitness)} -- izračunava kvalitetu rješenja na temelju trajanja, troškova i vrijednosti dobivenih iz Monte Carlo simulacije.
-    \item \textbf{Selekcija} -- odabire najbolja rješenja prema definiranim kriterijima (npr. turnirska selekcija).
-    \item \textbf{Križanje (crossover)} -- kombinira dijelove rješenja dvaju roditelja kako bi se stvorila nova, potencijalno bolja rješenja.
-    \item \textbf{Mutacija} -- nasumično mijenja dio rješenja radi očuvanja raznolikosti populacije.
-    \item \textbf{Zaustavni uvjet} -- algoritam se zaustavlja nakon određenog broja generacija ili kada se konvergencija dostigne.
+    \item trajanje projekta (na temelju Monte Carlo simulacije),
+    \item troškove,
+    \item dodatne projektne parametre.
 \end{itemize}
 
-\subsubsection{Vizualizacija rezultata}
+Korišteni su sljedeći operatori:
+\begin{itemize}
+    \item \textbf{Selekcija:} turnirska i rulet-kolo selekcija,
+    \item \textbf{Križanje:} PMX i OX1,
+    \item \textbf{Mutacija:} zamjena pozicija gena (swap) i umetanje (insert).
+\end{itemize}
 
-Za analizu rezultata korištena je biblioteka \texttt{matplotlib}, a rezultati se prikazuju u tri glavne forme:
-\begin{enumerate}
-    \item \textbf{Distribucije trajanja zadataka} -- histogrami i krivulje gustoće dobivene iz Monte Carlo simulacija.
-    \item \textbf{Konvergencija genetskog algoritma} -- graf promjene najbolje fitness vrijednosti kroz generacije.
-    \item \textbf{Usporedba rješenja} -- prikaz najboljeg pronađenog rješenja naspram prosječnih i početnih rješenja.
-\end{enumerate}
+\subsection{Vizualizacija}
 
-Ova struktura implementacije omogućuje fleksibilnu nadogradnju sustava, integraciju dodatnih optimizacijskih metoda i prilagodbu različitim vrstama projekata.
+Rezultati simulacija i optimizacije vizualizirani su pomoću \textbf{Matplotlib} \cite{Hunter2007} biblioteke kroz:
+\begin{itemize}
+    \item histograme distribucija trajanja zadataka,
+    \item grafove konvergencije genetskog algoritma,
+    \item usporedbe optimiziranih rješenja.
+\end{itemize}
+
+

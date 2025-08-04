@@ -100,4 +100,20 @@ Fred Glover.
 \newblock Future paths for integer programming and links to artificial intelligence.
 \newblock {\em Computers \& Operations Research}, 13(5):533--549, 1986.
 
+\bibitem{PythonSoftwareFoundation}
+{Python Software Foundation}.
+\newblock Python language reference, version 3.x.
+\newblock \url{https://www.python.org/}, 2024.
+\newblock Accessed: 2025-07-31.
+
+\bibitem{DEAP2012}
+F.~A. Fortin, F.~M.~De Rainville, M.~Gardner, M.~Parizeau, and C.~Gagn{\'e}.
+\newblock {DEAP}: Evolutionary algorithms made easy.
+\newblock In {\em Proceedings of the 14th Annual Conference Companion on Genetic and Evolutionary Computation}, pages 2171--2178, New York, NY, USA, 2012. Association for Computing Machinery.
+
+\bibitem{Hunter2007}
+J.~D. Hunter.
+\newblock Matplotlib: A 2d graphics environment.
+\newblock {\em Computing in Science \& Engineering}, 9(3):90--95, 2007.
+
 \end{thebibliography}
