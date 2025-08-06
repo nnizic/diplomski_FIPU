@@ -23,12 +23,55 @@ DEAP & Implementacija genetskog algoritma, definiranje operatora selekcije, kri�
 
 \subsection{Struktura sustava}
 
-Sustav se sastoji od tri modula:
+
+Sustav razvijen za potrebe ovog rada predstavlja cjeloviti eksperimentalni okvir dizajniran za analizu, kalibraciju i usporedbu optimizacijskih metodologija. Umjesto jednostavnog, monolitnog sustava, arhitektura je modularna i sastoji se od dva glavna analitička modula te jednog pomoćnog modula za obradu rezultata:
+
 \begin{enumerate}
-    \item \textbf{Monte Carlo modul} – generira distribucije trajanja zadataka i procjenjuje nesigurnosti.
-    \item \textbf{Genetski algoritam modul} – optimizira raspodjelu aktivnosti na temelju rezultata Monte Carlo simulacija.
-    \item \textbf{Modul za vizualizaciju} – grafički prikazuje distribucije, rezultate i tijek optimizacije.
+    \item \textbf{Modul za analizu i kalibraciju genetskog algoritma} \\
+    Ovaj modul predstavlja temelj istraživanja i odgovara na pitanje: \emph{``Kako optimalno konfigurirati genetski algoritam za rješavanje zadanog problema?''}. Njegova primarna svrha je provođenje detaljne ablacijske studije (Ablation Study) kako bi se ispitao utjecaj svakog ključnog parametra na performanse algoritma.
+    
+    \textbf{Funkcionalnosti:}
+    \begin{itemize}
+        \item Sustavno testiranje različitih konfiguracija genetskog algoritma (standardni GA, bez križanja, bez mutacije, s povećanim brojem generacija, s većom populacijom).
+        \item Višestruko pokretanje (\( \text{RUNS} = 10 \)) svake konfiguracije radi osiguravanja statističke značajnosti rezultata.
+        \item Izračunavanje metrika performansi, uključujući prosječnu vrijednost (mean) i standardnu devijaciju (std) za ROI i procijenjeno trajanje.
+        \item \textbf{Izlaz modula:} ``Šampionska'' konfiguracija – skup optimalnih parametara za genetski algoritam koji će se koristiti u daljnjoj analizi.
+    \end{itemize}
+
+    \item \textbf{Modul za usporednu analizu optimizacijskih scenarija} \\
+    Ovaj modul čini srž diplomskog rada i koristi ``šampionsku'' konfiguraciju, definiranu u prethodnom modulu, za provođenje konačne usporedbe triju različitih pristupa rješavanju problema.
+    
+    \textbf{Funkcionalnosti:}
+    \begin{itemize}
+        \item Implementacija i izvršavanje triju ključnih scenarija:
+        \begin{itemize}
+            \item \textbf{Osnovni model (Random Search):} Slučajan odabir kao temeljna linija za usporedbu.
+            \item \textbf{Klasični genetski algoritam:} Optimizacija usmjerena isključivo na maksimizaciju ROI-a.
+            \item \textbf{Hibridni GA+MC model (NSGA-II):} Više-objektivna optimizacija koja istovremeno maksimizira ROI i minimizira rizik trajanja procijenjen Monte Carlo simulacijom.
+        \end{itemize}
+        \item Statistički robusna usporedba temeljem višestrukih pokretanja (\( \text{RUNS} = 10 \)) svakog scenarija.
+        \item \textbf{Ulaz modula:} Optimalni parametri genetskog algoritma dobiveni iz Modula~1.
+        \item \textbf{Izlaz modula:} Konačna tablica s usporednim rezultatima performansi (ROI, trajanje) i stabilnosti (standardna devijacija) za svaki od triju scenarija.
+    \end{itemize}
+
+    \item \textbf{Modul za obradu i vizualizaciju rezultata} \\
+    Ovaj modul nije sekvencijalni korak, već pomoćni alat koji služi za interpretaciju rezultata dobivenih iz prva dva modula.
+    
+    \textbf{Funkcionalnosti:}
+    \begin{itemize}
+        \item Generiranje preglednih tablica s rezultatima pomoću \texttt{pandas} biblioteke.
+        \item Spremanje rezultata u CSV format za daljnju analizu i dokumentaciju.
+        \item (Potencijalno) stvaranje grafičkih prikaza, kao što su stupčasti dijagrami za usporedbu prosječnih vrijednosti ili 2D raspršeni dijagrami (scatter plots) za prikaz Paretovog fronta dobivenog iz NSGA-II algoritma.
+    \end{itemize}
 \end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{slike/tijek_istrazivanja.png}
+    \caption{Vizualni prikaz toka istraživanja}
+    \label{tok istraživanja}
+\end{figure}
+
 
 \subsection{Monte Carlo simulacija}
 

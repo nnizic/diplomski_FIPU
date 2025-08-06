@@ -1,0 +1,28 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+    RoundCorner 15
+    FontSize 14
+}
+
+title Vizualni prikaz toka istraživanja
+
+rectangle "Definicija problema" as DP
+rectangle "Modul 1:\nKalibracija GA" as M1
+rectangle "Optimalni parametri" as OPT
+rectangle "Modul 2:\nUsporedba scenarija" as M2
+rectangle "Konačni zaključci" as KC
+rectangle "Modul 3:\nVizualizacija" as M3
+
+DP --> M1
+M1 --> OPT
+OPT --> M2
+M2 --> KC
+
+M3 ..> M1 : Analiza rezultata
+M3 ..> M2 : Analiza rezultata
+
+@enduml
