@@ -1,7 +1,7 @@
 
 \section{Implementacija}
 
-Razvijeni model optimizacije implementiran je u programskom jeziku \textbf{Python}, odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. Python omogućuje brzu izradu prototipa, jednostavnu integraciju modula te učinkovitu obradu i vizualizaciju podataka.
+Razvijeni model optimizacije implementiran je u programskom jeziku \textbf{Python (verzija 3.x)}, odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. Python omogućuje brzu izradu prototipa, jednostavnu integraciju modula te učinkovitu obradu i vizualizaciju podataka.
 
 \subsection{Korištene biblioteke}
 
@@ -72,49 +72,136 @@ Sustav razvijen za potrebe ovog rada predstavlja cjeloviti eksperimentalni okvir
     \label{tok istraživanja}
 \end{figure}
 
+\subsection{Modeliranje nesigurnosti: Monte Carlo simulacija}
 
-\subsection{Monte Carlo simulacija}
-
-Za svaki zadatak definirane su tri procjene trajanja: optimistična $(a)$, najvjerojatnija $(m)$ i pesimistična $(b)$.  
-Distribucija trajanja modelirana je pomoću \textit{PERT distribucije} (Beta-PERT), gdje se očekivana vrijednost računa kao:
-
+Za svaku projektnu aktivnost definirane su tri točke procjene trajanja:
 \[
-\mu = \frac{a + 4m + b}{6}
+a \ (\text{optimistična}), \quad
+m \ (\text{najvjerojatnija}), \quad
+b \ (\text{pesimistična})
+\]
+Iako u teoriji postoje kompleksnije distribucije poput \textit{Beta-PERT} distribucije, 
+za potrebe ovog rada odabrana je \textbf{Trokutasta distribucija (Triangular distribution)} 
+zbog svoje praktičnosti, računalne efikasnosti i intuitivnog temelja na tri poznate procjene.
+
+\paragraph{Generiranje trajanja aktivnosti.}
+U svakoj iteraciji Monte Carlo simulacije, trajanje svake aktivnosti generira se slučajnom vrijednošću 
+unutar raspona $[a, b]$ s najvećom vjerojatnošću u točki $m$.  
+Trokutasta distribucija definirana je funkcijom gustoće vjerojatnosti:
+\[
+f(x) =
+\begin{cases}
+\frac{2(x-a)}{(b-a)(m-a)}, & a \leq x < m, \\
+\frac{2(b-x)}{(b-a)(b-m)}, & m \leq x \leq b, \\
+0, & \text{inače}.
+\end{cases}
 \]
 
-Parametri $\alpha_1$ i $\alpha_2$ Beta distribucije izračunavaju se prema \cite{Vose2008}:
-
+\paragraph{Procjena trajanja portfelja.}
+Ukupno trajanje projektnog portfelja u jednoj simulaciji dobiva se zbrojem trajanja svih aktivnosti odabranih u tom portfelju:
 \[
-\alpha_1 = \frac{(\mu - a) \cdot (2m - a - b)}{(m - \mu)(b - a)}, \quad
-\alpha_2 = \frac{\alpha_1 \cdot (b - \mu)}{(\mu - a)}
+T_{\text{portfolio}} = \sum_{i \in S} t_i
+\]
+gdje je $S$ skup odabranih aktivnosti, a $t_i$ generirano trajanje aktivnosti $i$.
+
+\paragraph{Agregiranje rezultata.}
+Monte Carlo simulacija ponavlja se velik broj puta $(\text{NUM\_SIMULATIONS})$, a konačna procjena trajanja portfelja 
+dobiva se kao prosječna vrijednost svih simuliranih trajanja:
+\[
+\overline{T}(S) = \frac{1}{\text{NUM\_SIMULATIONS}} \sum_{k=1}^{\text{NUM\_SIMULATIONS}} T_{\text{portfolio}}^{(k)}
+\]
+gdje $T_{\text{portfolio}}^{(k)}$ označava ukupno trajanje portfelja u $k$-toj simulaciji.
+
+\subsection{Optimizacijski pristup: Genetski algoritam}
+
+Implementacija genetskog algoritma provedena je pomoću programske biblioteke \texttt{DEAP} (Distributed Evolutionary Algorithms in Python) \cite{DEAP2012}. 
+S obzirom na prirodu problema odabira podskupa aktivnosti, korištena je \textbf{binarna reprezentacija}.
+
+\paragraph{Reprezentacija jedinke.}
+Svaka jedinka (kromosom) u populaciji predstavlja jedno potencijalno rješenje – jedan portfelj projekata. 
+Predstavljena je kao binarni niz duljine jednake ukupnom broju aktivnosti $(\text{NUM\_ACTIVITIES})$, gdje gen na poziciji $i$ ima vrijednost:
+\[
+g_i =
+\begin{cases}
+1, & \text{ako je $i$-ta aktivnost odabrana}, \\
+0, & \text{ako nije odabrana}.
+\end{cases}
 \]
 
-Ako $\alpha_1 \leq 0$ ili $\alpha_2 \leq 0$, vrijednost se postavlja na $1.0$ radi numeričke stabilnosti.
+\paragraph{Funkcija pogodnosti (Fitness Function).}
+Ovisno o eksperimentalnom scenariju, korištene su dvije vrste funkcije pogodnosti:
 
-\subsection{Genetski algoritam}
+\begin{enumerate}
+    \item \textbf{Jedno-kriterijska optimizacija.}  
+    Za scenarij \texttt{GA (samo ROI)}, cilj je bio isključivo maksimizacija ukupnog povrata na investiciju (ROI):
+    \[
+    \max ROI = \sum_{i \in S} ROI_i
+    \]
+    gdje je $S$ skup odabranih aktivnosti.  
+    Za rješenja koja su prelazila zadani budžet primijenjena je kaznena funkcija (\textit{penalty function}) koja umanjuje pogodnost proporcionalno iznosu prekoračenja:
+    \[
+    \text{Fitness} = ROI - \lambda \cdot \max(0, \text{Trošak} - \text{Budžet})
+    \]
+    pri čemu je $\lambda$ težinski faktor kazne.
 
-Implementacija genetskog algoritma provedena je pomoću biblioteke DEAP \cite{DEAP2012}.  
-Svaki kromosom predstavlja potencijalni raspored aktivnosti, a optimizacija se temelji na višekriterijskoj funkciji pogodnosti koja uključuje:
+    \item \textbf{Više-kriterijska optimizacija.}  
+    Za hibridni scenarij \texttt{GA+MC} korišten je napredni algoritam NSGA-II, s ciljem istovremene optimizacije dva suprotstavljena kriterija:
+    \begin{enumerate}
+        \item maksimizirati ROI,
+        \item minimizirati prosječno trajanje projekta, procijenjeno Monte Carlo simulacijom.
+    \end{enumerate}
+    Formalno:
+    \[
+    \begin{cases}
+    \max f_1(S) = ROI(S) \\
+    \min f_2(S) = \overline{T}(S)
+    \end{cases}
+    \]
+    gdje $\overline{T}(S)$ označava prosječno trajanje portfelja $S$.
+\end{enumerate}
+
+\paragraph{Genetski operatori.}
+Za evoluciju populacije korišteni su sljedeći standardni operatori za binarnu reprezentaciju:
+
 \begin{itemize}
-    \item trajanje projekta (na temelju Monte Carlo simulacije),
-    \item troškove,
-    \item dodatne projektne parametre.
+    \item \textbf{Selekcija:}  
+    Turnirska selekcija (\texttt{tools.selTournament}) za jedno-kriterijsku optimizaciju,  
+    te \texttt{tools.selNSGA2} za više-kriterijsku optimizaciju.
+    
+    \item \textbf{Križanje:}  
+    Križanje u dvije točke (\texttt{tools.cxTwoPoint}), koje razmjenjuje segmente između dva roditeljska kromosoma.
+    
+    \item \textbf{Mutacija:}  
+    Slučajna promjena bita (\texttt{tools.mutFlipBit}), koja s malom vjerojatnošću mijenja vrijednost pojedinog gena (iz $0$ u $1$ ili obrnuto), osiguravajući genetsku raznolikost i sprječavajući preranu konvergenciju.
 \end{itemize}
 
-Korišteni su sljedeći operatori:
-\begin{itemize}
-    \item \textbf{Selekcija:} turnirska i rulet-kolo selekcija,
-    \item \textbf{Križanje:} PMX i OX1,
-    \item \textbf{Mutacija:} zamjena pozicija gena (swap) i umetanje (insert).
-\end{itemize}
 
 \subsection{Vizualizacija}
 
-Rezultati simulacija i optimizacije vizualizirani su pomoću \textbf{Matplotlib} \cite{Hunter2007} biblioteke kroz:
+Za analizu i prikaz rezultata dobivenih optimizacijom korištene su biblioteke 
+\texttt{pandas} za tabličnu obradu podataka i \texttt{Matplotlib} \cite{Hunter2007} 
+za grafičku vizualizaciju.  
+Kombinacija ovih alata omogućila je jasnu i preglednu prezentaciju rezultata 
+dobivenih iz eksperimentalnih scenarija.
+
+Ključni vizualni elementi korišteni u ovom radu uključuju:
+
 \begin{itemize}
-    \item histograme distribucija trajanja zadataka,
-    \item grafove konvergencije genetskog algoritma,
-    \item usporedbe optimiziranih rješenja.
+    \item \textbf{Tablični prikazi:} Detaljne tablice s konačnim, statistički obrađenim rezultatima 
+    usporedbe različitih optimizacijskih scenarija, uključujući osnovne metrike 
+    poput prosječnog ROI-a, prosječnog trajanja te raspona vrijednosti.
+
+    \item \textbf{Stupčasti dijagrami:} Koristili su se za vizualnu usporedbu prosječnih vrijednosti 
+    (\textit{ROI} i trajanje) između različitih metodologija optimizacije, omogućujući brzu identifikaciju 
+    učinkovitijih pristupa.
+
+    \item \textbf{Raspršeni dijagram (Scatter Plot):} Prikaz Paretovog fronta dobivenog NSGA-II algoritmom, 
+    koji jasno ilustrira kompromis (\textit{trade-off}) između dvaju suprotstavljenih ciljeva:
+    maksimizacije ROI-a i minimizacije trajanja. Time se omogućuje intuitivna procjena 
+    učinkovitosti rješenja.
 \end{itemize}
 
+Vizualizacija rezultata odigrala je ključnu ulogu u interpretaciji dobivenih podataka, 
+posebno u scenarijima s više ciljeva, gdje tablični prikazi sami po sebi nisu dovoljni 
+za uočavanje odnosa i kompromisa među varijablama.
 

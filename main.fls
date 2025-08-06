@@ -332,6 +332,7 @@ INPUT ./slike/tijek_istrazivanja.png
 INPUT ./slike/tijek_istrazivanja.png
 INPUT ./slike/tijek_istrazivanja.png
 INPUT ./slike/tijek_istrazivanja.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT ./5-eksperimenti.tex
 INPUT ./5-eksperimenti.tex
 INPUT ./5-eksperimenti.tex
@@ -371,5 +372,6 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
