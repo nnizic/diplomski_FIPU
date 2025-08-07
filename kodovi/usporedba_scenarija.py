@@ -15,9 +15,8 @@ BUDGET = 1000
 NUM_SIMULATIONS = 100  # Monte Carlo simulacija
 
 # Postavke algoritma
-# Za kompleksan problem (50 aktivnosti), potrebno je više vremena za pronalazak dobrog rješenja
-POP_SIZE = 100
-NGEN = 100  # Povećano za bolju konvergenciju
+POP_SIZE = 200
+NGEN = 40
 CX_PB = 0.7
 MUT_PB = 0.2
 

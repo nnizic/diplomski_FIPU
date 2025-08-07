@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1754505994.85482 "main.aux" "main.bbl" "main" 1754506094.97513 0
+["bibtex main"] 1754582917.43692 "main.aux" "main.bbl" "main" 1754582918.54675 0
   "./literatura.bib" 1754322886.07862 7461 4ae537a96e3ec399d586f97692784f15 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1754506094.8808 8425 fb4bbdefe205fb91e6520aa25c4548bd "pdflatex"
+  "main.aux" 1754582918.4328 8595 e518e474d88c230c20c1af95f31a5049 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1754506094.1602 "main.tex" "main.pdf" "main" 1754506094.97531 0
+["pdflatex"] 1754582917.46051 "main.tex" "main.pdf" "main" 1754582918.54704 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -179,21 +179,22 @@
   "2-teorijska-podloga.tex" 1753951091.51191 8715 aaa9746df35bb7bf28749df93f36d9db ""
   "3-model-problema.tex" 1753952968.55028 2497 6cdc3ba7788cb8abd7714a208988c047 ""
   "4-implementacija.tex" 1754506093.39415 10787 8ae22c0fa01d3a6015f8486a942412a9 ""
-  "5-eksperimenti.tex" 1754338492.66783 3747 d203ea92e33f6e16103349b51792145d ""
+  "5-eksperimenti.tex" 1754582914.5162 5836 4d8ff4a001a0da3127d2157c212e1e5a ""
   "X-zakljucak.tex" 1753783034.48297 2709 e8c2b650defe7271aec02d737e3b8435 ""
-  "main.aux" 1754506094.8808 8425 fb4bbdefe205fb91e6520aa25c4548bd "pdflatex"
-  "main.bbl" 1754505994.86889 4361 70a3b8913042b152c8f0d533a04af1b6 "bibtex main"
-  "main.lof" 1754506094.88413 541 455e03574f211d5ab8fb1558a494d0df "pdflatex"
-  "main.lot" 1754506094.88413 349 811796584a77dc5c2c5abbcb9a166cca "pdflatex"
-  "main.out" 1754506094.88413 4996 316a6a3d988ffba4b46cb866095b6a02 "pdflatex"
+  "main.aux" 1754582918.4328 8595 e518e474d88c230c20c1af95f31a5049 "pdflatex"
+  "main.bbl" 1754582917.44948 4361 70a3b8913042b152c8f0d533a04af1b6 "bibtex main"
+  "main.lof" 1754582918.4328 521 9fb9d96a331a0623cd6dbfac51342079 "pdflatex"
+  "main.lot" 1754582918.4328 358 af311bb75a13bf9d21e5490beda71a6d "pdflatex"
+  "main.out" 1754582918.4328 5002 772681101a7e3017b69a1f56baf72fb2 "pdflatex"
   "main.tex" 1754497238.01049 1670 a91d67c5722ff0d98682db165e5354a7 ""
-  "main.toc" 1754506094.88413 3241 88dd48bd0e2b7a2c8b1098e4668aad95 "pdflatex"
+  "main.toc" 1754582918.4328 3071 27090ba07bb8897a7151d9785baed565 "pdflatex"
   "prva-i-druga-stranica/druga-stranica.tex" 1753812531.61771 778 782ae11585436e1905ad87b0e7e13292 ""
   "prva-i-druga-stranica/prva-stranica.tex" 1753775856.83461 349 9b0ebf992ed001aa0ea470e6b0c8ddb3 ""
   "sazetak.tex" 1752694642.35573 2035 0bddd19ffe115128450fd26851a28973 ""
+  "slike/ga_usporedba_roi.png" 1754582700.85335 137436 916be021d3afdc0d322cd98af599303d ""
+  "slike/ga_usporedba_trajanje.png" 1754582701.07334 158977 e2186ba7305e3dfde4a1f5bed5657146 ""
   "slike/model_problema.png" 1753777683.05328 76407 e357841dd75d0de9d2b5172371017102 ""
   "slike/tijek_istrazivanja.png" 1754498049.74545 49189 c22c8417cfbc27cc450dd41da210b5b5 ""
-  "slike/usporedba_roi.png" 1754378959.20985 120982 32ca6eafee88486ac0984afabbbb4312 ""
   (generated)
   "main.aux"
   "main.lof"

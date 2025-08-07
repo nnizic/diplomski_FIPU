@@ -30,13 +30,10 @@
 \contentsline {paragraph}{Funkcija pogodnosti (Fitness Function).}{13}{section*.9}%
 \contentsline {paragraph}{Genetski operatori.}{13}{section*.10}%
 \contentsline {subsection}{\numberline {4.5}Vizualizacija}{14}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Eksperimenti}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Testni podaci}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Scenariji testiranja}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Parametri eksperimenta}{15}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Kombinacije testova}{16}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Metodologija}{16}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Plan prezentacije rezultata}{16}{subsection.5.6}%
+\contentsline {section}{\numberline {5}Eksperimenti i analiza rezultata}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Postavke okruženja i testni podaci}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Eksperimentalni dizajn}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}{15}{subsection.5.3}%
 \contentsline {section}{\numberline {6}Zaključak}{18}{section.6}%
 \contentsline {section}{Literatura}{19}{section*.13}%
 \contentsline {section}{Popis slika}{21}{section*.14}%
