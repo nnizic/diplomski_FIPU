@@ -1,0 +1,51 @@
+@startuml
+title Tok izvođenja Eksperimenta 2: Usporedna studija modela
+
+start
+:Učitavanje konfiguracije eksperimenta;
+note right
+
+Broj aktivnosti, Budžet
+
+Parametri GA (POP_SIZE, NGEN...)
+
+Broj ponavljanja (RUNS)
+end note
+
+repeat :Za svako ponavljanje (i=1 do RUNS)
+partition "Scenarij 1: Random Search" {
+:Generiraj N nasumičnih rješenja;
+:Odaberi najbolje valjano rješenje;
+:Izračunaj ROI i Trajanje;
+}
+partition "Scenarij 2: GA (samo ROI)" {
+:Izvrši jedno-kriterijski GA;
+note right: Fitness = max(ROI)
+:Odaberi najbolje rješenje;
+:Izračunaj Trajanje (MC simulacija);
+}
+partition "Scenarij 3: GA+MC (NSGA-II)" {
+:Izvrši više-kriterijski GA;
+note right
+Fitness = (max(ROI), min(Trajanje))
+Trajanje se računa MC simulacijom
+za svaku jedinku u svakoj generaciji.
+end note
+:Odaberi reprezentativno rješenje;
+}
+repeat while (i < RUNS)
+
+:Prikupljanje rezultata iz svih ponavljanja;
+:Statistička analiza rezultata;
+note right
+
+Izračunaj mean i std
+za ROI i Trajanje
+za svaki od 3 scenarija.
+end note
+
+:Prikaz i spremanje konačnih rezultata;
+
+stop
+
+@enduml
