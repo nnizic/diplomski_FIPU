@@ -17,9 +17,9 @@
 \contentsline {subsection}{\numberline {3.2}Ograničenja modela}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Ciljevi optimizacije}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Konceptualni model}{8}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Implementacija}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Korištene biblioteke}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Struktura sustava}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {4}Implementacija}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Korištene biblioteke}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Struktura sustava}{10}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Modeliranje nesigurnosti: Monte Carlo simulacija}{13}{subsection.4.3}%
 \contentsline {paragraph}{Generiranje trajanja aktivnosti.}{13}{section*.5}%
 \contentsline {paragraph}{Procjena trajanja portfelja.}{13}{section*.6}%

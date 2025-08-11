@@ -13,14 +13,16 @@ Za izradu sustava korištene su sljedeće biblioteke (Tablica~\ref{tab:bibliotek
 \label{tab:biblioteke}
 \begin{tabular}{|l|p{10cm}|}
 \hline
-\textbf{Biblioteka} & \textbf{Namjena} \\ \hline
-NumPy & Numeričke operacije, generiranje slučajnih brojeva, vektorizacija izračuna. \\ \hline
-SciPy & Statističke distribucije i znanstveno računarstvo; korišten za modeliranje PERT distribucije. \\ \hline
-Matplotlib & Vizualizacija rezultata simulacija i optimizacijskih procesa. \\ \hline
-DEAP & Implementacija genetskog algoritma, definiranje operatora selekcije, križanja i mutacije. \\ \hline
+\textbf{Biblioteka} & \textbf{Namjena i citat} \\ \hline
+Python & Osnovni programski jezik za cjelokupnu implementaciju. \cite{PythonSoftwareFoundation} \\ \hline
+DEAP & Okvir za razvoj i provedbu evolucijskih algoritama. \cite{DEAP2012} \\ \hline
+NumPy & Numeričke operacije i statistička obrada nizova podataka. \cite{Harris2020} \\ \hline
+Pandas & Učitavanje, obrada i spremanje tabličnih podataka s rezultatima. \cite{PandasDevelopmentTeam2020} \\ \hline
+Seaborn & Kreiranje naprednih statističkih vizualizacija (stupčasti, linijski i raspršeni grafikoni). \cite{Waskom2021} \\ \hline
+Matplotlib & Osnovna biblioteka za crtanje na koju se oslanja Seaborn. \cite{Hunter2007} \\ \hline
+Random & Standardna Python biblioteka korištena za generiranje slučajnih brojeva i uzorkovanje iz Trokutaste distribucije. \\ \hline
 \end{tabular}
 \end{table}
-
 \subsection{Struktura sustava}
 
 
@@ -133,18 +135,15 @@ Ovisno o eksperimentalnom scenariju, korištene su dvije vrste funkcije pogodnos
 
 \begin{enumerate}
     \item \textbf{Jedno-kriterijska optimizacija.}  
-    Za scenarij \texttt{GA (samo ROI)}, cilj je bio isključivo maksimizacija ukupnog povrata na investiciju (ROI):
-    \[
-    \max ROI = \sum_{i \in S} ROI_i
-    \]
-    gdje je $S$ skup odabranih aktivnosti.  
-    Za rješenja koja su prelazila zadani budžet primijenjena je kaznena funkcija (\textit{penalty function}) koja umanjuje pogodnost proporcionalno iznosu prekoračenja:
-    \[
-    \text{Fitness} = ROI - \lambda \cdot \max(0, \text{Trošak} - \text{Budžet})
-    \]
-    pri čemu je $\lambda$ težinski faktor kazne.
-
-    \item \textbf{Više-kriterijska optimizacija.}  
+Za scenarij GA (samo ROI), cilj je bio isključivo maksimizacija ukupnog povrata na investiciju (ROI). Za rukovanje ograničenjem budžeta primijenjena je stroga kaznena metoda. Ako ukupni trošak odabranog portfelja $S$ ne prelazi budžet, njegova pogodnost je jednaka ukupnom ROI-u. U suprotnom, pogodnost postaje negativna vrijednost proporcionalna iznosu prekoračenja:
+$$
+\text{Fitness}(S) = 
+\begin{cases}
+    \sum_{i \in S} \text{ROI}_i, & \text{ako } \sum_{i \in S} \text{Trošak}_i \leq \text{Budžet} \\
+    -\left(\sum_{i \in S} \text{Trošak}_i - \text{Budžet}\right), & \text{ako } \sum_{i \in S} \text{Trošak}_i > \text{Budžet}
+\end{cases}
+$$
+Ovakav pristup osigurava da svako valjano rješenje (koje ima pozitivan fitness) uvijek bude ocijenjeno kao bolje od bilo kojeg nevaljanog rješenja (koje ima negativan fitness).    \item \textbf{Više-kriterijska optimizacija.}  
     Za hibridni scenarij \texttt{GA+MC} korišten je napredni algoritam NSGA-II, s ciljem istovremene optimizacije dva suprotstavljena kriterija:
     \begin{enumerate}
         \item maksimizirati ROI,
@@ -178,9 +177,7 @@ Za evoluciju populacije korišteni su sljedeći standardni operatori za binarnu 
 
 \subsection{Vizualizacija}
 
-Za analizu i prikaz rezultata dobivenih optimizacijom korištene su biblioteke 
-\texttt{pandas} za tabličnu obradu podataka i \texttt{Matplotlib} \cite{Hunter2007} 
-za grafičku vizualizaciju.  
+Za analizu i prikaz rezultata dobivenih optimizacijom korištene su biblioteke \texttt{pandas} za tabličnu obradu podataka te \texttt{}Seaborn} i \texttt{}Matplotlib} \cite{Waskom2021, Hunter2007} za grafičku vizualizaciju.
 Kombinacija ovih alata omogućila je jasnu i preglednu prezentaciju rezultata 
 dobivenih iz eksperimentalnih scenarija.
 

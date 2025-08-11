@@ -2,7 +2,7 @@
 U ovom poglavlju formalno se definira problem optimizacije portfelja projektnih aktivnosti. Precizno se opisuju karakteristike aktivnosti, primijenjena ograničenja te jedno-kriterijski i više-kriterijski ciljevi optimizacije koji su korišteni u eksperimentalnoj evaluaciji.
 
 \subsection{Formalna definicija problema}
-Problem se definira kao odabir optimalnog podskupa (portfelja) aktivnosti iz većeg, unaprijed definiranog skupa dostupnih aktivnosti.
+Problem se definira kao odabir optimalnog podskupa (portfelja) aktivnosti iz većeg, unaprijed definiranog skupa dostupnih aktivnosti, što je čest problem u projektnom menadžmentu \cite{PMI2021, Kerzner2017}.
 
 Neka je $A=\{a_1, a_2, ..., a_n\}$ skup od $n$ dostupnih projektnih aktivnosti. Za svaku aktivnost $a_i \in A$ definirani su sljedeći atributi:
 \begin{itemize}
@@ -15,19 +15,19 @@ Cilj je definirati binarni vektor odluke $x=(x_1, x_2, ..., x_n)$, gdje $x_i \in
 \subsection{Ograničenja modela}
 Iako realni projekti mogu imati višestruka ograničenja, u ovom modelu implementirano je ključno i najčešće ograničenje u upravljanju portfeljem:
 \begin{itemize}
-    \item \textbf{Ograničenje budžeta ($B_{max}$):} Ukupni zbroj troškova svih odabranih aktivnosti ne smije prelaziti raspoloživi budžet. Formalno:
+    \item \textbf{Ograničenje budžeta ($B_{max}$):} Ukupni zbroj troškova svih odabranih aktivnosti ne smije prelaziti raspoloživi budžet. Formalno ovo ograničenje odgovara klasičnoj formulaciji problema ruksaka (Knapsack Problem) \cite{Kellerer2004}:
     $$ \sum_{i=1}^n c_i x_i \leq B_{max} $$
 \end{itemize}
-Vrijedi napomenuti da ukupno trajanje portfelja nije tretirano kao strogo ograničenje, već kao izlazna metrika performansi i cilj za minimizaciju. Ovakav pristup je fleksibilniji i realističniji, jer menadžerima često nije cilj samo "uklopiti se" u zadani rok, već pronaći portfelj s najboljim mogućim očekivanim trajanjem za određenu razinu povrata na investiciju.
+Vrijedi napomenuti da ukupno trajanje portfelja nije tretirano kao strogo ograničenje, već kao izlazna metrika performansi i cilj za minimizaciju. Ovakav pristup je fleksibilniji i realističniji, jer menadžerima često nije cilj samo "uklopiti se" u zadani rok, već pronaći portfelj s najboljim mogućim očekivanim trajanjem za određenu razinu povrata na investiciju, , što je u skladu s modernim praksama upravljanja projektnom nesigurnošću \cite{Smith2014}.
 
 \subsection{Ciljevi optimizacije}
 U skladu s eksperimentalnim dizajnom, definirana su dva različita optimizacijska cilja koja odgovaraju testiranim scenarijima:
 \begin{itemize}
     \item \textbf{Jedno-kriterijski cilj: Maksimizacija povrata na investiciju (ROI)}
-    Ovaj cilj odgovara klasičnom GA (samo ROI) modelu. Ciljna funkcija je maksimizacija ukupnog zbroja ROI vrijednosti odabranih aktivnosti, uz poštivanje ograničenja budžeta.
+        Ovaj cilj odgovara klasičnom GA (samo ROI) modelu. Ciljna funkcija je maksimizacija ukupnog zbroja ROI vrijednosti odabranih aktivnosti, uz poštivanje ograničenja budžeta. Ovakav tip optimizacijskog cilja čest je u primjeni genetskih algoritama na probleme alokacije resursa \cite{Goldberg1989}.
     $$ \max \sum_{i=1}^n v_i x_i $$
     \item \textbf{Više-kriterijski cilj: Maksimizacija ROI-a i minimizacija trajanja}
-    Ovaj cilj odgovara naprednom hibridnom GA+MC (NSGA-II) modelu i predstavlja srž istraživanja. Ovdje se istovremeno optimiziraju dva, često suprotstavljena, cilja:
+        Ovaj cilj odgovara naprednom hibridnom GA+MC (NSGA-II) modelu i predstavlja srž istraživanja.  Ovdje se istovremeno optimiziraju dva suprotstavljena cilja, što zahtijeva primjenu specijaliziranih više-kriterijskih algoritama. U ovom radu korišten je NSGA-II algoritam, koji je jedan od najpoznatijih i najčešće korištenih u toj domeni \cite{Deb2002}:   
     \begin{enumerate}
         \item \textbf{Cilj 1 (Profitabilnost):} Maksimizirati ukupni ROI ($\max \sum v_i x_i$).
         \item \textbf{Cilj 2 (Rizik):} Minimizirati očekivano ukupno trajanje portfelja ($\min E[T(x)]$), gdje je $E[T(x)]$ prosječno trajanje dobiveno Monte Carlo simulacijom za odabrani portfelj $x$.
@@ -38,11 +38,11 @@ Ovakav više-kriterijski pristup ne traži jedno jedino "najbolje" rješenje, ve
 \subsection{Konceptualni model}
 Konceptualni model problema, koji prikazuje proces odabira optimalnog portfelja iz skupa dostupnih aktivnosti pod utjecajem ograničenja i optimizacijskih ciljeva, prikazan je na Slici \ref{fig:konceptualni_model}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{slike/model_problema.png}
     \caption{Konceptualni model problema optimizacije portfelja projektnih aktivnosti}
     \label{fig:konceptualni_model}
 \end{figure}
 
-Ovaj model problema omogućuje jasnu matematičku i vizualnu formalizaciju optimizacijskog zadatka. Precizna definicija ulaza, ograničenja i ciljeva ključna je za primjenu optimizacijskih metoda poput genetskih algoritama u kombinaciji s Monte Carlo simulacijama, kako bi se dobila rješenja visoke kvalitete koja su istovremeno i robusna na prisutne nesigurnosti.
+Ovaj model problema omogućuje jasnu matematičku i vizualnu formalizaciju optimizacijskog zadatka. Precizna definicija ulaza, ograničenja i ciljeva ključna je za primjenu optimizacijskih metoda poput genetskih algoritama \cite{Mitchell1998} u kombinaciji s Monte Carlo simulacijama \cite{Rubinstein2016}, kako bi se dobila rješenja visoke kvalitete koja su istovremeno i robusna na prisutne nesigurnosti.
