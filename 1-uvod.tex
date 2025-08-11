@@ -3,8 +3,7 @@
 \subsection{Uvodni dio}
 Jedan od modela koji dobro opisuje izazove alokacije resursa je \textit{problem ruksaka} (\textit{Knapsack Problem}), gdje se ograničeni resursi moraju raspodijeliti na način koji maksimizira ukupnu korist \cite{Kellerer2004}. U kontekstu projektnih aktivnosti, to znači odabrati skup zadataka koji će donijeti najveći povrat ulaganja (ROI) uz poštivanje vremenskih i resursnih ograničenja. Tradicionalne metode poput PERT-a (\textit{Program Evaluation and Review Technique}) i CPM-a (\textit{Critical Path Method}) \cite{Malcolm1959,Kerzner2017} pružaju okvir za planiranje i praćenje projekata, no često zanemaruju složene kombinacije zadataka i inherentnu neizvjesnost u procjenama trajanja i troškova.
 
-Pregled literature pokazuje da se genski algoritmi (GA) uspješno primjenjuju na NP-teške optimizacijske probleme \cite{Holland1975,Goldberg1989}, dok Monte Carlo simulacije (MC) omogućuju modeliranje i kvantifikaciju neizvjesnosti \cite{Metropolis1949,Rubinstein2016}. Međutim, u literaturi postoji ograničen broj radova koji integriraju ove dvije metode u jedinstven hibridni pristup optimizaciji projektnih aktivnosti \cite{Deb2002,Zhang2011}. Praznina se očituje u nedostatku sustavne analize kako kombinacija GA i MC može povećati robusnost rješenja u uvjetima visoke neizvjesnosti i složenih resursnih ograničenja.
-
+Pregled literature pokazuje da se genski algoritmi (GA) uspješno primjenjuju na NP-teške optimizacijske probleme \cite{Holland1975,Goldberg1989}, dok Monte Carlo simulacije (MC) omogućuju modeliranje i kvantifikaciju neizvjesnosti \cite{Metropolis1949,Rubinstein2016}. Međutim, u literaturi postoji ograničen broj radova koji integriraju ove dvije metode u jedinstven hibridni pristup optimizaciji projektnih aktivnosti \cite{Deb2002,Zhang2011}. Praznina se očituje u nedostatku sustavnog eksperimentalnog okvira za kalibraciju i usporednu analizu hibridnih GA-MC modela, čime bi se precizno kvantificiralo kako takva sinergija utječe na robusnost rješenja
 \subsection{Motivacija}
 Motivacija za ovaj rad proizlazi iz činjenice da se u stvarnim projektnim uvjetima planovi rijetko odvijaju točno onako kako su prvotno predviđeni \cite{Kerzner2017}. Promjene u dostupnosti resursa, nepredviđeni rizici, promjene zahtjeva te pogrešne procjene trajanja zadataka česti su razlozi odstupanja od plana. Klasične metode planiranja projekata, iako korisne, često ne uzimaju u obzir dinamičke promjene i stohastičku prirodu projektnih parametara \cite{PMI2021}.
 
@@ -25,7 +24,7 @@ Ovaj diplomski rad ima za cilj razviti i evaluirati hibridni GA-MC model za opti
 
 Istraživačka pitanja na koja ovaj rad želi odgovoriti su:
 \begin{enumerate}
-    \item Može li hibridni GA-MC pristup postići bolje rezultate optimizacije u odnosu na samostalnu primjenu GA ili MC?
+    \item  U kojim uvjetima i prema kojim metrikama (npr. profitabilnost, rizik trajanja, stabilnost) hibridni GA-MC pristup postiže superiorne rezultate u odnosu na samostalnu primjenu GA ili MC modela?   
     \item U kojoj mjeri Monte Carlo simulacija može poboljšati robusnost rješenja dobivenih genskim algoritmom?
     \item Kakav je utjecaj kombiniranog pristupa na stabilnost i pouzdanost optimizacije u uvjetima neizvjesnosti?
 \end{enumerate}
@@ -42,9 +41,9 @@ Sinergija između genskih algoritama i Monte Carlo simulacija proizlazi iz njiho
 Struktura rada organizirana je na sljedeći način:
 \begin{itemize}
     \item \textbf{Poglavlje 2} daje pregled relevantne literature i teorijskih osnova problema.
-    \item \textbf{Poglavlje 3} opisuje korištenu metodologiju, uključujući principe rada GA i MC.
-    \item \textbf{Poglavlje 4} prikazuje implementaciju hibridnog modela.
-    \item \textbf{Poglavlje 5} opisuje plan i rezultate eksperimentalnog vrednovanja modela.
-    \item \textbf{Poglavlje 6} sadrži zaključak i preporuke za budući rad.
-\end{itemize}
+    \item \textbf{Poglavlje 3} detaljno opisuje matematički i konceptualni model problema.   
+    \item \textbf{Poglavlje 4} prikazuje metodologiju i arhitekturu razvijenog softverskog sustava, uključujući implementaciju Monte Carlo simulacije i genetskog algoritma.   
+    \item \textbf{Poglavlje 5} opisuje dvo-fazni eksperimentalni dizajn, analizu dobivenih rezultata i diskusiju o performansama testiranih modela.   
+    \item \textbf{Poglavlje 6} sadrži zaključak rada, sažetak doprinosa, osvrt na ograničenja i preporuke za budući rad.
+    \end{itemize}
 

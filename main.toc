@@ -7,39 +7,38 @@
 \contentsline {subsection}{\numberline {1.2}Motivacija}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Rizici i nesigurnosti u projektnom upravljanju}{1}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Ciljevi i istraživačka pitanja}{2}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Teorijska podloga}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Knapsack problem}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Genetski algoritmi}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Monte Carlo simulacija}{4}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}PERT metoda i trokutasta distribucija}{5}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Zaključak}{5}{subsection.2.5}%
+\contentsline {section}{\numberline {2}Teorijska podloga}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Knapsack problem}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Genetski algoritmi}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Monte Carlo simulacija}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Modeliranje nesigurnosti trajanja: PERT i Trokutasta distribucija}{6}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Model problema}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Ograničenja}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Cilj optimizacije}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Grafički prikaz modela}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Zaključak}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.1}Formalna definicija problema}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Ograničenja modela}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Ciljevi optimizacije}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Konceptualni model}{8}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Implementacija}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Korištene biblioteke}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Struktura sustava}{9}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Modeliranje nesigurnosti: Monte Carlo simulacija}{12}{subsection.4.3}%
-\contentsline {paragraph}{Generiranje trajanja aktivnosti.}{12}{section*.5}%
-\contentsline {paragraph}{Procjena trajanja portfelja.}{12}{section*.6}%
-\contentsline {paragraph}{Agregiranje rezultata.}{12}{section*.7}%
-\contentsline {subsection}{\numberline {4.4}Optimizacijski pristup: Genetski algoritam}{12}{subsection.4.4}%
-\contentsline {paragraph}{Reprezentacija jedinke.}{12}{section*.8}%
-\contentsline {paragraph}{Funkcija pogodnosti (Fitness Function).}{13}{section*.9}%
-\contentsline {paragraph}{Genetski operatori.}{13}{section*.10}%
-\contentsline {subsection}{\numberline {4.5}Vizualizacija}{14}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Eksperimenti i analiza rezultata}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Postavke okruženja i testni podaci}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Eksperimentalni dizajn}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}{15}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Eksperiment 2: Usporedna analiza optimizacijskih modela}{17}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Metodologija}{17}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Rezultati}{17}{subsubsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.3}Diskusija rezultata}{17}{subsubsection.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.4.4}Sinteza glavnih zaključaka eksperimenata}{20}{subsubsection.5.4.4}%
-\contentsline {section}{\numberline {6}Zaključak}{22}{section.6}%
-\contentsline {section}{Literatura}{23}{section*.19}%
-\contentsline {section}{Popis slika}{25}{section*.20}%
-\contentsline {section}{Popis tablica}{26}{section*.21}%
+\contentsline {subsection}{\numberline {4.3}Modeliranje nesigurnosti: Monte Carlo simulacija}{13}{subsection.4.3}%
+\contentsline {paragraph}{Generiranje trajanja aktivnosti.}{13}{section*.5}%
+\contentsline {paragraph}{Procjena trajanja portfelja.}{13}{section*.6}%
+\contentsline {paragraph}{Agregiranje rezultata.}{13}{section*.7}%
+\contentsline {subsection}{\numberline {4.4}Optimizacijski pristup: Genetski algoritam}{13}{subsection.4.4}%
+\contentsline {paragraph}{Reprezentacija jedinke.}{13}{section*.8}%
+\contentsline {paragraph}{Funkcija pogodnosti (Fitness Function).}{14}{section*.9}%
+\contentsline {paragraph}{Genetski operatori.}{14}{section*.10}%
+\contentsline {subsection}{\numberline {4.5}Vizualizacija}{15}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Eksperimenti i analiza rezultata}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Postavke okruženja i testni podaci}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Eksperimentalni dizajn}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Eksperiment 2: Usporedna analiza optimizacijskih modela}{18}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Metodologija}{18}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Rezultati}{18}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Diskusija rezultata}{18}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}Sinteza glavnih zaključaka eksperimenata}{21}{subsubsection.5.4.4}%
+\contentsline {section}{\numberline {6}Zaključak}{23}{section.6}%
+\contentsline {section}{Literatura}{24}{section*.19}%
+\contentsline {section}{Popis slika}{26}{section*.20}%
+\contentsline {section}{Popis tablica}{27}{section*.21}%

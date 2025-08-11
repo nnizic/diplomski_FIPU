@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1754852883.46325 "main.aux" "main.bbl" "main" 1754852886.78056 0
-  "./literatura.bib" 1754322886.07862 7461 4ae537a96e3ec399d586f97692784f15 ""
+["bibtex main"] 1754937935.17483 "main.aux" "main.bbl" "main" 1754937935.22763 0
+  "./literatura.bib" 1754937933.65453 8091 54ad30110078dbcd8334aebdf9ecacc2 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1754852886.67249 11812 583d4e6e346168a489cb0c618a87f9d2 "pdflatex"
+  "main.aux" 1754937608.69918 11326 3c38b9a199e08797c53387e9fd4ca308 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1754852883.48865 "main.tex" "main.pdf" "main" 1754852886.78072 0
+["pdflatex"] 1754937605.30814 "main.tex" "main.pdf" "main" 1754937935.2278 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -175,19 +175,19 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1752691835 33112 0f8776ef2c4c6eb705f50fa4e38d06c8 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1752691835 2653828 039640c5a4721eed375bf3dc6dd75207 ""
-  "1-uvod.tex" 1753893715.48656 5807 684f83d9d268ffca98542d10291e5675 ""
-  "2-teorijska-podloga.tex" 1753951091.51191 8715 aaa9746df35bb7bf28749df93f36d9db ""
-  "3-model-problema.tex" 1753952968.55028 2497 6cdc3ba7788cb8abd7714a208988c047 ""
+  "1-uvod.tex" 1754936143.05665 6134 e1cb85e4db7d0f987d1fa8765a7ac3c0 ""
+  "2-teorijska-podloga.tex" 1754936192.45262 7024 c7ef9036ec628d1eb0760c8564003421 ""
+  "3-model-problema.tex" 1754937377.01253 4249 fa1a409b9741fe428fb98251cc82406a ""
   "4-implementacija.tex" 1754506093.39415 10787 8ae22c0fa01d3a6015f8486a942412a9 ""
   "5-eksperimenti.tex" 1754852879.79928 15028 4a9e097cf28ed27279d26c229e21f05b ""
   "X-zakljucak.tex" 1753783034.48297 2709 e8c2b650defe7271aec02d737e3b8435 ""
-  "main.aux" 1754852886.67249 11812 583d4e6e346168a489cb0c618a87f9d2 "pdflatex"
-  "main.bbl" 1754852883.47921 4361 70a3b8913042b152c8f0d533a04af1b6 "bibtex main"
-  "main.lof" 1754852886.67582 977 d404ad3dc3bd6136067417c7709d950d "pdflatex"
-  "main.lot" 1754852886.67582 601 3cdfcdc5c0a2bc066487a0951b11b246 "pdflatex"
-  "main.out" 1754852886.67582 6037 1cdb1d1ad154425151ea1d9d6a191b8c "pdflatex"
+  "main.aux" 1754937608.69918 11326 3c38b9a199e08797c53387e9fd4ca308 "pdflatex"
+  "main.bbl" 1754937935.21451 4169 650b632c12533c4a91641c31ebd57f8b "bibtex main"
+  "main.lof" 1754937608.70252 989 d62a160f735fc790280853de3a66b345 "pdflatex"
+  "main.lot" 1754937608.70252 601 ee67d4cb065e53774aa9bcd40f819ed3 "pdflatex"
+  "main.out" 1754937608.70252 6202 0c93b17505284a6722f5b7b99fc8f342 "pdflatex"
   "main.tex" 1754824396.93044 1692 763361edd917177c226976c030573c28 ""
-  "main.toc" 1754852886.67582 3582 5e9bd688f691b04a6640d993744933cf "pdflatex"
+  "main.toc" 1754937608.70252 3557 7656c12d6522ddeb5027445cebd4f006 "pdflatex"
   "prva-i-druga-stranica/druga-stranica.tex" 1753812531.61771 778 782ae11585436e1905ad87b0e7e13292 ""
   "prva-i-druga-stranica/prva-stranica.tex" 1753775856.83461 349 9b0ebf992ed001aa0ea470e6b0c8ddb3 ""
   "sazetak.tex" 1752694642.35573 2035 0bddd19ffe115128450fd26851a28973 ""
@@ -198,7 +198,7 @@
   "slike/grafikoni_final/B_budzet_roi.png" 1754817643.87754 190783 7492b29586c0cd9daba09224e17293b0 ""
   "slike/grafikoni_final/C_stabilnost_roi.png" 1754817644.38753 230898 3197e3200541eeded50fe08b7f8641e6 ""
   "slike/grafikoni_final/C_stabilnost_trajanje.png" 1754817644.88086 213048 3d9a9e512ff27e18a61aefbd931dc7d2 ""
-  "slike/model_problema.png" 1753777683.05328 76407 e357841dd75d0de9d2b5172371017102 ""
+  "slike/model_problema.png" 1754937561.05987 47996 6e9278e4e6ecc96f7ad1a93ad72ef2fc ""
   "slike/tijek_istrazivanja.png" 1754498049.74545 49189 c22c8417cfbc27cc450dd41da210b5b5 ""
   "slike/tok_eksperimenta2.png" 1754819954.40714 69984 976f99ee3d94232414f804ddd4b57f6c ""
   (generated)

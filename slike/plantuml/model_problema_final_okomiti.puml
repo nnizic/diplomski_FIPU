@@ -1,0 +1,68 @@
+@startuml
+' ========================================
+' 🎨 STILIZACIJA I PODEŠAVANJA
+' ========================================
+' Forsiramo okomiti smjer dijagrama
+top to bottom direction
+
+' Poboljšavamo čitljivost i izgled
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam packageFontSize 16
+skinparam cloudFontSize 14
+skinparam noteFontSize 12
+
+skinparam rectangle {
+    backgroundColor White
+    borderColor #333333
+    borderThickness 2
+}
+skinparam cloud {
+    backgroundColor #F0F0F0
+    borderColor #888888
+    borderThickness 1.5
+}
+skinparam arrow {
+    color #333333
+    thickness 1.5
+}
+skinparam padding 5
+
+' ========================================
+' 📊 DEFINICIJA MODELA
+' ========================================
+title Konceptualni model optimizacijskog procesa
+
+rectangle "Skup svih dostupnih aktivnosti (npr. 50)\n- cost\n- roi\n- T(o, m, p)" as Pool
+
+rectangle "Optimizacijski proces\n(Genetski algoritam)" as GA
+
+rectangle "Optimalni portfelj aktivnosti\n(Odabrani podskup)" as Portfolio
+
+
+cloud "Ograničenja" as Constraints
+cloud "Ciljevi Optimizacije" as Objectives
+
+
+' Definicija veza
+Pool --> GA : Ulazni podaci
+Constraints --> GA : Uvjeti
+Objectives --> GA : Kriteriji
+GA --> Portfolio : Izlaz / Rješenje
+
+
+note right of Constraints
+- Ograničenje budžeta (Bmax)
+end note
+
+note right of Objectives
+- Cilj 1: max(ROI)
+- Cilj 2: min(Trajanje)
+end note
+
+note bottom of Portfolio
+Rješenje je binarni vektor 'x'
+koji definira odabrane aktivnosti.
+end note
+
+@enduml
