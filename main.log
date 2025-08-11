@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  11 AUG 2025 21:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  11 AUG 2025 22:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,7 +540,11 @@ Package: cite 2015/02/27  v 5.5
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count329
 \l__pdf_internal_box=\box69
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `fig:a_skalabilnost' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -584,6 +588,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 26.
+ (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -645,8 +650,7 @@ l.43 \clearpage
                 [1
 
 
-]
-No file main.toc.
+] (./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -661,85 +665,13 @@ l.49 \clearpage
 
 ] (./1-uvod.tex
 
-LaTeX Warning: Citation `Kellerer2004' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `Malcolm1959' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `Kerzner2017' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `Holland1975' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Goldberg1989' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Metropolis1949' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Rubinstein2016' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Deb2002' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Zhang2011' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `Kerzner2017' on page 1 undefined on input line 8.
-
-
-LaTeX Warning: Citation `PMI2021' on page 1 undefined on input line 8.
-
-
-LaTeX Warning: Citation `Goldberg1989' on page 1 undefined on input line 10.
-
-
-LaTeX Warning: Citation `Rubinstein2016' on page 1 undefined on input line 10.
-
-
-LaTeX Warning: Citation `Zhang2011' on page 1 undefined on input line 10.
-
-
-LaTeX Warning: Citation `Hillson2009' on page 1 undefined on input line 13.
-
-
-LaTeX Warning: Citation `PMI2021' on page 1 undefined on input line 13.
-
-
-LaTeX Warning: Citation `Smith2014' on page 1 undefined on input line 13.
-
-
-LaTeX Warning: Citation `Hillson2009' on page 1 undefined on input line 13.
-
-
-LaTeX Warning: Citation `Vose2008' on page 1 undefined on input line 15.
-
-
-LaTeX Warning: Citation `Rubinstein2016' on page 1 undefined on input line 15.
-
-
-
 [1
 
 ]
 
-LaTeX Warning: Citation `Goldberg1989' on page 2 undefined on input line 39.
-
-
-LaTeX Warning: Citation `Rubinstein2016' on page 2 undefined on input line 39.
-
-
-
 [2])
 
 [3] (./2-teorijska-podloga.tex
-
-LaTeX Warning: Citation `Goldberg1989' on page 4 undefined on input line 5.
-
-
 Overfull \hbox (9.61694pt too wide) in paragraph at lines 11--12
 []\OT1/cmr/m/n/12 U kon-tek-stu uprav-lja-nja pro-jek-tima, ovaj se pro-blem ^^Tcesto po-jav-ljuje u slo^^Tzenijim
  []
@@ -750,48 +682,12 @@ Overfull \hbox (11.66823pt too wide) in paragraph at lines 11--12
  []
 
 
-LaTeX Warning: Citation `Goldberg1989' on page 4 undefined on input line 14.
-
-
-LaTeX Warning: Citation `Mitchell1998' on page 4 undefined on input line 14.
-
-
-LaTeX Warning: Citation `Gandomi2013' on page 4 undefined on input line 14.
-
-
-LaTeX Warning: Citation `Kaveh2012' on page 4 undefined on input line 14.
-
-
 
 [4]
 
-LaTeX Warning: Citation `Vose2008' on page 5 undefined on input line 27.
-
-
-LaTeX Warning: Citation `Miller2009' on page 5 undefined on input line 27.
-
-
-LaTeX Warning: Citation `Avlijas2008' on page 5 undefined on input line 27.
-
-
-LaTeX Warning: Citation `Malcolm1959' on page 5 undefined on input line 39.
-
-
-
-[5]
-
-LaTeX Warning: Citation `Law2015' on page 6 undefined on input line 45.
-
-)
+[5])
 
 [6] (./3-model-problema.tex
-
-LaTeX Warning: Citation `PMI2021' on page 7 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Kerzner2017' on page 7 undefined on input line 5.
-
-
 Overfull \hbox (2.18477pt too wide) in paragraph at lines 11--12
 []\OT1/cmr/bx/n/12 Nesigurnost tra-ja-nja ($\OML/cmm/m/it/12 T[]; T[]; T[]$\OT1/cmr/bx/n/12 ): \OT1/cmr/m/n/12 Tra-ja-nje ak-tiv-nosti nije de-ter-mi-nisti^^Tcka
  []
@@ -802,12 +698,6 @@ Overfull \hbox (14.97513pt too wide) in paragraph at lines 11--12
  []
 
 
-LaTeX Warning: Citation `Kellerer2004' on page 7 undefined on input line 18.
-
-
-LaTeX Warning: Citation `Smith2014' on page 7 undefined on input line 21.
-
-
 Overfull \hbox (12.09877pt too wide) in paragraph at lines 21--22
 \OT1/cmr/m/n/12 Vrijedi na-po-me-nuti da ukupno tra-ja-nje por-t-fe-lja nije tre-ti-rano kao strogo ograni^^Tcenje,
  []
@@ -815,49 +705,20 @@ Overfull \hbox (12.09877pt too wide) in paragraph at lines 21--22
 
 
 [7]
-
-LaTeX Warning: Citation `Goldberg1989' on page 8 undefined on input line 27.
-
-
-LaTeX Warning: Citation `Deb2002' on page 8 undefined on input line 30.
-
-
 Overfull \hbox (44.6548pt too wide) in paragraph at lines 33--34
 []\OT1/cmr/bx/n/12 Cilj 2 (Ri-zik): \OT1/cmr/m/n/12 Mi-ni-mi-zi-rati o^^Tcekivano ukupno tra-ja-nje por-t-fe-lja ($[] \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )]$),
  []
 
-
-LaTeX Warning: Reference `fig:konceptualni_model' on page 8 undefined on input line 39.
-
-<slike/model_problema.png, id=84, 1073.00874pt x 603.25375pt>
+<slike/model_problema.png, id=300, 1073.00874pt x 603.25375pt>
 File: slike/model_problema.png Graphic file (type png)
 <use slike/model_problema.png>
 Package pdftex.def Info: slike/model_problema.png  used on input line 43.
 (pdftex.def)             Requested size: 375.14705pt x 210.90265pt.
 
 
-[8]
-
-LaTeX Warning: Citation `Mitchell1998' on page 9 undefined on input line 48.
-
-
-LaTeX Warning: Citation `Rubinstein2016' on page 9 undefined on input line 48.
-
-)
+[8])
 
 [9 <./slike/model_problema.png (PNG copy)>] (./4-implementacija.tex
-
-LaTeX Warning: Citation `PythonSoftwareFoundation' on page 10 undefined on input line 4.
-
-
-LaTeX Warning: Reference `tab:biblioteke' on page 10 undefined on input line 8.
-
-
-LaTeX Warning: Citation `PythonSoftwareFoundation' on page 10 undefined on input line 17.
-
-
-LaTeX Warning: Citation `DEAP2012' on page 10 undefined on input line 18.
-
 
 LaTeX Warning: Citation `Harris2020' on page 10 undefined on input line 19.
 
@@ -868,16 +729,13 @@ LaTeX Warning: Citation `PandasDevelopmentTeam2020' on page 10 undefined on inpu
 LaTeX Warning: Citation `Waskom2021' on page 10 undefined on input line 21.
 
 
-LaTeX Warning: Citation `Hunter2007' on page 10 undefined on input line 22.
-
-
 
 [10]
 Overfull \hbox (6.12378pt too wide) in paragraph at lines 55--56
 []\OT1/cmr/m/n/12 Statisti^^Tcki ro-busna us-po-redba te-me-ljem vi^^Tsestrukih po-kre-ta-nja ($[] =
  []
 
-<slike/tijek_istrazivanja.png, id=108, 552.0625pt x 916.42375pt>
+<slike/tijek_istrazivanja.png, id=330, 552.0625pt x 916.42375pt>
 File: slike/tijek_istrazivanja.png Graphic file (type png)
 <use slike/tijek_istrazivanja.png>
 Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 73.
@@ -888,28 +746,9 @@ Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 73.
 
 [12 <./slike/tijek_istrazivanja.png (PNG copy)>]
 
-LaTeX Warning: Citation `DEAP2012' on page 13 undefined on input line 120.
-
-
-
 [13]
-./4-implementacija.tex:181: Too many }'s.
-l.181 ...čnu obradu podataka te \texttt{}Seaborn}
-                                                   i \texttt{}Matplotlib} \c...
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./4-implementacija.tex:181: Too many }'s.
-l.181 ... \texttt{}Seaborn} i \texttt{}Matplotlib}
-                                                   \cite{Waskom2021, Hunter2...
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
 
 LaTeX Warning: Citation `Waskom2021' on page 14 undefined on input line 181.
-
-
-LaTeX Warning: Citation `Hunter2007' on page 14 undefined on input line 181.
 
 
 Overfull \hbox (4.17703pt too wide) in paragraph at lines 181--184
@@ -928,10 +767,7 @@ Overfull \hbox (19.78902pt too wide) in paragraph at lines 29--30
 
 
 [16]
-
-LaTeX Warning: Reference `tab:ga_ablation' on page 17 undefined on input line 38.
-
-<slike/ga_usporedba_roi.png, id=157, 578.16pt x 361.35pt>
+<slike/ga_usporedba_roi.png, id=374, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_roi.png Graphic file (type png)
 <use slike/ga_usporedba_roi.png>
 Package pdftex.def Info: slike/ga_usporedba_roi.png  used on input line 70.
@@ -941,7 +777,7 @@ Underfull \hbox (badness 7151) in paragraph at lines 71--71
 []\OT1/cmr/m/n/10.95 (a) |Us-po-redba pro-sje^^Tcnog ROI-a za
  []
 
-<slike/ga_usporedba_trajanje.png, id=159, 578.16pt x 361.35pt>
+<slike/ga_usporedba_trajanje.png, id=376, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_trajanje.png Graphic file (type png)
 <use slike/ga_usporedba_trajanje.png>
 Package pdftex.def Info: slike/ga_usporedba_trajanje.png  used on input line 77.
@@ -954,13 +790,10 @@ Overfull \hbox (0.8033pt too wide) in paragraph at lines 88--88
  []
 
 
-LaTeX Warning: Reference `fig:tok_eksperimenta' on page 18 undefined on input line 90.
-
-
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 91.
 
-<slike/tok_eksperimenta2.png, id=168, 517.935pt x 1156.32pt>
+<slike/tok_eksperimenta2.png, id=386, 517.935pt x 1156.32pt>
 File: slike/tok_eksperimenta2.png Graphic file (type png)
 <use slike/tok_eksperimenta2.png>
 Package pdftex.def Info: slike/tok_eksperimenta2.png  used on input line 93.
@@ -969,23 +802,14 @@ Package pdftex.def Info: slike/tok_eksperimenta2.png  used on input line 93.
 LaTeX Warning: Float too large for page by 51.10876pt on input line 96.
 
 
-LaTeX Warning: Reference `tab:plan_eksperimenata' on page 18 undefined on input line 101.
-
-
-LaTeX Warning: Reference `tab:rezultati' on page 18 undefined on input line 127.
-
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `tab:rezultati' on page 18 undefined on input line 173.
-
-<slike/grafikoni_final/A_skalabilnost_roi.png, id=169, 867.24pt x 505.89pt>
+<slike/grafikoni_final/A_skalabilnost_roi.png, id=390, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_roi.png  used on input line 180.
 (pdftex.def)             Requested size: 200.078pt x 116.70732pt.
-<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=170, 867.24pt x 505.89pt>
+<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=391, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_trajanje.png  used on input line 187.
@@ -996,70 +820,32 @@ Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_trajanje.png  used
 
 [19 <./slike/tok_eksperimenta2.png (PNG copy)>]
 
-LaTeX Warning: Reference `fig:a_ska_roi' on page 20 undefined on input line 195.
-
-
-LaTeX Warning: Reference `fig:a_ska_trajanje' on page 20 undefined on input line 195.
-
-
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 199.
 
-<slike/grafikoni_final/B_budzet_roi.png, id=185, 867.24pt x 505.89pt>
+<slike/grafikoni_final/B_budzet_roi.png, id=405, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/B_budzet_roi.png Graphic file (type png)
 <use slike/grafikoni_final/B_budzet_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/B_budzet_roi.png  used on input line 201.
 (pdftex.def)             Requested size: 312.62466pt x 182.36726pt.
 
-LaTeX Warning: Reference `fig:budzet_roi' on page 20 undefined on input line 206.
-
-
-LaTeX Warning: Reference `tab:rezultati' on page 20 undefined on input line 206.
-
-
 
 [20 <./slike/grafikoni_final/A_skalabilnost_roi.png> <./slike/grafikoni_final/A_skalabilnost_trajanje.png>]
-<slike/grafikoni_final/C_stabilnost_roi.png, id=194, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_roi.png, id=416, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_roi.png  used on input line 214.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
-<slike/grafikoni_final/C_stabilnost_trajanje.png, id=195, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_trajanje.png, id=417, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_trajanje.png  used on input line 221.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
 
 
-LaTeX Warning: Reference `fig:stab_roi' on page 21 undefined on input line 229.
-
-
-LaTeX Warning: Reference `fig:stab_trajanje' on page 21 undefined on input line 229.
-
-
-
 [21 <./slike/grafikoni_final/B_budzet_roi.png> <./slike/grafikoni_final/C_stabilnost_roi.png> <./slike/grafikoni_final/C_stabilnost_trajanje.png>])
 
 [22] (./X-zakljucak.tex
-
-LaTeX Warning: Citation `Goldberg1989' on page 23 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Mitchell1998' on page 23 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Miller2009' on page 23 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Avlijas2008' on page 23 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Gandomi2013' on page 23 undefined on input line 12.
-
-
-LaTeX Warning: Citation `Kerzner2017' on page 23 undefined on input line 17.
-
-
 Overfull \hbox (6.94604pt too wide) in paragraph at lines 17--18
 []\OT1/cmr/m/n/12 Zaklju^^Tcno, ovaj rad potvr[]duje va^^Tznost pri-mjene na-pred-nih al-go-ri-tam-skih rje^^Tsenja
  []
@@ -1070,15 +856,13 @@ Overfull \hbox (6.94604pt too wide) in paragraph at lines 17--18
 
 [24])
 
-[25]
-No file main.lof.
+[25] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
 
 
-[26]
-No file main.lot.
+[26] (./main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
@@ -1094,30 +878,24 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  0C93B17505284A6722F5B7B99FC8F342;6202.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0C93B17505284A6722F5B7B99FC8F342;6202.
  ) 
 Here is how much of TeX's memory you used:
- 23680 strings out of 474560
- 442048 string characters out of 5750494
- 831690 words of memory out of 5000000
- 46200 multiletter control sequences out of 15000+600000
+ 23729 strings out of 474560
+ 442749 string characters out of 5750494
+ 833644 words of memory out of 5000000
+ 46239 multiletter control sequences out of 15000+600000
  565453 words of font info for 59 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  84i,12n,91p,860b,620s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (31 pages, 1711220 bytes).
+Output written on main.pdf (31 pages, 1719892 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 265 compressed objects within 3 object streams
+ 559 PDF objects out of 1000 (max. 8388607)
+ 479 compressed objects within 5 object streams
  121 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
