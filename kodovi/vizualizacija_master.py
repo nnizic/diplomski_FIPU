@@ -1,6 +1,7 @@
 import os
-import pandas as pd
+
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 
 # ==============================================================================
@@ -191,6 +192,61 @@ def plot_stability_analysis(df):
     plt.close()
 
 
+def plot_pareto_front():
+    """Generira scatter plot Paretovog fronta iz spremljenih podataka."""
+    pareto_file = "pareto_front_A3.csv"
+    if not os.path.exists(pareto_file):
+        print(
+            f"\nINFO: Datoteka '{pareto_file}' nije pronađena, preskačem crtanje Paretovog fronta."
+        )
+        return
+
+    print("Kreiram grafikon: Paretov front (Scatter Plot)...")
+    df_pareto = pd.read_csv(pareto_file)
+
+    plt.figure(figsize=(12, 8))
+    sns.scatterplot(
+        data=df_pareto,
+        x="Trajanje",
+        y="ROI",
+        s=100,  # Veličina točaka
+        alpha=0.7,
+        edgecolor="black",
+    )
+
+    # Isticanje nekih rješenja
+    highest_roi = df_pareto.loc[df_pareto["ROI"].idxmax()]
+    lowest_duration = df_pareto.loc[df_pareto["Trajanje"].idxmin()]
+
+    plt.scatter(
+        highest_roi["Trajanje"],
+        highest_roi["ROI"],
+        c="red",
+        s=150,
+        edgecolor="black",
+        zorder=5,
+        label=f'Najviši ROI ({highest_roi["ROI"]:.2f})',
+    )
+    plt.scatter(
+        lowest_duration["Trajanje"],
+        lowest_duration["ROI"],
+        c="green",
+        s=150,
+        edgecolor="black",
+        zorder=5,
+        label=f'Najkraće trajanje ({lowest_duration["Trajanje"]:.2f} dana)',
+    )
+
+    plt.title("Paretov front za složeni problem (A3_Slozeni)", fontsize=16, pad=20)
+    plt.xlabel("Prosječno trajanje (dani)", fontsize=12)
+    plt.ylabel("Ukupni ROI", fontsize=12)
+    plt.legend(title="Optimalna rješenja")
+    plt.grid(True, which="both", linestyle="--", linewidth=0.5)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, "D_pareto_front_scatter.png"), dpi=300)
+    plt.close()
+
+
 # ==============================================================================
 # GLAVNA FUNKCIJA
 # ==============================================================================
@@ -220,6 +276,7 @@ def main():
     plot_scalability_duration(df)
     plot_budget_impact_roi(df)
     plot_stability_analysis(df)
+    plot_pareto_front()
 
     print("\n--- Proces vizualizacije je uspješno završen! ---")
 

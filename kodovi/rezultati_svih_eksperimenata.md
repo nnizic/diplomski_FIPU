@@ -1,7 +1,6 @@
 ## Rezultati svih provedenih eksperimenata:
 ```
 
-
 ===== ZAPOČINJEM EKSPERIMENT: A1_Osnovni =====
 Korištena konfiguracija: {'RUNS': 10, 'NUM_SIMULATIONS': 100, 'name': 'A1_Osnovni', 'NUM_ACTIVITIES': 10, 'BUDGET': 1000, 'POP_SIZE': 100, 'NGEN': 40, 'CX_PB': 0.7, 'MUT_PB': 0.2}
 --- Pokrećem scenarij: Random Search (MC) (10 puta) ---
@@ -107,6 +106,7 @@ Korištena konfiguracija: {'RUNS': 10, 'NUM_SIMULATIONS': 100, 'name': 'A3_Sloze
   Run 10/10: ROI=114.27, Trajanje=786.81
 --------------------------------------------------
 --- Pokrećem scenarij: GA+MC (NSGA-II) (10 puta) ---
+   -> SPREMAM PARETOV FRONT ZA VIZUALIZACIJU...
   Run 1/10: ROI=104.76, Trajanje=648.19
   Run 2/10: ROI=110.63, Trajanje=709.22
   Run 3/10: ROI=109.97, Trajanje=688.70
@@ -216,5 +216,4 @@ Konačni rezultati svih eksperimenata:
 12         B3_Labav  Random Search (MC)    71.379  1.113808e+00     536.901295     16.246663
 13         B3_Labav       GA (samo ROI)    79.065  5.180782e-01     562.191220      9.344893
 14         B3_Labav     GA+MC (NSGA-II)    76.949  4.873490e-01     526.611914     10.601788
-
 ```

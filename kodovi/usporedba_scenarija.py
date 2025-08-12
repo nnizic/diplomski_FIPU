@@ -1,17 +1,19 @@
 """Eksperimenti - Diplomski rad - Neven Nižić"""
 
-import random
 from functools import partial
+import random
 
+from deap import algorithms, base, creator, tools
 import numpy as np
 import pandas as pd
-from deap import algorithms, base, creator, tools
 
 # ==============================================================================
 # GLAVNI KONFIGURACIJSKI RJEČNIK
 # ==============================================================================
 # Ovdje definirajte SVE eksperimente koje želite provesti.
 # Skripta će automatski iterirati kroz ovu listu.
+
+
 CONFIG = {
     "SEED": 42,
     "RUNS": 10,  # Broj ponavljanja za statističku značajnost
@@ -231,12 +233,8 @@ def run_ga_once(
         )
     else:  # NSGA-II
         best_solution = max(hof, key=lambda ind: ind.fitness.values[0])
-        return best_solution.fitness.values
-
-
-# ==============================================================================
-# GLAVNI PROGRAM ZA PROVOĐENJE SVIH EKSPERIMENATA
-# ==============================================================================
+        # vraća i reprezentativno rješenje i cijeli HallOfFame (Paretov front)
+        return best_solution.fitness.values, hof
 
 
 # ==============================================================================
@@ -292,7 +290,23 @@ def run_full_study():
             run_rois, run_durations = [], []
 
             for i in range(config["RUNS"]):
-                roi, duration = run_function()
+                # spremanje hof za scatter plot
+                if name == "GA+MC (NSGA-II)":
+                    (roi, duration), pareto_front = run_function()
+                    # Sprema Paretov front iz PRVOG pokretanja NAJSLOŽENIJEG eksperimenta
+                    if config["name"] == "A3_Slozeni" and i == 0:
+                        print("   -> SPREMAM PARETOV FRONT ZA VIZUALIZACIJU...")
+                        pareto_points = [
+                            {
+                                "ROI": ind.fitness.values[0],
+                                "Trajanje": ind.fitness.values[1],
+                            }
+                            for ind in pareto_front
+                        ]
+                        df_pareto = pd.DataFrame(pareto_points)
+                        df_pareto.to_csv("pareto_front_A3.csv", index=False)
+                else:
+                    roi, duration = run_function()
                 run_rois.append(roi)
                 run_durations.append(duration)
                 print(
