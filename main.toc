@@ -32,13 +32,18 @@
 \contentsline {section}{\numberline {5}Eksperimenti i analiza rezultata}{16}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Postavke okruženja i testni podaci}{16}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Eksperimentalni dizajn}{16}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}{16}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.2.1}Istraživačke hipoteze}{17}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}{17}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Eksperiment 2: Usporedna analiza optimizacijskih modela}{18}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Metodologija}{18}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Rezultati}{18}{subsubsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.3}Diskusija rezultata}{18}{subsubsection.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.4.4}Sinteza glavnih zaključaka eksperimenata}{21}{subsubsection.5.4.4}%
-\contentsline {section}{\numberline {6}Zaključak}{23}{section.6}%
-\contentsline {section}{Literatura}{24}{section*.19}%
-\contentsline {section}{Popis slika}{26}{section*.20}%
-\contentsline {section}{Popis tablica}{27}{section*.21}%
+\contentsline {subsubsection}{\numberline {5.4.1}Rezultati}{18}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Diskusija rezultata}{19}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Sinteza glavnih zaključaka eksperimenata}{21}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Zaključak}{22}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Glavni nalazi i odgovori na istraživačka pitanja}{22}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Doprinos rada}{22}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Ograničenja rada}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Preporuke za budući rad}{23}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Završna riječ}{23}{subsection.6.5}%
+\contentsline {section}{Literatura}{25}{section*.19}%
+\contentsline {section}{Popis slika}{27}{section*.20}%
+\contentsline {section}{Popis tablica}{28}{section*.21}%

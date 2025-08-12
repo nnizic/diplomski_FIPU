@@ -106,6 +106,21 @@ F.~A. Fortin, F.~M.~De Rainville, M.~Gardner, M.~Parizeau, and C.~Gagn{\'e}.
 \newblock {DEAP}: Evolutionary algorithms made easy.
 \newblock In {\em Proceedings of the 14th Annual Conference Companion on Genetic and Evolutionary Computation}, pages 2171--2178, New York, NY, USA, 2012. Association for Computing Machinery.
 
+\bibitem{Harris2020}
+Charles~R. Harris, K.~Jarrod Millman, Stéfan~J. van~der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel~J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten~H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime~Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis~E. Oliphant.
+\newblock Array programming with {NumPy}.
+\newblock {\em Nature}, 585:357--362, 2020.
+
+\bibitem{PandasDevelopmentTeam2020}
+The pandas~development team.
+\newblock pandas-dev/pandas: Pandas.
+\newblock feb 2020.
+
+\bibitem{Waskom2021}
+Michael~L. Waskom.
+\newblock Seaborn: statistical data visualization.
+\newblock {\em Journal of Open Source Software}, 6(60):3021, 2021.
+
 \bibitem{Hunter2007}
 J.~D. Hunter.
 \newblock Matplotlib: A 2d graphics environment.

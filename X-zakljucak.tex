@@ -1,19 +1,37 @@
 \section{Zaključak}
+Ovaj diplomski rad bavio se problemom optimizacije portfelja projektnih aktivnosti u uvjetima nesigurnosti. S ciljem razvoja modela koji donositeljima odluka nudi ne samo profitabilna, već i robusna rješenja, razvijen je i evaluiran hibridni pristup koji integrira snagu genetskih algoritama za pretraživanje složenih prostora rješenja i Monte Carlo simulacije za kvantifikaciju rizika.
+Kroz sustavni, dvo-fazni eksperimentalni proces, provedena je prvo kalibracija parametara genetskog algoritma, a zatim i detaljna usporedna analiza triju optimizacijskih modela: osnovne metode nasumične pretrage, klasičnog genetskog algoritma usmjerenog isključivo na povrat na investiciju (ROI), te naprednog, više-kriterijskog hibridnog modela (GA+MC).
 
-U ovom diplomskom radu predstavili smo kompleksan pristup optimizaciji raspodjele projektnih aktivnosti koristeći kombinaciju genetskih algoritama i Monte Carlo simulacije. Cilj je bio razviti model koji uzima u obzir nesigurnost u trajanju, troškovima i vrijednosti zadataka, te u okviru zadanih ograničenja vremena, budžeta i raspoloživih resursa maksimizira ukupnu vrijednost projekta.
+\subsection{Glavni nalazi i odgovori na istraživačka pitanja}
+Provedeni eksperimenti pružili su jasne odgovore na istraživačka pitanja postavljena u uvodu rada.
+\begin{enumerate}
+    \item \textbf{Superiornost inteligentne pretrage je potvrđena.} Eksperimenti su nedvojbeno pokazali da, iako je na jednostavnim problemima nasumična pretraga mogla pronaći valjana rješenja, njena učinkovitost drastično opada s porastom složenosti. Genetski algoritmi su se pokazali superiornima, pronalazeći rješenja sa značajno višim ROI-em, čime je potvrđena hipoteza H1.
+    \item \textbf{Hibridni model uspješno upravlja kompromisom između profita i rizika.} Hibridni GA+MC model, temeljen na NSGA-II algoritmu, uspješno je identificirao Paretov front optimalnih rješenja. Time je potvrđena hipoteza H2 – model donositelju odluke ne nudi jedno, već čitav spektar strateških opcija koje balansiraju viši ROI s dužim procijenjenim trajanjem, i obrnuto. Vizualizacija Paretovog fronta pokazala se kao ključan alat za strateško odlučivanje.
+    \item \textbf{Stabilnost i robusnost ovise o kontekstu problema.} Analiza je otkrila ključan, nijansiran nalaz. U standardnim i složenim uvjetima, hibridni GA+MC model nudi rješenja čije je procijenjeno trajanje pouzdanije (niža standardna devijacija). Međutim, pod ekstremnim pritiskom vrlo restriktivnog budžeta, njegova složenost postaje nedostatak, što dovodi do nestabilnosti i neuspjeha u pronalaženju rješenja. U tim uvjetima, jednostavniji, jedno-kriterijski GA pokazao se robusnijim. Time je potvrđena i hipoteza H3.
+\end{enumerate}
 
-Kroz detaljnu analizu problematike i pregled postojeće literature, identificirali smo ključne izazove u upravljanju projektima, posebice u segmentu neizvjesnosti i složenosti optimizacije. Implementacijom metaheurističkih metoda, u ovom slučaju genetskih algoritama \cite{Goldberg1989, Mitchell1998}, omogućili smo efikasno pretraživanje velikog prostora rješenja, dok je Monte Carlo simulacija služila za kvantitativno modeliranje rizika i nesigurnosti \cite{Miller2009, Avlijas2008}, dajući time realističniju procjenu performansi optimizacijskog rješenja.
-
-Praktična implementacija rezultirala je modelom koji omogućuje donošenje informiranih odluka u planiranju i upravljanju projektima, pružajući projektnim menadžerima alate za bolje usklađivanje ciljeva i ograničenja. Pokazalo se da je kombinacija ovih metoda učinkovita u pronalasku balansiranih rješenja koja maksimiziraju povrat ulaganja, uz minimizaciju rizika od prekoračenja budžeta ili rokova.
-
-Iako su postignuti rezultati zadovoljavajući, postoje brojna područja za buduća istraživanja i unaprjeđenja, među kojima izdvajamo:
+\subsection{Doprinos rada}
+Doprinos ovog rada može se sažeti u tri ključne domene:
 \begin{itemize}
-    \item Proširenje modela na dinamičke uvjete projekata koji se mijenjaju tijekom vremena, uključujući nepredvidive vanjske utjecaje.
-    \item Integracija dodatnih metaheurističkih i hibridnih algoritama, poput algoritama rojčaste inteligencije ili simuliranog kaljenja, radi poboljšanja kvalitete rješenja \cite{Gandomi2013}.
-    \item Primjena tehnika strojnog učenja za preciznije predviđanje distribucija nesigurnosti i automatsku adaptaciju parametara optimizacije.
-    \item Razvoj softverskih alata s intuitivnim korisničkim sučeljem za praktičnu primjenu predloženih metoda u realnim projektnim okruženjima.
+    \item \textbf{Metodološki doprinos:} Razvijen je i primijenjen cjelovit, dvo-fazni eksperimentalni okvir za evaluaciju optimizacijskih algoritama, koji uključuje fazu kalibracije (ablacijska studija) i fazu usporedne analize. Pokazano je da ne postoji univerzalno "najbolji" model, već da izbor ovisi o strateškim prioritetima – maksimizaciji profita ili uravnoteženom upravljanju rizikom.
+    \item \textbf{Praktični doprinos:} Rad je demonstrirao kako sinergija genetskih algoritama i Monte Carlo simulacije može pružiti konkretnu vrijednost projektnim menadžerima. Paretov front, kao ključni rezultat hibridnog modela, transformira optimizacijski problem iz potrage za jednim rješenjem u alat za strateško donošenje odluka.
 \end{itemize}
 
-Zaključno, ovaj rad potvrđuje važnost primjene naprednih algoritamskih rješenja u upravljanju projektima, posebno u uvjetima nesigurnosti, te doprinosi boljem razumijevanju i praktičnoj primjeni optimizacijskih i simulacijskih metoda u području projektne ekonomike i menadžmenta. Kao što ističe Kerzner \cite{Kerzner2017}, učinkovito upravljanje projektima u suvremenom okruženju zahtijeva kombinaciju tradicionalnih i naprednih pristupa, a naš model pruža značajan doprinos u tom smjeru.
+\subsection{Ograničenja rada}
+Tijekom istraživanja uočena su i određena ograničenja koja otvaraju prostor za daljnja poboljšanja:
+\begin{itemize}
+    \item \textbf{Računalna zahtjevnost:} Hibridni GA+MC model, zbog potrebe za izvođenjem stotina Monte Carlo simulacija za svaku evaluaciju jedinke, značajno je računalno skuplji i sporiji od klasičnog GA.
+    \item \textbf{Korištenje sintetičkih podataka:} Svi eksperimenti provedeni su na sintetički generiranim podacima. Iako su parametri odabrani da budu realistični, validacija modela na stvarnim projektnim podacima predstavljala bi važan sljedeći korak.
+    \item \textbf{Stabilnost pod ograničenjima:} Kao što je pokazao eksperiment B1, napredni više-kriterijski model može biti nestabilan u uvjetima ekstremno restriktivnih resursa.
+\end{itemize}
 
+\subsection{Preporuke za budući rad}
+Na temelju provedenog istraživanja i uočenih ograničenja, izdvajaju se sljedeći pravci za budući rad:
+\begin{itemize}
+    \item \textbf{Hibridizacija s drugim metaheuristikama:} Istraživanje kombinacija s algoritmima rojeva čestica (PSO) ili simuliranim kaljenjem radi potencijalnog poboljšanja brzine konvergencije ili kvalitete rješenja \cite{Gandomi2013}.
+    \item \textbf{Primjena strojnog učenja:} Korištenje tehnika strojnog učenja za preciznije predviđanje distribucija nesigurnosti iz povijesnih podataka, umjesto oslanjanja na tri točke procjene.
+    \item \textbf{Razvoj softverskog alata:} Izrada alata s intuitivnim korisničkim sučeljem koje bi projektnim menadžerima bez ekspertize u optimizaciji omogućilo korištenje ovog modela, s interaktivnom vizualizacijom Paretovog fronta.
+\end{itemize}
 
+\subsection{Završna riječ}
+Ovaj rad je potvrdio da primjena naprednih algoritamskih rješenja nudi značajan potencijal za unapređenje procesa upravljanja projektima u uvjetima nesigurnosti. Učinkovito upravljanje, kako ističe Kerzner \cite{Kerzner2017}, u suvremenom okruženju zahtijeva upravo kombinaciju tradicionalnih i naprednih, kvantitativnih pristupa. Razvijeni i analizirani modeli predstavljaju konkretan doprinos u tom smjeru, pružajući temelj za donošenje odluka koje nisu samo financijski isplative, već i informirane o rizicima koji ih prate.

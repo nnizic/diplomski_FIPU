@@ -348,11 +348,6 @@ INPUT ./slike/ga_usporedba_trajanje.png
 INPUT ./slike/ga_usporedba_trajanje.png
 INPUT ./slike/ga_usporedba_trajanje.png
 INPUT ./slike/ga_usporedba_trajanje.png
-INPUT ./slike/tok_eksperimenta2.png
-INPUT ./slike/tok_eksperimenta2.png
-INPUT ./slike/tok_eksperimenta2.png
-INPUT ./slike/tok_eksperimenta2.png
-INPUT ./slike/tok_eksperimenta2.png
 INPUT ./slike/grafikoni_final/A_skalabilnost_roi.png
 INPUT ./slike/grafikoni_final/A_skalabilnost_roi.png
 INPUT ./slike/grafikoni_final/A_skalabilnost_roi.png
@@ -378,6 +373,11 @@ INPUT ./slike/grafikoni_final/C_stabilnost_trajanje.png
 INPUT ./slike/grafikoni_final/C_stabilnost_trajanje.png
 INPUT ./slike/grafikoni_final/C_stabilnost_trajanje.png
 INPUT ./slike/grafikoni_final/C_stabilnost_trajanje.png
+INPUT ./slike/grafikoni_final/D_pareto_front_scatter.png
+INPUT ./slike/grafikoni_final/D_pareto_front_scatter.png
+INPUT ./slike/grafikoni_final/D_pareto_front_scatter.png
+INPUT ./slike/grafikoni_final/D_pareto_front_scatter.png
+INPUT ./slike/grafikoni_final/D_pareto_front_scatter.png
 INPUT ./X-zakljucak.tex
 INPUT ./X-zakljucak.tex
 INPUT ./X-zakljucak.tex
