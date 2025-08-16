@@ -1,50 +1,59 @@
-\section{Teorijska podloga}
+\section{Teorijske osnove i srodni radovi}
+\label{chap:teorija}
+
 Ovo poglavlje pruža pregled temeljnih teorijskih koncepata ključnih za razumijevanje predloženog modela optimizacije projektnih aktivnosti. Detaljno će se objasniti Problem ruksaka kao osnova za formulaciju problema raspodjele resursa, Genetski algoritmi kao optimizacijska metaheuristika, te Monte Carlo simulacija i metode procjene trajanja kao alati za modeliranje i analizu nesigurnosti u projektnom upravljanju.
 
-\subsection{Knapsack problem}
-Problem ruksaka (engl. Knapsack Problem) jedan je od najpoznatijih i najčešće proučavanih problema kombinatorne optimizacije, svrstan u klasu NP-teških problema \cite{Goldberg1989}. U osnovnoj verziji, cilj je odabrati podskup objekata s pridruženom težinom i vrijednošću, s ciljem maksimiziranja ukupne vrijednosti odabranih objekata, pri čemu njihova ukupna težina ne smije prelaziti zadani kapacitet ruksaka. Formalno, za skup od n objekata, gdje svaki objekt i ima težinu $w_i$ i vrijednost $v_i$, te uz zadani kapacitet ruksaka W, cilj je maksimizirati funkciju:
+\subsection{Problem odabira portfelja kao Knapsack problem}
+
+Problem ruksaka (engl. \textit{Knapsack Problem}) jedan je od najpoznatijih problema kombinatorne optimizacije, svrstan u klasu NP-teških problema, što znači da ne postoji poznati algoritam koji bi ga mogao riješiti u polinomnom vremenu za sve slučajeve \cite{GareyJohnson1979, Kellerer2004}. U svojoj osnovnoj, jednodimenzionalnoj verziji (0/1 Knapsack Problem), cilj je odabrati podskup objekata iz danog skupa, od kojih svaki ima definiranu težinu i vrijednost. Optimizacijski zadatak je maksimizirati ukupnu vrijednost odabranih objekata, pod uvjetom da njihova ukupna težina ne prelazi unaprijed zadani kapacitet "ruksaka". Formalno, za skup od n objekata, gdje svaki objekt i ima težinu $w_i$ i vrijednost $v_i$, te uz zadani kapacitet ruksaka W, cilj je maksimizirati funkciju:
 $$
 \max \sum_{i=1}^n v_i x_i \quad \text{uz ograničenje} \quad \sum_{i=1}^n w_i x_i \leq W, x_i \in \{0,1\}
 $$
 gdje je $x_i=1$ ako je objekt i odabran, a $x_i=0$ ako nije.
 
-U kontekstu upravljanja projektima, ovaj se problem često pojavljuje u složenijim varijantama, poput višedimenzionalnog problema ruksaka (Multi-Dimensional Knapsack Problem – MDKP). U MDKP-u, projektne aktivnosti se mogu interpretirati kao objekti s određenom vrijednošću (npr. strateška važnost, povrat investicije – ROI), dok svaka aktivnost troši više vrsta resursa (npr. vrijeme, budžet, broj radnika), koji predstavljaju različite dimenzije "težine". Kapacitet ruksaka tada predstavlja ukupnu raspoloživost svakog od resursa. MDKP se stoga koristi kao snažan model za optimalnu raspodjelu ograničenih, višestrukih resursa među konkurentskim projektnim aktivnostima.
 
-\subsection{Genetski algoritmi}
-Genetski algoritmi (GA) su moćne metaheurističke optimizacijske metode inspirirane procesima prirodne selekcije i evolucije \cite{Goldberg1989, Mitchell1998}. Pripadaju široj klasi evolucijskih algoritama i iznimno su učinkoviti u rješavanju složenih optimizacijskih problema s velikim i nepreglednim prostorom rješenja, posebno onih NP-teških, za koje klasične metode nisu praktične \cite{Gandomi2013, Kaveh2012}.
+Ova elegantna formulacija čini ga moćnim alatom za modeliranje problema alokacije resursa u stvarnom svijetu. U kontekstu upravljanja projektima, problem odabira portfelja aktivnosti prirodno poprima oblik složenije, višedimenzionalne varijante poznate kao \textit{Multi-Dimensional Knapsack Problem} (MDKP). U ovom modelu, projektne aktivnosti predstavljaju "objekte" koje želimo staviti u ruksak, a njihova vrijednost je povrat na investiciju (ROI) ili neki drugi pokazatelj strateške važnosti. "Težina" aktivnosti nije više jedna dimenzija, već vektor koji opisuje potrošnju različitih resursa – budžeta, radnih sati, specifične opreme, itd. Kapacitet ruksaka tada odgovara ukupnoj raspoloživosti svakog od tih resursa. MDKP stoga pruža robustan matematički okvir za rješavanje središnjeg problema ovog rada: kako optimalno raspodijeliti ograničene, višestruke resurse među konkurentskim projektnim aktivnostima.
 
-Osnovni princip GA leži u simulaciji evolucije populacije potencijalnih rješenja. Svako rješenje problema kodira se kao kromosom (u ovom radu, binarni niz), a populacija kromosoma se iterativno poboljšava kroz generacije primjenom genetskih operatora. Tijek genetskog algoritma uključuje:
+\subsection{Genetski algoritmi kao metaheuristika za pretraživanje}
+
+Genetski algoritmi (GA) su moćne metaheurističke optimizacijske metode inspirirane procesima prirodne selekcije i evolucije \cite{Holland1975, Goldberg1989}. Pripadaju široj klasi evolucijskih algoritama i iznimno su učinkoviti u rješavanju složenih optimizacijskih problema s velikim, diskretnim ili nelinearnim prostorima rješenja, posebno onih NP-teških, za koje klasične metode nisu praktične \cite{Gandomi2013, Mitchell1998}.
+
+Umjesto da pretražuju prostor rješenja s jednom točkom, genetski algoritmi operiraju nad cijelom populacijom potencijalnih rješenja (kromosoma). Taj proces započinje generiranjem početnog, najčešće nasumičnog skupa rješenja. Zatim ulazi u iterativnu petlju u kojoj se simulira evolucija kroz generacije. U svakoj generaciji, svakom se rješenju (jedinki) dodjeljuje vrijednost pogodnosti (fitness) koja kvantificira njegovu kvalitetu prema definiranoj ciljnoj funkciji. Ovisno o cilju, funkcija pogodnosti može biti jedno-kriterijska (npr. maksimizacija ROI-a) ili, kao u naprednijem modelu ovog rada, više-kriterijska, gdje se istovremeno vrednuje više, često suprotstavljenih, ciljeva. Nakon evaluacije, provodi se selekcija, gdje jedinke s boljim fitnessom imaju veću vjerojatnost da budu odabrane kao "roditelji". Ti roditelji se zatim rekombiniraju pomoću operatora križanja (crossover), stvarajući "potomke" koji nasljeđuju i kombiniraju njihove karakteristike. Kako bi se održala raznolikost u populaciji i izbjeglo zaglavljivanje u lokalnim optimumima, na potomke se primjenjuje operator mutacije, koji unosi male, nasumične promjene. Na kraju, nova generacija potomaka zamjenjuje staru, i cijeli se proces ponavlja dok se ne zadovolji unaprijed definirani kriterij zaustavljanja, poput maksimalnog broja generacija.
+
+\subsubsection{Više-kriterijski genetski algoritmi i NSGA-II}
+
+Standardni genetski algoritmi su dizajnirani za probleme s jednim ciljem (jedno-kriterijska optimizacija), gdje je lako usporediti dva rješenja na temelju jedne vrijednosti pogodnosti. Međutim, mnogi stvarni problemi, uključujući i odabir projektnog portfelja, inherentno su više-kriterijski -- zahtijevaju istovremeno zadovoljenje više, često suprotstavljenih, ciljeva (npr. maksimizirati profit, a minimizirati rizik).
+
+Za rješavanje takvih problema razvijeni su više-kriterijski evolucijski algoritmi (engl. \textit{Multi-Objective Evolutionary Algorithms}, MOEA). Njihov cilj nije pronaći jedno jedino "najbolje" rješenje, već skup rješenja koji predstavlja optimalan kompromis, poznat kao **Paretov front**. Ključni koncepti na kojima se temelje su:
+
+\begin{itemize}
+    \item \textbf{Dominacija:} Rješenje A "dominira" rješenje B ako je bolje ili jednako od B po svim kriterijima, a strogo bolje po barem jednom kriteriju.
+    \item \textbf{Paretov front:} Skup svih rješenja u populaciji koja nisu dominirana ni od jednog drugog rješenja. To su najbolja kompromisna rješenja koja algoritam može ponuditi.
+\end{itemize}
+
+Jedan od najpoznatijih i najčešće korištenih algoritama u ovoj domeni je **NSGA-II** (\textit{Nondominated Sorting Genetic Algorithm II}) \cite{Deb2002}. Njegova efikasnost leži u dva ključna mehanizma:
+
 \begin{enumerate}
-    \item \textbf{Inicijalizacija populacije:} Generira se početni skup nasumičnih kromosoma.
-    \item \textbf{Evaluacija funkcije cilja (fitness):} Svakom kromosomu dodjeljuje se vrijednost pogodnosti (fitnessa) koja odražava kvalitetu rješenja. U ovisnosti o cilju, funkcija pogodnosti može biti jedno-kriterijska (npr. maksimizacija ROI-a) ili više-kriterijska. U naprednijim modelima, kao što je hibridni model razvijen u ovom radu, fitness funkcija može uključivati i rezultate Monte Carlo simulacije kako bi se procijenila robusnost rješenja.
-    \item \textbf{Selekcija roditelja:} Kromosomi s višim fitnessom imaju veću vjerojatnost da budu odabrani kao roditelji za stvaranje sljedeće generacije.
-    \item \textbf{Križanje (crossover):} Dva odabrana roditelja kombiniraju se kako bi se stvorili novi potomci, prenoseći genetski materijal i istražujući nove dijelove prostora rješenja.
-    \item \textbf{Mutacija:} Slučajne, male promjene unose se u kromosome potomaka kako bi se održala genetska raznolikost populacije i izbjegla prerana konvergencija.
-    \item \textbf{Zamjena populacije:} Nova generacija potomaka zamjenjuje dio ili cijelu staru populaciju, i proces se ponavlja dok se ne ispuni kriterij zaustavljanja (npr. zadan broj generacija).
+    \item \textbf{Brzo sortiranje po nedominaciji (Fast non-dominated sorting):} U svakoj generaciji, algoritam rangira populaciju u slojeve (frontove) na temelju dominacije. Rješenja u prvom frontu su najbolja, zatim slijede rješenja u drugom frontu, i tako dalje. Ovim se osigurava da elitna, ne-dominirana rješenja imaju prednost pri selekciji.
+    
+    \item \textbf{Procjena gustoće naseljenosti (Crowding distance):} Kako bi se unutar istog fronta osigurala raznolikost i spriječilo grupiranje rješenja u samo jednom dijelu prostora, NSGA-II koristi mjeru "napučenosti". Prednost se daje rješenjima koja se nalaze u rjeđe naseljenim dijelovima Paretovog fronta, čime se dobiva širok i dobro raspoređen skup kompromisnih opcija.
 \end{enumerate}
 
-\subsection{Monte Carlo simulacija}
-Monte Carlo simulacija (MCS) je računska metoda koja koristi nasumično uzorkovanje za procjenu ponašanja složenog sustava ili procesa, posebno kada je analitičko rješenje teško ili nemoguće. Njena je primarna prednost sposobnost modeliranja nesigurnosti i rizika u sustavima s probabilističkim ulaznim varijablama \cite{Vose2008}. U kontekstu projektnog upravljanja, MCS je vrijedan alat za procjenu vjerojatnih ishoda projekta, poput trajanja i troškova, uzimajući u obzir varijabilnost aktivnosti \cite{Miller2009, Avlijas2008}.
+Zbog svoje robusnosti i efikasnosti u pronalaženju dobro raspoređenog Paretovog fronta, NSGA-II je odabran kao temelj za više-kriterijski hibridni model u ovom radu.
+\subsection{Kvantifikacija rizika pomoću Monte Carlo simulacije}
 
-Ključni elementi MCS uključuju:
-\begin{itemize}
-    \item \textbf{Definiranje slučajnih varijabli:} Identificiraju se ulazne varijable čija je vrijednost neizvjesna (npr. trajanje aktivnosti).
-    \item \textbf{Odabir distribucije vjerojatnosti:} Za svaku varijablu odabire se distribucija koja najbolje opisuje njeno ponašanje.
-    \item \textbf{Generiranje nasumičnih uzoraka:} Velik broj uzoraka generira se iz odabranih distribucija.
-    \item \textbf{Provođenje simulacije:} Za svaki skup uzoraka provodi se izračun modela (npr. zbrajanje trajanja aktivnosti).
-    \item \textbf{Analiza rezultata:} Nakon velikog broja iteracija, prikupljeni podaci se analiziraju statistički kako bi se dobila distribucija mogućih ishoda.
-\end{itemize}
+Monte Carlo simulacija (MCS) je računska metoda koja koristi nasumično uzorkovanje za numeričko modeliranje i analizu složenih, stohastičkih sustava \cite{Rubinstein2016}. Njena primarna prednost leži u sposobnosti da pruži uvid u distribuciju mogućih ishoda nekog procesa, umjesto da daje samo jednu determinističku procjenu, što je čini nezamjenjivim alatom za kvantitativnu analizu rizika \cite{Vose2008}. U projektnom upravljanju, MCS se široko primjenjuje za procjenu vjerojatnih ishoda trajanja i troškova projekata, uzimajući u obzir inherentnu varijabilnost svake pojedine aktivnosti \cite{Miller2009, Avlijas2008}.
 
-\subsection{Modeliranje nesigurnosti trajanja: PERT i Trokutasta distribucija}
-Metodologija PERT (Program Evaluation and Review Technique) uvela je praksu korištenja tri vremenske procjene za aktivnosti s neizvjesnim trajanjem \cite{Malcolm1959}:
-\begin{itemize}
-    \item \textbf{$T_o$} – optimistična procjena trajanja (najkraće moguće trajanje).
-    \item \textbf{$T_m$} – najvjerojatnija procjena trajanja (očekivano trajanje).
-    \item \textbf{$T_p$} – pesimistična procjena trajanja (najduže moguće trajanje).
-\end{itemize}
-Dok tradicionalna PERT metoda koristi ove tri točke za izračun parametara Beta distribucije, u modernoj praksi upravljanja rizikom, a posebno u Monte Carlo simulacijama, često se koristi Trokutasta distribucija zbog svoje jednostavnosti i intuitivnosti \cite{Law2015}.
+Proces Monte Carlo simulacije odvija se u nekoliko koraka. Prvo se identificiraju ključne ulazne varijable čije su vrijednosti neizvjesne, poput trajanja pojedinih aktivnosti. Za svaku takvu varijablu odabire se distribucija vjerojatnosti koja najbolje opisuje raspon i vjerojatnost njenih mogućih vrijednosti. Zatim, algoritam iterativno provodi tisuće "eksperimenata": u svakoj iteraciji, za svaku nesigurnu varijablu generira se jedna nasumična vrijednost iz njene definirane distribucije, te se na temelju tih vrijednosti izračunava ishod modela (npr. ukupno trajanje projekta). Ponavljanjem ovog procesa velik broj puta, dobiva se empirijska distribucija mogućih ishoda, iz koje se mogu iščitati ključni statistički pokazatelji poput očekivane vrijednosti, standardne devijacije i vjerojatnosti prekoračenja određenih pragova.
+
+\subsection{Modeliranje nesigurnosti trajanja pomoću trotočkovne procjene}
+
+Metodologija PERT (\textit{Program Evaluation and Review Technique}) uvela je u praksu korištenje tri vremenske procjene za aktivnosti s neizvjesnim trajanjem, što je danas standard u upravljanju projektnim rizikom \cite{Malcolm1959}. Ove tri točke su: $T_o$(optimistična procjena), $T_m$(najvjerojatnija procjena) i $T_p$(pesimistična procjena).
+
+Dok tradicionalna PERT metoda koristi ove tri točke za izračun parametara Beta distribucije, u modernoj praksi, a posebno u Monte Carlo simulacijama, često se koristi Trokutasta distribucija zbog svoje jednostavnosti i intuitivnosti \cite{Law2015}. 
 
 Trokutasta distribucija je kontinuirana distribucija vjerojatnosti definirana s tri parametra: minimum ($a$), maksimum ($b$) i najvjerojatnija vrijednost ($c$), što direktno odgovara procjenama $T_o$, $T_p$ i $T_m$. Njena je glavna prednost što ne zahtijeva opsežne povijesne podatke, već se može temeljiti na stručnom iskustvu, što je čini iznimno pogodnom za projektno planiranje. Slučajne vrijednosti generirane iz ove distribucije nalaze se unutar intervala [$T_o$, $T_p$], s najvećom vjerojatnošću pojavljivanja oko vrijednosti $T_m$. Prosječna vrijednost (očekivano trajanje) za Trokutastu distribuciju računa se jednostavnom formulom:
+
 $$
 E(T) = \frac{T_o + T_m + T_p}{3}
 $$

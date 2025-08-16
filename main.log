@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  12 AUG 2025 13:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  16 AUG 2025 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -646,7 +646,16 @@ l.43 \clearpage
                 [1
 
 
-] (./main.toc)
+] (./main.toc
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.50 ... {section}{Popis tablica}{28}{section*.21}
+                                                  % [2
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -657,16 +666,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has be
 <to be read again> 
                    \relax 
 l.49 \clearpage
-                [1
+                [1] (./1-uvod.tex
+Overfull \hbox (4.2044pt too wide) in paragraph at lines 8--9
+\OT1/cmr/m/n/12 ni-ra-nje i pra^^Scenje, nji-hova pri-mjena na-ilazi na pote^^Tsko^^Sce u di-nami^^Tcnim okru^^Tzenjima.
+ []
 
-]
+
+Overfull \hbox (6.5295pt too wide) in paragraph at lines 10--11
+[]\OT1/cmr/m/n/12 Pregled li-te-ra-ture uka-zuje na to da su ge-net-ski al-go-ritmi (GA) iz-nimno u^^Tcinkoviti
+ []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.49 \clearpage
-                [2] (./1-uvod.tex
 
 [1
 
@@ -675,51 +685,32 @@ l.49 \clearpage
 [2])
 
 [3] (./2-teorijska-podloga.tex
-Overfull \hbox (9.61694pt too wide) in paragraph at lines 11--12
-[]\OT1/cmr/m/n/12 U kon-tek-stu uprav-lja-nja pro-jek-tima, ovaj se pro-blem ^^Tcesto po-jav-ljuje u slo^^Tzenijim
- []
-
-
-Overfull \hbox (11.66823pt too wide) in paragraph at lines 11--12
-\OT1/cmr/m/n/12 va-ri-jan-tama, po-put vi^^Tsedimenzionalnog pro-blema ruk-saka (Multi-Dimensional Knap-
- []
-
-
 
 [4]
 
-[5])
-
-[6] (./3-model-problema.tex
-Overfull \hbox (2.18477pt too wide) in paragraph at lines 11--12
-[]\OT1/cmr/bx/n/12 Nesigurnost tra-ja-nja ($\OML/cmm/m/it/12 T[]; T[]; T[]$\OT1/cmr/bx/n/12 ): \OT1/cmr/m/n/12 Tra-ja-nje ak-tiv-nosti nije de-ter-mi-nisti^^Tcka
+[5]
+Overfull \hbox (7.03944pt too wide) in paragraph at lines 51--52
+\OT1/cmr/m/n/12 nas stan-dard u uprav-lja-nju pro-jek-t-nim ri-zi-kom [[]2[]]. Ove tri to^^Tcke su: $\OML/cmm/m/it/12 T[]$\OT1/cmr/m/n/12 (optimisti^^Tcna
  []
 
 
-Overfull \hbox (14.97513pt too wide) in paragraph at lines 11--12
-\OT1/cmr/m/n/12 vri-jed-nost, ve^^Sc sto-hasti^^Tcka va-ri-ja-bla opi-sana s tri to^^Tcke pro-cjene: op-ti-misti^^Tcnom,
- []
 
+[6])
 
-Overfull \hbox (12.09877pt too wide) in paragraph at lines 21--22
+[7] (./3-model-problema.tex
+Overfull \hbox (12.09877pt too wide) in paragraph at lines 15--17
 \OT1/cmr/m/n/12 Vrijedi na-po-me-nuti da ukupno tra-ja-nje por-t-fe-lja nije tre-ti-rano kao strogo ograni^^Tcenje,
  []
 
 
 
-[7]
-Overfull \hbox (44.6548pt too wide) in paragraph at lines 33--34
-[]\OT1/cmr/bx/n/12 Cilj 2 (Ri-zik): \OT1/cmr/m/n/12 Mi-ni-mi-zi-rati o^^Tcekivano ukupno tra-ja-nje por-t-fe-lja ($[] \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )]$),
- []
-
-<slike/model_problema.png, id=329, 1073.00874pt x 603.25375pt>
+[8]
+<slike/model_problema.png, id=334, 1073.00874pt x 603.25375pt>
 File: slike/model_problema.png Graphic file (type png)
 <use slike/model_problema.png>
-Package pdftex.def Info: slike/model_problema.png  used on input line 43.
-(pdftex.def)             Requested size: 375.14705pt x 210.90265pt.
-
-
-[8])
+Package pdftex.def Info: slike/model_problema.png  used on input line 32.
+(pdftex.def)             Requested size: 333.46758pt x 187.47618pt.
+)
 
 [9 <./slike/model_problema.png (PNG copy)>] (./4-implementacija.tex
 
@@ -728,7 +719,7 @@ Overfull \hbox (6.12378pt too wide) in paragraph at lines 55--56
 []\OT1/cmr/m/n/12 Statisti^^Tcki ro-busna us-po-redba te-me-ljem vi^^Tsestrukih po-kre-ta-nja ($[] =
  []
 
-<slike/tijek_istrazivanja.png, id=364, 552.0625pt x 916.42375pt>
+<slike/tijek_istrazivanja.png, id=362, 552.0625pt x 916.42375pt>
 File: slike/tijek_istrazivanja.png Graphic file (type png)
 <use slike/tijek_istrazivanja.png>
 Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 73.
@@ -773,12 +764,12 @@ Overfull \hbox (9.37473pt too wide) in paragraph at lines 61--62
 []\OT1/cmr/m/n/12 Analiza re-zul-tata potvr[]duje obje po^^Tcetne hi-po-teze. Uk-la-nja-nje kri^^Tzanja drasti^^Tcno
  []
 
-<slike/ga_usporedba_roi.png, id=410, 578.16pt x 361.35pt>
+<slike/ga_usporedba_roi.png, id=408, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_roi.png Graphic file (type png)
 <use slike/ga_usporedba_roi.png>
 Package pdftex.def Info: slike/ga_usporedba_roi.png  used on input line 67.
 (pdftex.def)             Requested size: 200.078pt x 125.04633pt.
-<slike/ga_usporedba_trajanje.png, id=412, 578.16pt x 361.35pt>
+<slike/ga_usporedba_trajanje.png, id=410, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_trajanje.png Graphic file (type png)
 <use slike/ga_usporedba_trajanje.png>
 Package pdftex.def Info: slike/ga_usporedba_trajanje.png  used on input line 74.
@@ -793,12 +784,12 @@ Overfull \hbox (0.8033pt too wide) in paragraph at lines 85--85
 
 
 [18 <./slike/ga_usporedba_roi.png> <./slike/ga_usporedba_trajanje.png>]
-<slike/grafikoni_final/A_skalabilnost_roi.png, id=431, 867.24pt x 505.89pt>
+<slike/grafikoni_final/A_skalabilnost_roi.png, id=429, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_roi.png  used on input line 157.
 (pdftex.def)             Requested size: 200.078pt x 116.70732pt.
-<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=432, 867.24pt x 505.89pt>
+<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=430, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_trajanje.png  used on input line 163.
@@ -806,22 +797,22 @@ Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_trajanje.png  used
 
 
 [19 <./slike/grafikoni_final/A_skalabilnost_roi.png> <./slike/grafikoni_final/A_skalabilnost_trajanje.png>]
-<slike/grafikoni_final/B_budzet_roi.png, id=443, 867.24pt x 505.89pt>
+<slike/grafikoni_final/B_budzet_roi.png, id=441, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/B_budzet_roi.png Graphic file (type png)
 <use slike/grafikoni_final/B_budzet_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/B_budzet_roi.png  used on input line 175.
 (pdftex.def)             Requested size: 333.46758pt x 194.52509pt.
-<slike/grafikoni_final/C_stabilnost_roi.png, id=445, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_roi.png, id=443, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_roi.png  used on input line 187.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
-<slike/grafikoni_final/C_stabilnost_trajanje.png, id=446, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_trajanje.png, id=444, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_trajanje.png  used on input line 193.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
-<slike/grafikoni_final/D_pareto_front_scatter.png, id=448, 867.24pt x 578.16pt>
+<slike/grafikoni_final/D_pareto_front_scatter.png, id=446, 867.24pt x 578.16pt>
 File: slike/grafikoni_final/D_pareto_front_scatter.png Graphic file (type png)
 <use slike/grafikoni_final/D_pareto_front_scatter.png>
 Package pdftex.def Info: slike/grafikoni_final/D_pareto_front_scatter.png  used on input line 205.
@@ -863,21 +854,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6B2CC9714B9D831D282AF7DAE4777AB0;7155.
+(rerunfilecheck)             Checksum: D9387D416A2F6A404B22934F111A8F4E;8578.
  ) 
 Here is how much of TeX's memory you used:
- 23745 strings out of 474560
- 443101 string characters out of 5750494
- 832189 words of memory out of 5000000
- 46243 multiletter control sequences out of 15000+600000
+ 23742 strings out of 474560
+ 443134 string characters out of 5750494
+ 832286 words of memory out of 5000000
+ 46246 multiletter control sequences out of 15000+600000
  565453 words of font info for 59 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  84i,12n,91p,1432b,620s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (33 pages, 2127079 bytes).
+Output written on main.pdf (33 pages, 2132033 bytes).
 PDF statistics:
- 603 PDF objects out of 1000 (max. 8388607)
- 519 compressed objects within 6 object streams
- 133 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 

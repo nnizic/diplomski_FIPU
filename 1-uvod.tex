@@ -1,49 +1,40 @@
 \section{Uvod}
+\label{chap:uvod}
 
-\subsection{Uvodni dio}
-Jedan od modela koji dobro opisuje izazove alokacije resursa je \textit{problem ruksaka} (\textit{Knapsack Problem}), gdje se ograničeni resursi moraju raspodijeliti na način koji maksimizira ukupnu korist \cite{Kellerer2004}. U kontekstu projektnih aktivnosti, to znači odabrati skup zadataka koji će donijeti najveći povrat ulaganja (ROI) uz poštivanje vremenskih i resursnih ograničenja. Tradicionalne metode poput PERT-a (\textit{Program Evaluation and Review Technique}) i CPM-a (\textit{Critical Path Method}) \cite{Malcolm1959,Kerzner2017} pružaju okvir za planiranje i praćenje projekata, no često zanemaruju složene kombinacije zadataka i inherentnu neizvjesnost u procjenama trajanja i troškova.
+\subsection{Kontekst i polazište istraživanja}
 
-Pregled literature pokazuje da se genski algoritmi (GA) uspješno primjenjuju na NP-teške optimizacijske probleme \cite{Holland1975,Goldberg1989}, dok Monte Carlo simulacije (MC) omogućuju modeliranje i kvantifikaciju neizvjesnosti \cite{Metropolis1949,Rubinstein2016}. Međutim, u literaturi postoji ograničen broj radova koji integriraju ove dvije metode u jedinstven hibridni pristup optimizaciji projektnih aktivnosti \cite{Deb2002,Zhang2011}. Praznina se očituje u nedostatku sustavnog eksperimentalnog okvira za kalibraciju i usporednu analizu hibridnih GA-MC modela, čime bi se precizno kvantificiralo kako takva sinergija utječe na robusnost rješenja
-\subsection{Motivacija}
-Motivacija za ovaj rad proizlazi iz činjenice da se u stvarnim projektnim uvjetima planovi rijetko odvijaju točno onako kako su prvotno predviđeni \cite{Kerzner2017}. Promjene u dostupnosti resursa, nepredviđeni rizici, promjene zahtjeva te pogrešne procjene trajanja zadataka česti su razlozi odstupanja od plana. Klasične metode planiranja projekata, iako korisne, često ne uzimaju u obzir dinamičke promjene i stohastičku prirodu projektnih parametara \cite{PMI2021}.
+U suvremenom projektnom upravljanju, alokacija ograničenih resursa na niz konkurentskih aktivnosti predstavlja jedan od fundamentalnih izazova. Ovaj problem optimizacije može se elegantno modelirati kroz klasični \textit{problem ruksaka} (\textit{Knapsack Problem}), gdje je cilj odabrati podskup stavki na način koji maksimizira ukupnu vrijednost, a da se pritom ne prekorači zadani kapacitet \cite{Kellerer2004}. U domeni projekata, to se preslikava na odabir portfelja aktivnosti koji će generirati najveći mogući povrat na investiciju (ROI), uz strogo poštivanje proračunskih, vremenskih i drugih resursnih ograničenja.
 
-Upravo zbog toga potrebne su metode koje ne samo da optimiziraju raspodjelu resursa, već i uvažavaju nesigurnosti te omogućuju procjenu rizika povezanih s odabranim rješenjima. Genski algoritmi pružaju snažan alat za globalnu optimizaciju složenih problema pretrage \cite{Goldberg1989}, dok Monte Carlo simulacije omogućuju procjenu varijabilnosti i rizika rješenja \cite{Rubinstein2016}. Kombiniranjem ovih metoda moguće je razviti pristup koji generira kvalitetna rješenja, a pritom osigurava njihovu robusnost u uvjetima nesigurnosti \cite{Zhang2011}.
+Iako tradicionalne metode poput PERT-a (\textit{Program Evaluation and Review Technique}) i CPM-a (\textit{Critical Path Method}) \cite{Malcolm1959,Kerzner2017} pružaju nezamjenjiv okvir za planiranje i praćenje, njihova primjena nailazi na poteškoće u dinamičnim okruženjima. One su često determinističke prirode i teško se nose s dva ključna izazova: kombinatornom eksplozijom mogućih rješenja i inherentnom nesigurnošću koja prati procjene trajanja i troškova.
 
-\subsection{Rizici i nesigurnosti u projektnom upravljanju}
-Rizici u projektnom upravljanju obuhvaćaju sve događaje ili uvjete koji, ako se pojave, mogu negativno utjecati na ciljeve projekta \cite{Hillson2009}. Oni mogu biti tehničke, organizacijske, financijske ili tržišne prirode, a često su međusobno povezani \cite{PMI2021}. Nesigurnosti proizlaze iz nepotpunih informacija, promjenjivih uvjeta i nemogućnosti preciznog predviđanja budućih događaja \cite{Smith2014}. Upravljanje rizicima uključuje njihovu identifikaciju, procjenu i razvoj strategija odgovora \cite{Hillson2009}.
+Pregled literature ukazuje na to da su genetski algoritmi (GA) iznimno učinkoviti u rješavanju NP-teških optimizacijskih problema \cite{Holland1975,Goldberg1989}, dok Monte Carlo (MC) simulacije predstavljaju zlatni standard za modeliranje i kvantifikaciju rizika \cite{Metropolis1949,Rubinstein2016}. Unatoč tome, primjetan je nedostatak radova koji sustavno istražuju sinergiju ovih dviju moćnih tehnika. Upravo se u tom prostoru pozicionira ovaj rad, s ciljem popunjavanja uočene praznine kroz razvoj i rigoroznu evaluaciju hibridnog GA-MC modela. Fokus nije samo na kombinaciji, već na stvaranju sustavnog eksperimentalnog okvira za kalibraciju i usporednu analizu takvih modela, kako bi se precizno kvantificirao utjecaj ove sinergije na robusnost i kvalitetu konačnih rješenja.
 
-Monte Carlo simulacije predstavljaju jedan od najučinkovitijih pristupa kvantitativnoj procjeni rizika \cite{Vose2008}. Kroz generiranje velikog broja scenarija temeljenih na slučajnim varijacijama ulaznih parametara, moguće je procijeniti distribuciju mogućih ishoda i vjerojatnosti ostvarenja ciljeva projekta \cite{Rubinstein2016}.
+\subsection{Motivacija i značaj istraživanja}
 
-\subsection{Ciljevi i istraživačka pitanja}
-Ovaj diplomski rad ima za cilj razviti i evaluirati hibridni GA-MC model za optimizaciju raspodjele projektnih aktivnosti. Doprinos rada je trojak:
-\begin{itemize}
-    \item \textbf{Teorijski doprinos}: povezivanje optimizacijskih tehnika s metodama procjene neizvjesnosti u kontekstu projektnih aktivnosti.
-    \item \textbf{Metodološki doprinos}: razvoj integriranog modela koji povezuje evolucijsku optimizaciju i statističku simulaciju.
-    \item \textbf{Praktični doprinos}: demonstracija primjenjivosti pristupa na sintetičkim projektnim podacima i analiza performansi modela.
-\end{itemize}
+Motivacija za ovo istraživanje proizlazi iz fundamentalne razlike između projektnog plana i stvarne izvedbe. U praksi, projekti se rijetko odvijaju točno prema početnim predviđanjima \cite{Kerzner2017}. Fluktuacije u dostupnosti resursa, nepredviđeni događaji, izmjene u zahtjevima dionika te inherentna nepreciznost početnih procjena česti su uzroci odstupanja, što klasične metode planiranja čini nedovoljno fleksibilnima \cite{PMI2021}.
 
-Istraživačka pitanja na koja ovaj rad želi odgovoriti su:
+Stoga se javlja potreba za pristupima koji nadilaze puku alokaciju resursa i ulaze u domenu strateškog upravljanja nesigurnošću. Potrebne su metode koje ne samo da pronalaze matematički optimalan raspored, već vrednuju rješenja i prema njihovoj otpornosti na nepredviđene okolnosti. Ovdje komplementarna priroda genetskih algoritama i Monte Carlo simulacija dolazi do punog izražaja. Genski algoritmi pružaju mehanizam za efikasno pretraživanje astronomski velikog prostora mogućih portfelja \cite{Goldberg1989}, dok Monte Carlo simulacije služe kao "simulator stvarnosti", testirajući svako potencijalno rješenje u tisućama mogućih budućnosti kako bi se procijenila njegova stvarna varijabilnost i rizik \cite{Rubinstein2016}.
+
+Kombiniranjem ovih metoda, ovaj rad prelazi s tradicionalnog pitanja "Koji je najbolji plan?" na puno značajnije pitanje: "Koji je najrobusniji plan koji nudi najbolji kompromis između profita i rizika?".
+
+\subsection{Izazov nesigurnosti u projektnom upravljanju}
+
+Rizici u projektnom upravljanju obuhvaćaju sve događaje ili uvjete koji, ako se pojave, mogu negativno utjecati na ciljeve projekta \cite{Hillson2009}. Oni mogu biti tehničke, organizacijske, financijske ili tržišne prirode, a često su međusobno povezani \cite{PMI2021}. Nesigurnosti, s druge strane, proizlaze iz nepotpunih informacija, promjenjivih uvjeta i fundamentalne nemogućnosti preciznog predviđanja budućih događaja \cite{Smith2014}. Učinkovito upravljanje projektima stoga zahtijeva sustavan pristup identifikaciji, procjeni i razvoju strategija odgovora na rizike i nesigurnosti \cite{Hillson2009}.
+
+U domeni kvantitativne analize, Monte Carlo simulacije predstavljaju jedan od najmoćnijih pristupa \cite{Vose2008}. Metoda se temelji na generiranju velikog broja mogućih scenarija temeljenih na specificiranim distribucijama vjerojatnosti za neizvjesne ulazne parametre. Analizom distribucije dobivenih ishoda, moguće je s visokom pouzdanošću procijeniti, primjerice, vjerojatnost završetka projekta unutar zadanog roka ili budžeta \cite{Rubinstein2016}.
+
+\subsection{Ciljevi, doprinos i struktura rada}
+
+Primarni cilj ovog diplomskog rada jest razviti i kroz sustavne eksperimente evaluirati hibridni GA-MC model za optimizaciju portfelja projektnih aktivnosti. Svrha modela je pružiti podršku u donošenju odluka koje su informirane ne samo o potencijalnoj dobiti, već i o pripadajućem riziku. Doprinos rada ostvaren je na teorijskoj, metodološkoj i praktičnoj razini. Na teorijskoj razini, rad povezuje koncepte iz evolucijskog računarstva s kvantitativnim metodama upravljanja rizikom u jedinstven okvir primijenjen na projektno upravljanje. S metodološkog stajališta, razvijen je i validiran cjelovit dvo-fazni proces za evaluaciju složenih hibridnih modela, koji uključuje fazu kalibracije i fazu usporedne analize. Konačno, praktični doprinos očituje se u demonstraciji primjenjivosti pristupa na sintetičkim podacima, čime se dobiva uvid u performanse i ograničenja različitih optimizacijskih strategija.
+
+Kako bi se navedeni ciljevi ostvarili, istraživanje je vođeno sljedećim ključnim pitanjima:
 \begin{enumerate}
-    \item  U kojim uvjetima i prema kojim metrikama (npr. profitabilnost, rizik trajanja, stabilnost) hibridni GA-MC pristup postiže superiorne rezultate u odnosu na samostalnu primjenu GA ili MC modela?   
-    \item U kojoj mjeri Monte Carlo simulacija može poboljšati robusnost rješenja dobivenih genskim algoritmom?
-    \item Kakav je utjecaj kombiniranog pristupa na stabilnost i pouzdanost optimizacije u uvjetima neizvjesnosti?
+\item U kojim uvjetima i prema kojim metrikama (npr. profitabilnost, rizik trajanja, stabilnost) hibridni GA-MC pristup postiže superiorne rezultate u odnosu na samostalnu primjenu GA ili MC modela?
+\item U kojoj mjeri integracija Monte Carlo simulacije u proces evaluacije može poboljšati robusnost rješenja dobivenih genetskim algoritmom?
+\item Kakav je utjecaj kombiniranog pristupa na stabilnost i pouzdanost optimizacije u uvjetima neizvjesnosti?
 \end{enumerate}
 
-Ciljevi istraživanja su:
-\begin{itemize}
-    \item Dizajnirati i implementirati integrirani GA-MC model.
-    \item Evaluirati performanse modela na različitim scenarijima.
-    \item Usporediti rezultate hibridnog pristupa s rezultatima pojedinačnih metoda.
-\end{itemize}
+Sinergija između genskih algoritama i Monte Carlo simulacija proizlazi iz njihove komplementarne prirode: GA učinkovito pretražuje veliki prostor mogućih rješenja i pronalazi visokokvalitetne kandidate \cite{Goldberg1989}, dok MC kvantificira rizik i procjenjuje varijabilnost tih rješenja kroz stohastičko modeliranje \cite{Rubinstein2016}.
 
-Sinergija između genskih algoritama i Monte Carlo simulacija proizlazi iz njihove komplementarne prirode: GA učinkovito pretražuje veliki prostor mogućih rješenja i pronalazi visokokvalitetne kandidate \cite{Goldberg1989}, dok MC kvantificira rizik i procjenjuje varijabilnost tih rješenja kroz stohastičko modeliranje \cite{Rubinstein2016}. Kombinacija ovih metoda rezultira robusnim pristupom koji ne samo da optimizira projektne aktivnosti, već i uzima u obzir realne nesigurnosti u planiranju.
-
-Struktura rada organizirana je na sljedeći način:
-\begin{itemize}
-    \item \textbf{Poglavlje 2} daje pregled relevantne literature i teorijskih osnova problema.
-    \item \textbf{Poglavlje 3} detaljno opisuje matematički i konceptualni model problema.   
-    \item \textbf{Poglavlje 4} prikazuje metodologiju i arhitekturu razvijenog softverskog sustava, uključujući implementaciju Monte Carlo simulacije i genetskog algoritma.   
-    \item \textbf{Poglavlje 5} opisuje dvo-fazni eksperimentalni dizajn, analizu dobivenih rezultata i diskusiju o performansama testiranih modela.   
-    \item \textbf{Poglavlje 6} sadrži zaključak rada, sažetak doprinosa, osvrt na ograničenja i preporuke za budući rad.
-    \end{itemize}
+Ostatak rada organiziran je kako slijedi. \textbf{Drugo poglavlje} pruža pregled relevantne literature i teorijskih osnova, uključujući problem ruksaka, genetske algoritme i metode modeliranja nesigurnosti. \textbf{Treće poglavlje} detaljno opisuje matematički i konceptualni model problema koji se rješava. \textbf{Četvrto poglavlje} ulazi u detalje implementacije, opisujući arhitekturu razvijenog softverskog sustava i korištene programske biblioteke. \textbf{Peto poglavlje} čini srž rada, prikazujući dvo-fazni eksperimentalni dizajn, analizu dobivenih rezultata i detaljnu diskusiju o performansama testiranih modela. Konačno, \textbf{šesto poglavlje} donosi sintezu cjelokupnog rada, sažima ključne doprinose, osvrće se na ograničenja provedenog istraživanja i nudi preporuke za budući rad.
 

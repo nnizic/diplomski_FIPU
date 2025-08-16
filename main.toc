@@ -3,20 +3,21 @@
 \babel@toc {english}{}\relax 
 \babel@toc {croatian}{}\relax 
 \contentsline {section}{\numberline {1}Uvod}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Uvodni dio}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Motivacija}{1}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Rizici i nesigurnosti u projektnom upravljanju}{1}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Ciljevi i istraživačka pitanja}{2}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Teorijska podloga}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Knapsack problem}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Genetski algoritmi}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Monte Carlo simulacija}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Modeliranje nesigurnosti trajanja: PERT i Trokutasta distribucija}{6}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Model problema}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Formalna definicija problema}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Ograničenja modela}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Ciljevi optimizacije}{8}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Konceptualni model}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {1.1}Kontekst i polazište istraživanja}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Motivacija i značaj istraživanja}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Izazov nesigurnosti u projektnom upravljanju}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Ciljevi, doprinos i struktura rada}{2}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Teorijske osnove i srodni radovi}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Problem odabira portfelja kao Knapsack problem}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Genetski algoritmi kao metaheuristika za pretraživanje}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Više-kriterijski genetski algoritmi i NSGA-II}{5}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Kvantifikacija rizika pomoću Monte Carlo simulacije}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Modeliranje nesigurnosti trajanja pomoću trotočkovne procjene}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Model problema}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definicija skupa aktivnosti i varijabli odluke}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Resursna ograničenja modela}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Specifikacija optimizacijskih ciljeva}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Konceptualni prikaz modela}{9}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Implementacija}{10}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Korištene biblioteke}{10}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Struktura sustava}{10}{subsection.4.2}%

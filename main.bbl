@@ -35,16 +35,6 @@ Reuven~Y. Rubinstein and Dirk~P. Kroese.
 \newblock {\em Simulation and the Monte Carlo Method}.
 \newblock Wiley, 3rd edition, 2016.
 
-\bibitem{Deb2002}
-Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
-\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
-\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(2):182--197, 2002.
-
-\bibitem{Zhang2011}
-Wei Zhang and Ming Li.
-\newblock An efficient algorithm for project scheduling under uncertainty.
-\newblock {\em International Journal of Project Management}, 29(5):567--574, 2011.
-
 \bibitem{PMI2021}
 {Project Management Institute}.
 \newblock {\em A Guide to the Project Management Body of Knowledge (PMBOK Guide)}.
@@ -65,20 +55,25 @@ David Vose.
 \newblock {\em Risk Analysis: A Quantitative Guide}.
 \newblock John Wiley \& Sons, 2008.
 
-\bibitem{Mitchell1998}
-Melanie Mitchell.
-\newblock {\em An Introduction to Genetic Algorithms}.
-\newblock MIT Press, 1998.
+\bibitem{GareyJohnson1979}
+Michael~R. Garey and David~S. Johnson.
+\newblock {\em Computers and Intractability: A Guide to the Theory of NP-Completeness}.
+\newblock W. H. Freeman, 1979.
 
 \bibitem{Gandomi2013}
 Amir~H. Gandomi, Xin-She Yang, Siamak Talatahari, and Amir~H. Alavi.
 \newblock Metaheuristic algorithms in modeling and optimization.
 \newblock {\em Applied Soft Computing}, 13(1):1--11, 2013.
 
-\bibitem{Kaveh2012}
-A.~Kaveh and S.~Talatahari.
-\newblock A comparative study of metaheuristic optimization algorithms for optimal design of truss structures.
-\newblock {\em Computers \& Structures}, 102:66--75, 2012.
+\bibitem{Mitchell1998}
+Melanie Mitchell.
+\newblock {\em An Introduction to Genetic Algorithms}.
+\newblock MIT Press, 1998.
+
+\bibitem{Deb2002}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(2):182--197, 2002.
 
 \bibitem{Miller2009}
 Roger Miller and Donald Lessard.
