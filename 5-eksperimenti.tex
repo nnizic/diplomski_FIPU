@@ -1,20 +1,10 @@
-\section{Eksperimenti i analiza rezultata}
-\label{sec:eksperimenti}
+\section{Eksperimentalna evaluacija i diskusija rezultata}
+\label{chap:eksperimenti}
 
-U ovom poglavlju detaljno se opisuje eksperimentalni postav, provedba eksperimenata te analiza i interpretacija dobivenih rezultata. Cilj je bio empirijski validirati predloženi hibridni model i usporediti ga s drugim pristupima.
+U ovom poglavlju detaljno se opisuje eksperimentalni postav, provedba eksperimenata te dubinska analiza i interpretacija dobivenih rezultata. Cilj je bio empirijski validirati predloženi hibridni model, kvantificirati njegove performanse i usporediti ga s drugim relevantnim pristupima kako bi se donijeli utemeljeni zaključci o njegovoj primjenjivosti.
 
 \subsection{Postavke okruženja i testni podaci}
-Svi eksperimenti provedeni su u programskom okruženju Python (verzija 3.x) na standardnom osobnom računalu. Za potrebe istraživanja generiran je sintetički skup podataka koji oponaša realističan projektni portfelj. U ovisnosti o eksperimentalnoj seriji, broj jedinstvenih projektnih aktivnosti varirao je od 10 do 100. Za svaku aktivnost definirani su sljedeći parametri unutar zadanih raspona:
-\begin{itemize}
-    \item \textbf{Trošak (\texttt{cost}):} Slučajna cjelobrojna vrijednost između 50 i 200.
-    \item \textbf{ROI (\texttt{roi}):} Slučajna decimalna vrijednost između 1.0 i 3.0.
-    \item \textbf{Procjene trajanja:}
-    \begin{itemize}
-        \item Optimistično: između 5 i 10 dana.
-        \item Najvjerojatnije: između 10 i 20 dana.
-        \item Pesimistično: između 20 i 40 dana.
-    \end{itemize}
-\end{itemize}
+Svi eksperimenti provedeni su u programskom okruženju \textbf{Python (verzija 3.x)} na standardnom osobnom računalu. Kako bi se osigurala ponovljivost i kontrolirani uvjeti, za potrebe istraživanja generiran je sintetički skup podataka koji oponaša realističan projektni portfelj. U ovisnosti o eksperimentalnoj seriji, broj jedinstvenih projektnih aktivnosti varirao je od 10 do 100. Svaka aktivnost je parametrizirana slučajnim vrijednostima unutar zadanih raspona, uključujući \textbf{Trošak (\texttt{cost}):} slučajna cjelobrojna vrijednost između 50 i 200, \textbf{ROI (\texttt{roi}):} slučajna decimalna vrijednost između 1.0 i 3.0, i \textbf{Procjene trajanja:} optimistično (između 5 i 10 dana), najvjerojatnije (između 10 i 20 dana) i pesimistično (između 20 i 40 dana).
 Ukupni raspoloživi budžet za portfelj (\texttt{BUDGET}) bio je skaliran u skladu sa složenošću problema.
 
 \subsection{Eksperimentalni dizajn}
@@ -25,7 +15,7 @@ Kako bi se osigurala metodološka ispravnost i izbjegli proizvoljni zaključci, 
 \end{itemize}
 
 \subsubsection{Istraživačke hipoteze}
-Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, definirane su sljedeće tri glavne hipoteze koje će se provjeriti kroz eksperimente:
+Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, definirane su sljedeće tri glavne hipoteze koje se provjeravaju kroz eksperimente:
 
 \begin{description}
     \item[H1 (Hipoteza o Skalabilnosti):] Povećanjem složenosti problema (broja aktivnosti), performanse modela temeljenog na nasumičnoj pretrazi (Random Search) će se značajno smanjiti u usporedbi s modelima temeljenim na genetskim algoritmima.
@@ -35,11 +25,9 @@ Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, de
 
 \subsection{Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}
 
-\textbf{Cilj:} Empirijski provjeriti utjecaj osnovnih genetskih operatora i parametara na performanse algoritma te odabrati optimalnu konfiguraciju za daljnje testiranje.
+Prvi eksperiment imao je za cilj empirijski provjeriti utjecaj osnovnih genetskih operatora i parametara na performanse algoritma te odabrati optimalnu konfiguraciju za daljnje testiranje. U tu svrhu provedena je ablacijska studija s pet različitih konfiguracija, gdje je svaka pokrenuta 10 puta (\texttt{RUNS = 10}) radi statističke pouzdanosti. Testirane konfiguracije su bile: \emph{Standardni GA}, \emph{Bez mutacije}, \emph{Bez križanja}, \emph{Više generacija} i \emph{Veća populacija}.
 
-\textbf{Metodologija:} Provedena je ablacijska studija s pet različitih konfiguracija, gdje je svaka pokrenuta 10 puta (\texttt{RUNS = 10}) radi statističke pouzdanosti. Testirane konfiguracije su bile: \emph{Standardni GA}, \emph{Bez mutacije}, \emph{Bez križanja}, \emph{Više generacija} i \emph{Veća populacija}.
-
-\textbf{Rezultati i diskusija:} Rezultati ablacijske studije prikazani su u Tablici~\ref{tab:ga_ablation} te grafički na Slici~\ref{fig:ga_ablation}.
+\subsubsection{Rezultati i diskusija} Rezultati ablacijske studije prikazani su u Tablici~\ref{tab:ga_ablation} te grafički na Slici~\ref{fig:ga_ablation}.
 
 \begin{table}[H]
     \centering
@@ -58,7 +46,7 @@ Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, de
     \end{tabular}
 \end{table}
 
-Analiza rezultata potvrđuje obje početne hipoteze. Uklanjanje križanja drastično smanjuje performanse, potvrđujući da je rekombinacija dobrih rješenja ključan mehanizam pretrage. Povećanje računalnih resursa, posebno kroz veću populaciju, dovodi do superiornih i statistički stabilnijih rješenja. Zanimljivo je primijetiti da konfiguracije s najvišim ROI-em rezultiraju i najdužim prosječnim trajanjem, što stvara prirodni kompromis (\emph{trade-off}) između profita i rizika, koji će biti predmet analize u sljedećem eksperimentu.
+Analiza rezultata potvrđuje obje početne hipoteze i ključnu ulogu genetskih operatora. Uklanjanje križanja drastično smanjuje performanse, potvrđujući da je rekombinacija dobrih rješenja ključan mehanizam pretrage. S druge strane, povećanje računalnih resursa, bilo kroz više generacija (dubina pretrage) ili veću populaciju (širina pretrage), dovodi do superiornih i statistički stabilnijih rješenja. Konfiguracija \emph{Veća populacija} pokazala se najboljom, ostvarivši najviši prosječni ROI uz najnižu standardnu devijaciju. Zanimljivo je primijetiti da konfiguracije s najvišim ROI-em rezultiraju i najdužim prosječnim trajanjem, što stvara prirodni kompromis (\emph{trade-off}) između profita i rizika, koji će biti predmet analize u sljedećem eksperimentu.
 
 \begin{figure}[H]
     \centering
@@ -79,11 +67,10 @@ Analiza rezultata potvrđuje obje početne hipoteze. Uklanjanje križanja drasti
     \label{fig:ga_ablation}
 \end{figure}
 
-\textbf{Zaključak Eksperimenta 1:}
 Na temelju empirijskih rezultata, konfiguracija \emph{Veća populacija} odabrana je kao ``šampionska''. Njezini parametri (\texttt{POP\_SIZE = 200}, \texttt{NGEN = 40}, itd.) poslužili su kao osnova za definiranje parametara u drugoj fazi istraživanja, uz nužne prilagodbe resursa s obzirom na složenost problema.
 
 \subsection{Eksperiment 2: Usporedna analiza optimizacijskih modela}
-Druga faza istraživanja čini ključnu eksperimentalnu provjeru glavne hipoteze rada. Koristeći kalibrirane parametre iz Eksperimenta 1, provedena je sustavna usporedba triju razvijenih modela prema planu definiranom u Tablici~\ref{tab:plan_eksperimenata}.
+Druga faza istraživanja čini ključnu eksperimentalnu provjeru glavne hipoteze rada. Koristeći kalibrirane parametre iz Eksperimenta 1, provedena je sustavna usporedba triju razvijenih modela. Cilj drugog eksperimenta je empirijski provjeriti postavljene istraživačke hipoteze (h1, h2, h3) kroz sustavnu usporedbu performansi, robusnosti i stabilnosti triju razvijenih modela: nasumične pretrage, jedno-kriterijskog GA i više-kriterijskog hibridnog GA+MC modela. usporedba je provedena na problemima različite skale i restriktivnosti prema planu definiranom u tablici~\ref{tab:plan_eksperimenata}. svaki od pet jedinstvenih eksperimentalnih scenarija pokrenut je 10 puta (\texttt{RUNS = 10}) radi osiguravanja statističke pouzdanosti. modeli koji koriste genetski algoritam (`GA (samo ROI)` i `GA+MC (NSGA-II)`) temeljili su se na ``šampionskoj'' konfiguraciji utvrđenoj u eksperimentu 1, uz skaliranje parametra `NGEN` sukladno složenosti problema.
 
 \begin{table}[H]
     \centering
@@ -108,8 +95,8 @@ Druga faza istraživanja čini ključnu eksperimentalnu provjeru glavne hipoteze
     }
 \end{table}
 
-\subsubsection{Rezultati}
-Svi rezultati dobiveni provođenjem Eksperimenta 2 sažeti su u Tablici~\ref{tab:rezultati}. Ova tablica predstavlja temelj za daljnju diskusiju.
+\subsubsection{Rezultati i diskusija}
+Svi rezultati dobiveni provođenjem Eksperimenta 2 sažeti su u Tablici~\ref{tab:rezultati}. U nastavku slijedi detaljna diskusija ovih rezultata, organizirana po tematskim cjelinama koje odgovaraju postavljenim hipotezama. Ova tablica predstavlja temelj za daljnju diskusiju.
 
 \begin{table}[H]
     \centering
@@ -144,7 +131,6 @@ Svi rezultati dobiveni provođenjem Eksperimenta 2 sažeti su u Tablici~\ref{tab
     }
 \end{table}
 
-\subsubsection{Diskusija rezultata}
 Dobiveni rezultati analizirani su kroz tematske cjeline, s ciljem odgovaranja na postavljena istraživačka pitanja.
 
 \textbf{Analiza Skalabilnosti (Serija A)}
@@ -207,7 +193,46 @@ Raspršeni dijagram na Slici~\ref{fig:pareto_front} pruža dubinski uvid u srž 
     \label{fig:pareto_front}
 \end{figure}
 
-\subsection{Sinteza glavnih zaključaka eksperimenata}
+\subsection{Sinteza i interpretacija glavnih nalaza}
 Provedeni eksperimenti omogućuju donošenje cjelovitih zaključaka o svakom modelu. Random Search (MC) se pokazao korisnim isključivo kao početna točka na jednostavnim problemima, ali je potpuno neadekvatan kao ozbiljan optimizacijski alat za probleme realne veličine. GA (samo ROI) je izuzetno snažan i robustan "profitni maksimizator", idealan u situacijama gdje je financijska dobit jedini kriterij. Konačno, GA+MC (NSGA-II) je sofisticirani "upravitelj rizikom", čija najveća vrijednost leži u pružanju strateških opcija koje balansiraju profit i rizik. Iako je superioran u standardnim i složenim uvjetima, njegova složenost ga čini osjetljivim u okruženjima s ekstremno restriktivnim ograničenjima.
 
+Konačan izbor modela stoga ovisi o strateškim prioritetima projektnog ureda. Za maksimalan profit, klasični GA je pobjednik. Za uravnoteženo i rizikom informirano donošenje odluka, hibridni GA+MC je superioran, uz nužan oprez pri primjeni u vrlo ograničenim uvjetima.
+
+
+Nakon detaljne analize pojedinačnih serija eksperimenata, mogu se sintetizirati ključni nalazi koji zajedno oslikavaju cjelovitu sliku o performansama, prednostima i nedostacima svakog od testiranih optimizacijskih modela. Interpretacija ovih nalaza pruža direktne odgovore na postavljene istraživačke hipoteze.
+
+Potvrda superiornosti genetskih algoritama (H1):
+Prvi i najjasniji zaključak jest da je hipoteza o skalabilnosti (H1) u potpunosti potvrđena. Iako je Random Search metoda, zbog velikog broja evaluacija, uspijevala pronaći valjana rješenja, njezina učinkovitost nije pratila eksponencijalni rast složenosti problema. S druge strane, oba genetska algoritma pokazala su sposobnost inteligentno vođene pretrage, konzistentno pronalazeći značajno superiornija rješenja. Za projektnog menadžera, praktična implikacija je nedvosmislena: za bilo koji netrivijalan problem odabira portfelja, primjena metaheurističkih metoda poput genetskih algoritama nije samo poboljšanje, već nužnost za postizanje konkurentnih rezultata.
+
+Kvantifikacija kompromisa između profita i rizika (H2):
+Središnji nalaz istraživanja proizašao je iz usporedbe dvaju genetskih algoritama. Model GA (samo ROI) se dokazao kao iznimno učinkovit "profitni maksimizator", konzistentno pronalazeći rješenja s najvišim mogućim povratom na investiciju. Međutim, bio je potpuno "slijep" na rizik trajanja, često birajući portfelje s dugim i nepredvidljivim vremenom izvođenja.
+
+Tu do izražaja dolazi ključni doprinos hibridnog GA+MC (NSGA-II) modela. Njegova svrha nije bila nadmašiti klasični GA u jednoj dimenziji (ROI), već otkriti i kvantificirati sam kompromis između profitabilnosti i rizika, čime je potvrđena hipoteza H2. Kao što rezultati i Paretov front (Slika~\ref{fig:pareto_front}) pokazuju, hibridni model omogućuje donošenje strateške odluke. On kvantificira "cijenu" smanjenja rizika, pokazujući, primjerice, da se za 5-10% niži ROI može dobiti portfelj koji je 15-25% brži i, što je još važnije, statistički pouzdaniji. Za donositelja odluka, ovo transformira optimizacijski problem iz potrage za jednim brojem u sofisticirani alat za strateško planiranje.
+
+Otkriće o robusnosti i krhkosti modela (H3):
+Konačno, analiza utjecaja ograničenja (Serija B) potvrdila je hipotezu H3 i dovela do najdubljeg i pomalo neočekivanog zaključka. Dok je klasični GA (samo ROI) pokazao iznimnu robusnost, pronalazeći dobra rješenja čak i pod vrlo restriktivnim budžetom, napredni GA+MC (NSGA-II) model pokazao je neočekivanu krhkost. Njegov složeni, više-kriterijski mehanizam pretrage, koji briljira u velikim i otvorenim prostorima rješenja, postao je njegova slabost u ekstremno suženom prostoru valjanih opcija, što je dovelo do čestih neuspjeha.
+
+Ovaj nalaz nosi ključnu praktičnu poruku: tehnološki najnapredniji alat nije uvijek najbolji alat za svaku situaciju. U kriznim scenarijima s ekstremno ograničenim resursima, jednostavniji i fokusiraniji pristup može biti pouzdaniji.
+
+Za lakši pregled, konačna ocjena svakog modela sažeta je u Tablici~\ref{tab:sinteza_modela}.
+
+
+\begin{table}[H]
+\centering
+\caption{Sintetička usporedba evaluiranih modela.}
+\label{tab:sinteza_modela}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Model} & \textbf{Najbolji za...} & \textbf{Ključna ograničenja} \\
+\hline
+\textbf{Random Search (MC)} & Postavljanje osnovne linije (baseline) na jednostavnim problemima. & Potpuno neefikasan i nepouzdan na složenim problemima. \\
+\hline
+\textbf{GA (samo ROI)} & Scenarije gdje je maksimizacija profita jedini i isključivi cilj. & Zanemaruje rizik trajanja; može predložiti vrlo duge projekte. \\
+\hline
+\textbf{GA+MC (NSGA-II)} & Strateško odlučivanje; balansiranje između profita i rizika. & Računalno zahtjevan; nepouzdan u ekstremno restriktivnim uvjetima. \\
+\hline
+\end{tabular}
+}
+\end{table}
 Konačan izbor modela stoga ovisi o strateškim prioritetima projektnog ureda. Za maksimalan profit, klasični GA je pobjednik. Za uravnoteženo i rizikom informirano donošenje odluka, hibridni GA+MC je superioran, uz nužan oprez pri primjeni u vrlo ograničenim uvjetima.
