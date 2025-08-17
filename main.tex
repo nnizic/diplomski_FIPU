@@ -9,12 +9,31 @@
 \usetikzlibrary{positioning, arrows.meta}
 \usepackage{hyperref}       % Za \url u referencama
 \usepackage{geometry}
+\usepackage{listings}       % za formatiranje koda
+\usepackage{xcolor}         % za boje koda
 \geometry{
  a4paper,
  left=1.25in,
  right=1.25in,
  top=1in,
  }
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeblue}{rgb}{0,0,0.5}
+\lstset{
+    backgroundcolor=\color{white},
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codeblue},
+    stringstyle=\color{codegreen},
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny\color{codegray},
+    frame=single,
+    showstringspaces=false,
+    captionpos=b
+    basicstyle=\ttfamily\scriptsize,
+}
+
 \usepackage[croatian,english]{babel}    %za hrvatske naslove
 \usepackage[nottoc]{tocbibind}  %za pravilan table of content
 \usepackage{graphicx}   %za dodavanje slika
@@ -82,5 +101,6 @@
 \listoftables
 \newpage
 
-
+\lstlistoflistings
+\newpage
 \end{document}
