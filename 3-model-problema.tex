@@ -1,12 +1,10 @@
-\section{Model problema}
+\section{Matematička formulacija i konceptualni model problema}
 \label{chap:model_problema}
-
-U ovom poglavlju formalno se definira problem optimizacije portfelja projektnih aktivnosti. Precizno se opisuju karakteristike aktivnosti koje čine ulaz u model, primijenjena resursna ograničenja te jedno-kriterijski i više-kriterijski ciljevi optimizacije koji su korišteni u kasnijoj eksperimentalnoj evaluaciji.
-
+Nakon pregleda teorijskih osnova, ovo poglavlje posvećeno je formalnoj definiciji problema optimizacije projektnog portfelja. Cilj je prevesti realni poslovni problem u precizan matematički i konceptualni model na koji se mogu primijeniti računalne metode optimizacije. U nastavku se detaljno opisuju ulazni entiteti, varijable odluke, primijenjena resursna ograničenja te jedno-kriterijski i više-kriterijski ciljevi koji su korišteni u eksperimentalnoj evaluaciji.
 \subsection{Definicija skupa aktivnosti i varijabli odluke}
 Problem se definira kao odabir optimalnog podskupa (portfelja) aktivnosti iz većeg, unaprijed definiranog skupa dostupnih aktivnosti, što je čest izazov u projektnom menadžmentu \cite{PMI2021, Kerzner2017}. Neka je $A=\{a_1, a_2, ..., a_n\}$ skup od $n$ dostupnih projektnih aktivnosti. Svaka aktivnost $a_i \in A$ opisana je s tri ključna atributa. Prvi je trošak ($c_i$), koji predstavlja količinu budžeta potrebnu za izvođenje aktivnosti. Drugi atribut je vrijednost ($v_i$), definirana kao povrat na investiciju (ROI) koji se ostvaruje uspješnim završetkom. Treći, ključni atribut je nesigurnost trajanja, koja se ne modelira kao jedna deterministička vrijednost, već kao stohastička varijabla opisana s tri točke procjene: optimističnom ($T_o$), najvjerojatnijom ($T_m$) i pesimističnom ($T_p$), koje služe kao parametri za Trokutastu distribuciju u Monte Carlo simulaciji.
 
-S obzirom na navedene atribute, temeljni zadatak optimizacije je definirati binarni vektor odluke $x=(x_1, x_2, ..., x_n)$, gdje $x_i \in \{0,1\}$. Vrijednost $x_i=1$ označava da je aktivnost $a_i$ odabrana za uključivanje u portfelj, dok $x_i=0$ označava da se aktivnost ne izvodi.
+S obzirom na navedene atribute, temeljni zadatak optimizacije je definirati binarni vektor odluke $x=(x_1, x_2, ..., x_n)$, gdje $x_i \in \{0,1\}$. Vrijednost $x_i=1$ označava da je aktivnost $a_i$ odabrana za uključivanje u portfelj, dok $x_i=0$ označava da se aktivnost ne izvodi. Ovaj vektor odluke je upravo ono što genetski algoritam nastoji optimizirati.
 
 \subsection{Resursna ograničenja modela}
 Iako realni projekti mogu imati višestruka ograničenja, u ovom modelu implementirano je ključno i najčešće ograničenje u upravljanju portfeljem: ograničenje budžeta ($B_{max}$). Prema ovom pravilu, ukupni zbroj troškova svih odabranih aktivnosti ne smije prelaziti ukupno raspoloživi budžet. Formalno, ovo ograničenje odgovara klasičnoj formulaciji problema ruksaka (\textit{Knapsack Problem}) \cite{Kellerer2004} i matematički se izražava kao:

@@ -1,0 +1,62 @@
+@startuml
+' ========================================
+' 🎨 STILIZACIJA DIJAGRAMA
+' ========================================
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam rectangle {
+    backgroundColor #WhiteSmoke
+    borderColor #333333
+    borderThickness 1.5
+    roundCorner 5
+}
+skinparam note {
+    backgroundColor #LightYellow
+    borderColor #333333
+}
+skinparam arrow {
+    color #555555
+    thickness 1.5
+}
+
+' ========================================
+' 📊 DEFINICIJA DIJAGRAMA
+' ========================================
+title Dvo-točkovno križanje (Two-Point Crossover)
+
+' --- RODITELJI ---
+rectangle "Roditelji (Parents)" as Parents {
+    rectangle "<b>Roditelj A</b>\n<font size=16>1 1 0 | <color:blue>1 0 1 0</color> | 1 1 0</font>" as ParentA
+    rectangle "<b>Roditelj B</b>\n<font size=16>0 0 1 | <color:red>0 1 1 0</color> | 1 0 1</font>" as ParentB
+}
+
+' Točke loma
+note left of ParentA
+  Točka
+  loma 1
+end note
+
+note right of ParentA
+  Točka
+  loma 2
+end note
+
+
+' --- POTOMCI ---
+rectangle "Potomci (Children)" as Children {
+    rectangle "<b>Potomak A</b>\n<font size=16>1 1 0 | <color:red>0 1 1 0</color> | 1 1 0</font>" as ChildA
+    rectangle "<b>Potomak B</b>\n<font size=16>0 0 1 | <color:blue>1 0 1 0</color> | 1 1 0</font>" as ChildB
+}
+
+' --- VEZE KOJE PRIKAZUJU LOGIKU ---
+' Veze za vanjske segmente (ostaju isti)
+ParentA ..> ChildA : Vanjski segmenti
+ParentB ..> ChildB : Vanjski segmenti
+
+' Veze za središnje, razmijenjene segmente
+(ParentA) ..> (ChildB) : <color:blue>Središnji segment
+(ParentB) ..> (ChildA) : <color:red>Središnji segment
+
+@enduml
