@@ -1,9 +1,8 @@
 \section{Arhitektura sustava i implementacija}
 \label{chap:implementacija}
-Nakon definiranja teorijskih osnova i formalizacije problema, ovo poglavlje detaljno opisuje praktičnu realizaciju razvijenog optimizacijskog modela. Sustav je implementiran u programskom jeziku \textbf{Python (verzija 3.x)}, odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. Python omogućuje brzu izradu prototipa, jednostavnu integraciju modula te učinkovitu obradu i vizualizaciju podataka.
+Nakon definiranja teorijskih osnova i formalizacije problema, ovo poglavlje detaljno opisuje praktičnu realizaciju razvijenog optimizacijskog modela. Sustav je implementiran u programskom jeziku Python (verzija 3.x), odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. U nastavku se opisuje arhitektura programskog rješenja, korištene tehnologije te detalji implementacije ključnih komponenata.
 \subsection{Korištene tehnologije i biblioteke}
-Za izradu sustava korišten je niz standardnih biblioteka iz Python ekosustava za znanstveno računarstvo. Biblioteka \textbf{DEAP} \cite{DEAP2012} korištena je kao temeljni okvir za implementaciju genetskog algoritma. Za numeričke operacije i statističku obradu korišten je \textbf{NumPy} \cite{Harris2020}, dok je za manipulaciju i spremanje tabličnih podataka korišten \textbf{Pandas} \cite{PandasDevelopmentTeam2020}. Vizualizacija rezultata provedena je pomoću biblioteka \textbf{Seaborn} \cite{Waskom2021} i \textbf{Matplotlib} \cite{Hunter2007}. Modeliranje nesigurnosti pomoću Trokutaste distribucije implementirano je korištenjem standardne Python biblioteke Random. Detaljan pregled dan je u Tablici \ref{tab:biblioteke}.
-
+Za izradu sustava korišten je niz standardnih biblioteka iz Python ekosustava za znanstveno računarstvo. Biblioteka DEAP \cite{DEAP2012} korištena je kao temeljni okvir za implementaciju genetskog algoritma. Za numeričke operacije i statističku obradu korišten je NumPy \cite{Harris2020}, dok je za manipulaciju i spremanje tabličnih podataka korišten Pandas \cite{PandasDevelopmentTeam2020}. Vizualizacija rezultata provedena je pomoću biblioteka Seaborn \cite{Waskom2021} i Matplotlib \cite{Hunter2007}. Modeliranje nesigurnosti pomoću Trokutaste distribucije implementirano je korištenjem standardne Python biblioteke Random. Detaljan pregled dan je u Tablici \ref{tab:biblioteke}.
 \begin{table}[H]
 \centering
 \caption{Korištene biblioteke u implementaciji}
@@ -23,22 +22,21 @@ Random & Standardna Python biblioteka korištena za generiranje slučajnih broje
 
 \subsection{Arhitektura eksperimentalnog okvira}
 
-Sustav razvijen za potrebe ovog rada nije zamišljen kao monolitna skripta, već kao cjeloviti i modularni eksperimentalni okvir. Takva arhitektura, prikazana na Slici \ref{fig:tok_istrazivanja}, omogućuje sustavnu analizu, kalibraciju i usporedbu optimizacijskih metodologija. Okvir se sastoji od dva glavna analitička modula koji slijede dvo-fazni pristup istraživanju, te jednog pomoćnog modula za obradu i prikaz rezultata.
+Sustav razvijen za potrebe ovog rada nije zamišljen kao monolitna skripta, već kao cjeloviti i modularni eksperimentalni okvir. Takva arhitektura, prikazana na Slici \ref{fig:tok_istrazivanja}, omogućuje sustavnu analizu, kalibraciju i usporedbu optimizacijskih metodologija kroz dvo-fazni proces istraživanja. Okvir se sastoji od dva glavna analitička modula koji slijede dvo-fazni pristup istraživanju, te jednog pomoćnog modula za obradu i prikaz rezultata.
 
 Prvi modul, \textbf{Modul za analizu i kalibraciju genetskog algoritma}, predstavlja temelj istraživanja i odgovara na pitanje: \emph{``Kako optimalno konfigurirati genetski algoritam za rješavanje zadanog problema?''}. Njegova primarna svrha je provođenje detaljne ablacijske studije kojom se ispituje utjecaj svakog ključnog parametra na performanse. Kroz višestruka pokretanja različitih konfiguracija (standardni GA, bez križanja, bez mutacije, s povećanim brojem generacija, s većom populacijom), izračunavanjem metrika performansi, uključujući prosječnu vrijednost (mean) i standardnu devijaciju (std) za ROI i procijenjeno trajanje, ovaj modul kao izlaz generira "šampionsku" konfiguraciju – skup optimalnih parametara koji osiguravaju najbolje performanse i koji se koriste u daljnjoj analizi.
 
     Drugi, ključni modul je \textbf{Modul za usporednu analizu optimizacijskih scenarija}. On čini srž diplomskog rada i koristi "šampionsku" konfiguraciju za provođenje konačne, statistički robusne usporedbe triju različitih pristupa rješavanju problema: osnovnog modela nasumične pretrage, klasičnog genetskog algoritma usmjerenog isključivo na ROI, te hibridnog GA+MC modela (NSGA-II) koji provodi više-kriterijsku optimizaciju koja istovremeno maksimizira ROI i minimizira rizik trajanja procijenjen Monte Carlo simulacijom.  Izlaz ovog modula je konačna tablica s usporednim rezultatima performansii(ROI, trajanje) i stabilnosti(standardna devijacija) za svaki od triju scenarija.
 
-    Treći, \textbf{Modul za obradu i vizualizaciju rezultata}, služi kao pomoćni alat za interpretaciju podataka dobivenih iz prva dva modula, generirajući pregledne tablice i grafičke prikaze kao što su stupčasti dijagrami za usporedbu prosječnih vrijednosti ili 2D raspršeni dijagrami (scatter plots) za prikaz Paretovog fronta dobivenog iz NSGA-II algoritma generirane iz rezultata spremljenih u CSV formatu.
-
+    Treći, \textbf{Modul za obradu i vizualizaciju rezultata}, služi kao pomoćni alat za interpretaciju podataka dobivenih iz prva dva modula. Njegova funkcionalnost obuhvaća generiranje preglednih tablica pomoću biblioteke \texttt{pandas}, spremanje rezultata u CSV format te stvaranje grafičkih prikaza, kao što su stupčasti dijagrami za usporedbu prosječnih vrijednosti ili 2D raspršeni dijagrami za prikaz Paretovog fronta.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{slike/tijek_istrazivanja.png}
     \caption{Vizualni prikaz toka istraživanja}
     \label{fig:tok_istrazivanja}
 \end{figure}
-
-\subsection{Modeliranje nesigurnosti: Monte Carlo simulacija}
+\subsection{Implementacija ključnih komponenti}
+\subsubsection{Modeliranje nesigurnosti: Monte Carlo simulacija}
 
 Za svaku projektnu aktivnost definirane su tri točke procjene trajanja:
 \[
@@ -70,7 +68,7 @@ T_{\text{portfolio}} = \sum_{i \in S} t_i
 \]
 gdje je $S$ skup odabranih aktivnosti, a $t_i$ generirano trajanje aktivnosti $i$.
 
-Implementacija se temelji na \texttt{monte\_carlo\_eval\_duration} funkciji.
+Implementacija se temelji na \texttt{monte\_carlo\_eval\_duration} funkciji prikazanoj u Isječku koda \ref{lst:monte_carlo}, koja predstavlja konkretnu realizaciju teorijskog procesa opisanog u Poglavlju 2. Funkcija za zadani portfelj provodi velik broj simulacija (NUM_SIMULATIONS). U svakoj simulaciji, za svaku odabranu aktivnost generira se slučajno trajanje iz Trokutaste distribucije, zbrajaju se trajanja unutar te simulacije, a na kraju se vraća prosječna vrijednost svih simuliranih ukupnih trajanja.
 \begin{lstlisting}[language=Python, caption={Funkcija za Monte Carlo procjenu trajanja}, label={lst:monte_carlo}, captionpos=b]
 def monte_carlo_eval_duration(individual, activities, config):
     selected = [act for i, act in enumerate(activities) if individual[i] == 1]
