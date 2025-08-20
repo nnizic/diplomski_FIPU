@@ -68,7 +68,7 @@ T_{\text{portfolio}} = \sum_{i \in S} t_i
 \]
 gdje je $S$ skup odabranih aktivnosti, a $t_i$ generirano trajanje aktivnosti $i$.
 
-Implementacija se temelji na \texttt{monte\_carlo\_eval\_duration} funkciji prikazanoj u Isječku koda \ref{lst:monte_carlo}, koja predstavlja konkretnu realizaciju teorijskog procesa opisanog u Poglavlju 2. Funkcija za zadani portfelj provodi velik broj simulacija (NUM_SIMULATIONS). U svakoj simulaciji, za svaku odabranu aktivnost generira se slučajno trajanje iz Trokutaste distribucije, zbrajaju se trajanja unutar te simulacije, a na kraju se vraća prosječna vrijednost svih simuliranih ukupnih trajanja.
+Implementacija se temelji na \texttt{monte\_carlo\_eval\_duration} funkciji prikazanoj u Isječku koda \ref{lst:monte_carlo}, koja predstavlja konkretnu realizaciju teorijskog procesa opisanog u Poglavlju 2. 
 \begin{lstlisting}[language=Python, caption={Funkcija za Monte Carlo procjenu trajanja}, label={lst:monte_carlo}, captionpos=b]
 def monte_carlo_eval_duration(individual, activities, config):
     selected = [act for i, act in enumerate(activities) if individual[i] == 1]
@@ -86,15 +86,14 @@ def monte_carlo_eval_duration(individual, activities, config):
 
 
 \paragraph{Agregiranje rezultata.}
-Monte Carlo simulacija ponavlja se velik broj puta $(\text{NUM\_SIMULATIONS})$, a konačna procjena trajanja portfelja 
-dobiva se kao prosječna vrijednost svih simuliranih trajanja:
+Funkcija za zadani portfelj provodi velik broj simulacija $(\text{NUM\_SIMULATIONS})$. U svakoj simulaciji, za svaku odabranu aktivnost generira se slučajno trajanje iz Trokutaste distribucije, zbrajaju se trajanja unutar te simulacije, a na kraju se vraća prosječna vrijednost svih simuliranih ukupnih trajanja.
 \[
 \overline{T}(S) = \frac{1}{\text{NUM\_SIMULATIONS}} \sum_{k=1}^{\text{NUM\_SIMULATIONS}} T_{\text{portfolio}}^{(k)}
 \]
 gdje $T_{\text{portfolio}}^{(k)}$ označava ukupno trajanje portfelja u $k$-toj simulaciji.
 
 
-\subsection{Optimizacijski pristup: Genetski algoritam}
+\subsubsection{Optimizacijski pristup: Genetski algoritam}
 
 Implementacija genetskog algoritma provedena je pomoću programske biblioteke \texttt{DEAP} (Distributed Evolutionary Algorithms in Python) \cite{DEAP2012}. 
 S obzirom na prirodu problema odabira podskupa aktivnosti, korištena je \textbf{binarna reprezentacija}, gdje svaka jedinka (kromosom) predstavlja jedan portfelj projekata u obliku binarnog niza. Vrijednost '1' na poziciji i označava da je $i$-ta aktivnost odabrana, dok '0' označava da nije.
@@ -108,12 +107,41 @@ g_i =
 0, & \text{ako nije odabrana}.
 \end{cases}
 \]
+\paragraph{Konfiguracija genetskih operatora (DEAP Toolbox)}
 
-\paragraph{Funkcija pogodnosti (Fitness Function).}
+DEAP koristi koncept "kutije s alatima" (\texttt{Toolbox}) za registraciju svih komponenata potrebnih za evolucijski proces. Za ovaj rad, operatori su odabrani na temelju standardnih praksi za binarne genetske algoritme i specifičnosti problema, kako je prikazano u Isječku koda \ref{lst:toolbox}. U nastavku je dano obrazloženje za odabir svakog ključnog operatora.
+
+\paragraph{Selekcija.}
+Za jedno-kriterijsku optimizaciju odabrana je turnirska selekcija (\texttt{tools.selTournament}). Za razliku od drugih metoda poput selekcije ruleta, koja može dovesti do prerane konvergencije ako jedna "super-jedinka" dominira populacijom, turnirska selekcija pruža bolju kontrolu nad "selekcijskim pritiskom" \cite{Goldberg1989}. Korištenjem manjeg turnira (veličine 3), osigurava se da i prosječno dobre jedinke imaju priliku za reprodukciju, što pomaže u očuvanju genetske raznolikosti. Za više-kriterijsku optimizaciju, primjena operatora \texttt{tools.selNSGA2} je nužna jer on ne provodi jednostavnu selekciju, već implementira cjelokupnu logiku sortiranja po nedominaciji i izračuna gustoće naseljenosti, što je srž NSGA-II algoritma opisanog u Poglavlju 2.
+
+\paragraph{Križanje.}
+Kao glavni mehanizam rekombinacije, odabrano je dvo-točkovno križanje (\texttt{tools.cxTwoPoint}). Ova metoda predstavlja dobar kompromis između očuvanja dobrih shema (građevnih blokova) i istraživanja novih kombinacija. U usporedbi s jedno-točkovnim križanjem, manje je podložno pozicijskoj pristranosti, dok je istovremeno manje disruptivno od uniformnog križanja, koje može previše lako razbiti uspješne kombinacije gena. Dvo-točkovno križanje se stoga smatra robusnim i pouzdanim izborom za mnoge binarne probleme \cite{Mitchell1998}.
+
+\paragraph{Mutacija.}
+Odabrana je standardna mutacija slučajne promjene bita (\texttt{tools.mutFlipBit}). Njena uloga je ključna za istraživanje (exploration) i sprječavanje stagnacije algoritma. Ovaj operator osigurava da za svaku poziciju u kromosomu uvijek postoji mala, ne-nulta vjerojatnost promjene vrijednosti (iz 0 u 1 ili obrnuto). Time se garantira da algoritam može doseći bilo koju točku u prostoru rješenja i sprječava se situacija u kojoj cijela populacija konvergira prema genu iste vrijednosti, iz koje se samo križanjem ne bi mogla oporaviti.
+
+Vjerojatnosti primjene križanja (\texttt{CX\_PB}) i mutacije (\texttt{MUT\_PB}) definirane su kao vanjski parametri u glavnom konfiguracijskom rječniku, što omogućuje njihovo lako podešavanje i testiranje, kao što je i učinjeno u prvoj fazi eksperimenata.
+\begin{lstlisting}[language=Python, caption={Primjer konfiguracije DEAP Toolbox-a za genetske operatore.}, label={lst:toolbox}]
+
+Inicijalizacija Toolbox objekta
+toolbox = base.Toolbox()
+
+Registracija operatora za generiranje jedinki i populacije
+toolbox.register("attr_bool", random.randint, 0, 1)
+toolbox.register("individual", tools.initRepeat, creator.Individual,
+toolbox.attr_bool, config["NUM_ACTIVITIES"])
+toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+Registracija genetskih operatora
+toolbox.register("mate", tools.cxTwoPoint)
+toolbox.register("mutate", tools.mutFlipBit, indpb=0.1)
+toolbox.register("select", tools.selTournament, tournsize=3)
+toolbox.register("evaluate", single_objective_fitness)
+\end{lstlisting}
+
+\paragraph{implementacija funkcija pogodnosti (Fitness Function).}
 Ključni dio implementacije su funkcije pogodnosti. Ovisno o scenariju, korištene su dvije različite funkcije. Za jedno-kriterijsku optimizaciju (GA samo ROI), implementirana je funkcija koja maksimizira ROI i primjenjuje strogu kaznenu metodu za rješenja koja prekoračuju budžet, osiguravajući da su sva nevaljana rješenja lošija od bilo kojeg valjanog.
 Za hibridni scenarij (GA+MC), implementirana je više-kriterijska funkcija pogodnosti koja predstavlja srž ovog rada. Kao što je prikazano u Isječku koda \ref{lst:fitness_function}, ova funkcija unutar jedne evaluacije objedinjuje deterministički izračun (ukupni trošak i ROI) i poziv stohastičke Monte Carlo simulacije za procjenu rizika (očekivano trajanje). Vraća tuple s dvije vrijednosti, omogućujući NSGA-II algoritmu da istovremeno optimizira oba cilja.
-\begin{figure}
-    \centering
 \begin{lstlisting}[language=Python, caption={Više-kriterijska funkcija pogodnosti}, label={lst:fitness_function}, captionpos=b ]
 def multi_objective_fitness(individual, activities, config):
     total_cost, total_roi = calculate_metrics(individual, activities)
@@ -122,7 +150,6 @@ def multi_objective_fitness(individual, activities, config):
     avg_duration = monte_carlo_eval_duration(individual, activities, config)
     return total_roi, avg_duration
 \end{lstlisting}
-\end{figure}
 Ovisno o eksperimentalnom scenariju, korištene su dvije vrste funkcije pogodnosti:
 \begin{enumerate}
     \item \textbf{Jedno-kriterijska optimizacija.}  
@@ -150,8 +177,6 @@ Ovakav pristup osigurava da svako valjano rješenje (koje ima pozitivan fitness)
     gdje $\overline{T}(S)$ označava prosječno trajanje portfelja $S$.
 \end{enumerate}
 
-\paragraph{Genetski operatori.}
-Za evoluciju populacije korišteni su sljedeći standardni genetski operatori za binarnu reprezentaciju koje pruža DEAP. Za \textbf{Selekciju} su primijenjeni Turnirska selekcija (\texttt{tools.selTournament}) za jedno-kriterijsku optimizaciju, te \texttt{tools.selNSGA2} za više-kriterijsku optimizaciju. Kao operator \textbf{križanja} korišteno je križanje u dvije točke (\texttt{tools.cxTwoPoint}), koje razmjenjuje segmente između dva roditeljska kromosoma, dok je za \textbf{mutaciju} korištena slučajna promjena bita (\texttt{tools.mutFlipBit}), koja s malom vjerojatnošću mijenja vrijednost pojedinog gena (iz $0$ u $1$ ili obrnuto), osiguravajući genetsku raznolikost i sprječavajući preranu konvergenciju.
 
 \subsection{Vizualizacija i obrada rezultata}
 

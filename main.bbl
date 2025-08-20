@@ -1,0 +1,129 @@
+\begin{thebibliography}{10}
+
+\bibitem{Kellerer2004}
+Hans Kellerer, Ulrich Pferschy, and David Pisinger.
+\newblock {\em Knapsack Problems}.
+\newblock Springer, 2004.
+
+\bibitem{Malcolm1959}
+D.~G. Malcolm, J.~H. Roseboom, C.~E. Clark, and W.~Fazar.
+\newblock Application of a technique for research and development program evaluation.
+\newblock {\em Operations Research}, 7(5):646--669, 1959.
+
+\bibitem{Kerzner2017}
+Harold Kerzner.
+\newblock {\em Project Management: A Systems Approach to Planning, Scheduling, and Controlling}.
+\newblock Wiley, 12th edition, 2017.
+
+\bibitem{Holland1975}
+John~H. Holland.
+\newblock {\em Adaptation in Natural and Artificial Systems}.
+\newblock University of Michigan Press, Ann Arbor, MI, 1st edition, 1975.
+
+\bibitem{Goldberg1989}
+David~E. Goldberg.
+\newblock {\em Genetic Algorithms in Search, Optimization, and Machine Learning}.
+\newblock Addison-Wesley, 1989.
+
+\bibitem{Metropolis1949}
+Nicholas Metropolis, Arianna~W. Rosenbluth, Marshall~N. Rosenbluth, Augusta~H. Teller, and Edward Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em The Journal of Chemical Physics}, 21(6):1087--1092, 1949.
+
+\bibitem{Rubinstein2016}
+Reuven~Y. Rubinstein and Dirk~P. Kroese.
+\newblock {\em Simulation and the Monte Carlo Method}.
+\newblock Wiley, 3rd edition, 2016.
+
+\bibitem{PMI2021}
+{Project Management Institute}.
+\newblock {\em A Guide to the Project Management Body of Knowledge (PMBOK Guide)}.
+\newblock PMI, 7th edition, 2021.
+
+\bibitem{Hillson2009}
+David Hillson.
+\newblock {\em Managing Risk in Projects}.
+\newblock Routledge, 2009.
+
+\bibitem{Smith2014}
+Pete Smith.
+\newblock {\em Project Uncertainty: Managing Risk in New Ventures}.
+\newblock Routledge, 2014.
+
+\bibitem{Vose2008}
+David Vose.
+\newblock {\em Risk Analysis: A Quantitative Guide}.
+\newblock John Wiley \& Sons, 2008.
+
+\bibitem{GareyJohnson1979}
+Michael~R. Garey and David~S. Johnson.
+\newblock {\em Computers and Intractability: A Guide to the Theory of NP-Completeness}.
+\newblock W. H. Freeman, 1979.
+
+\bibitem{Gandomi2013}
+Amir~H. Gandomi, Xin-She Yang, Siamak Talatahari, and Amir~H. Alavi.
+\newblock Metaheuristic algorithms in modeling and optimization.
+\newblock {\em Applied Soft Computing}, 13(1):1--11, 2013.
+
+\bibitem{Mitchell1998}
+Melanie Mitchell.
+\newblock {\em An Introduction to Genetic Algorithms}.
+\newblock MIT Press, 1998.
+
+\bibitem{Deb2002}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 6(2):182--197, 2002.
+
+\bibitem{Miller2009}
+Roger Miller and Donald Lessard.
+\newblock Project risk management using monte carlo simulation.
+\newblock {\em Project Management Journal}, 40(3):23--33, 2009.
+
+\bibitem{Avlijas2008}
+Gordana Avlijaš, Krzysztof Grabiński, and Dragana Milinković.
+\newblock Using monte carlo simulation in project management.
+\newblock {\em Management - Journal of Sustainable Business and Management Solutions in Emerging Economies}, 13(47):33--38, 2008.
+
+\bibitem{Law2015}
+Averill~M. Law.
+\newblock {\em Simulation Modeling and Analysis}.
+\newblock McGraw-Hill Education, 5th edition, 2015.
+
+\bibitem{Glover1986}
+Fred Glover.
+\newblock Future paths for integer programming and links to artificial intelligence.
+\newblock {\em Computers \& Operations Research}, 13(5):533--549, 1986.
+
+\bibitem{PythonSoftwareFoundation}
+{Python Software Foundation}.
+\newblock Python language reference, version 3.x.
+\newblock \url{https://www.python.org/}, 2024.
+\newblock Accessed: 2025-07-31.
+
+\bibitem{DEAP2012}
+F.~A. Fortin, F.~M.~De Rainville, M.~Gardner, M.~Parizeau, and C.~Gagn{\'e}.
+\newblock {DEAP}: Evolutionary algorithms made easy.
+\newblock In {\em Proceedings of the 14th Annual Conference Companion on Genetic and Evolutionary Computation}, pages 2171--2178, New York, NY, USA, 2012. Association for Computing Machinery.
+
+\bibitem{Harris2020}
+Charles~R. Harris, K.~Jarrod Millman, Stéfan~J. van~der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel~J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten~H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime~Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis~E. Oliphant.
+\newblock Array programming with {NumPy}.
+\newblock {\em Nature}, 585:357--362, 2020.
+
+\bibitem{PandasDevelopmentTeam2020}
+The pandas~development team.
+\newblock pandas-dev/pandas: Pandas.
+\newblock feb 2020.
+
+\bibitem{Waskom2021}
+Michael~L. Waskom.
+\newblock Seaborn: statistical data visualization.
+\newblock {\em Journal of Open Source Software}, 6(60):3021, 2021.
+
+\bibitem{Hunter2007}
+J.~D. Hunter.
+\newblock Matplotlib: A 2d graphics environment.
+\newblock {\em Computing in Science \& Engineering}, 9(3):90--95, 2007.
+
+\end{thebibliography}
