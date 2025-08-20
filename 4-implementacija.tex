@@ -1,6 +1,7 @@
 \section{Arhitektura sustava i implementacija}
 \label{chap:implementacija}
-Nakon definiranja teorijskih osnova i formalizacije problema, ovo poglavlje detaljno opisuje praktičnu realizaciju razvijenog optimizacijskog modela. Sustav je implementiran u programskom jeziku Python (verzija 3.x), odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. U nastavku se opisuje arhitektura programskog rješenja, korištene tehnologije te detalji implementacije ključnih komponenata.
+
+Nakon definiranja teorijskih osnova i formalizacije problema, ovo poglavlje detaljno opisuje praktičnu realizaciju razvijenog optimizacijskog modela. Ovo poglavlje predstavlja most između teorijske formulacije problema iz Poglavlja 3 i empirijske evaluacije rezultata koja slijedi u Poglavlju 5, detaljno prikazujući kako je apstraktni model preveden u operativni računalni sustav. Sustav je implementiran u programskom jeziku Python (verzija 3.x), odabranom zbog čitljivosti, bogatog ekosustava biblioteka i široke primjene u znanstvenom računarstvu \cite{PythonSoftwareFoundation}. U nastavku se opisuje arhitektura programskog rješenja, korištene tehnologije te detalji implementacije ključnih komponenata.
 \subsection{Korištene tehnologije i biblioteke}
 Za izradu sustava korišten je niz standardnih biblioteka iz Python ekosustava za znanstveno računarstvo. Biblioteka DEAP \cite{DEAP2012} korištena je kao temeljni okvir za implementaciju genetskog algoritma. Za numeričke operacije i statističku obradu korišten je NumPy \cite{Harris2020}, dok je za manipulaciju i spremanje tabličnih podataka korišten Pandas \cite{PandasDevelopmentTeam2020}. Vizualizacija rezultata provedena je pomoću biblioteka Seaborn \cite{Waskom2021} i Matplotlib \cite{Hunter2007}. Modeliranje nesigurnosti pomoću Trokutaste distribucije implementirano je korištenjem standardne Python biblioteke Random. Detaljan pregled dan je u Tablici \ref{tab:biblioteke}.
 \begin{table}[H]
@@ -47,7 +48,7 @@ b \ (\text{pesimistična})
 Iako u teoriji postoje kompleksnije distribucije poput \textit{Beta-PERT} distribucije, 
 za potrebe ovog rada odabrana je \textbf{Trokutasta distribucija (Triangular distribution)} 
 zbog svoje praktičnosti, računalne efikasnosti i intuitivnog temelja na tri poznate procjene.
-
+Standardna Python biblioteka \texttt{random} pokazala se dovoljnom za generiranje trokutastih distribucija, eliminirajući potrebu za dodatnim, kompleksnijim bibliotekama, što doprinosi jednostavnosti i prenosivosti koda. Ključno je napomenuti da se stohastička komponenta (simulacija) izvršava unutar determinističkog okvira genetskog algoritma, što znači da se svaka jedinka evaluira na temelju statistički stabilne prosječne vrijednosti trajanja, a ne na temelju jedne slučajne procjene
 \paragraph{Generiranje trajanja aktivnosti.}
 U svakoj iteraciji Monte Carlo simulacije, trajanje svake aktivnosti generira se slučajnom vrijednošću 
 unutar raspona $[a, b]$ s najvećom vjerojatnošću u točki $m$.  
@@ -112,7 +113,7 @@ g_i =
 DEAP koristi koncept "kutije s alatima" (\texttt{Toolbox}) za registraciju svih komponenata potrebnih za evolucijski proces. Za ovaj rad, operatori su odabrani na temelju standardnih praksi za binarne genetske algoritme i specifičnosti problema, kako je prikazano u Isječku koda \ref{lst:toolbox}. U nastavku je dano obrazloženje za odabir svakog ključnog operatora.
 
 \paragraph{Selekcija.}
-Za jedno-kriterijsku optimizaciju odabrana je turnirska selekcija (\texttt{tools.selTournament}). Za razliku od drugih metoda poput selekcije ruleta, koja može dovesti do prerane konvergencije ako jedna "super-jedinka" dominira populacijom, turnirska selekcija pruža bolju kontrolu nad "selekcijskim pritiskom" \cite{Goldberg1989}. Korištenjem manjeg turnira (veličine 3), osigurava se da i prosječno dobre jedinke imaju priliku za reprodukciju, što pomaže u očuvanju genetske raznolikosti. Za više-kriterijsku optimizaciju, primjena operatora \texttt{tools.selNSGA2} je nužna jer on ne provodi jednostavnu selekciju, već implementira cjelokupnu logiku sortiranja po nedominaciji i izračuna gustoće naseljenosti, što je srž NSGA-II algoritma opisanog u Poglavlju 2.
+     Za jedno-kriterijsku optimizaciju odabrana je turnirska selekcija \\ (\texttt{tools.selTournament}). Za razliku od drugih metoda poput selekcije ruleta, koja može dovesti do prerane konvergencije ako jedna "super-jedinka" dominira populacijom, turnirska selekcija pruža bolju kontrolu nad "selekcijskim pritiskom" \cite{Goldberg1989}. Korištenjem manjeg turnira (veličine 3), osigurava se da i prosječno dobre jedinke imaju priliku za reprodukciju, što pomaže u očuvanju genetske raznolikosti. Za više-kriterijsku optimizaciju, primjena operatora \texttt{tools.selNSGA2} je nužna jer on ne provodi jednostavnu selekciju, već implementira cjelokupnu logiku sortiranja po nedominaciji i izračuna gustoće naseljenosti, što je srž NSGA-II algoritma opisanog u Poglavlju 2.
 
 \paragraph{Križanje.}
 Kao glavni mehanizam rekombinacije, odabrano je dvo-točkovno križanje (\texttt{tools.cxTwoPoint}). Ova metoda predstavlja dobar kompromis između očuvanja dobrih shema (građevnih blokova) i istraživanja novih kombinacija. U usporedbi s jedno-točkovnim križanjem, manje je podložno pozicijskoj pristranosti, dok je istovremeno manje disruptivno od uniformnog križanja, koje može previše lako razbiti uspješne kombinacije gena. Dvo-točkovno križanje se stoga smatra robusnim i pouzdanim izborom za mnoge binarne probleme \cite{Mitchell1998}.
@@ -121,6 +122,9 @@ Kao glavni mehanizam rekombinacije, odabrano je dvo-točkovno križanje (\texttt
 Odabrana je standardna mutacija slučajne promjene bita (\texttt{tools.mutFlipBit}). Njena uloga je ključna za istraživanje (exploration) i sprječavanje stagnacije algoritma. Ovaj operator osigurava da za svaku poziciju u kromosomu uvijek postoji mala, ne-nulta vjerojatnost promjene vrijednosti (iz 0 u 1 ili obrnuto). Time se garantira da algoritam može doseći bilo koju točku u prostoru rješenja i sprječava se situacija u kojoj cijela populacija konvergira prema genu iste vrijednosti, iz koje se samo križanjem ne bi mogla oporaviti.
 
 Vjerojatnosti primjene križanja (\texttt{CX\_PB}) i mutacije (\texttt{MUT\_PB}) definirane su kao vanjski parametri u glavnom konfiguracijskom rječniku, što omogućuje njihovo lako podešavanje i testiranje, kao što je i učinjeno u prvoj fazi eksperimenata.
+
+Koncept Toolbox u DEAP biblioteci omogućuje iznimnu modularnost i fleksibilnost. Umjesto da se operatori pozivaju direktno, oni se registriraju u Toolbox objektu pod aliasima (\texttt{mate},\texttt{mutate},\texttt{select},\texttt{evaluate}). Ova 'registracija' stvara apstrakciju koja omogućava lako zamjenjivanje, testiranje i prebacivanje između različitih operatora bez promjene osnovne strukture evolucijskog petlje, što je bilo presudno za fazu kalibracije algoritma u prvom eksperimentu
+
 \begin{lstlisting}[language=Python, caption={Primjer konfiguracije DEAP Toolbox-a za genetske operatore.}, label={lst:toolbox}]
 
 Inicijalizacija Toolbox objekta
@@ -153,55 +157,55 @@ def multi_objective_fitness(individual, activities, config):
 Ovisno o eksperimentalnom scenariju, korištene su dvije vrste funkcije pogodnosti:
 \begin{enumerate}
     \item \textbf{Jedno-kriterijska optimizacija.}  
-Za scenarij GA (samo ROI), cilj je bio isključivo maksimizacija ukupnog povrata na investiciju (ROI). Za rukovanje ograničenjem budžeta primijenjena je stroga kaznena metoda. Ako ukupni trošak odabranog portfelja $S$ ne prelazi budžet, njegova pogodnost je jednaka ukupnom ROI-u. U suprotnom, pogodnost postaje negativna vrijednost proporcionalna iznosu prekoračenja:
+U scenariju GA (samo ROI), algoritam se suočava s klasičnim problemom ograničene optimizacije (\textit{constrained optimization}). Budući da su genetski algoritmi u svojoj osnovi neograničeni pretraživači prostora rješenja, potreban je mehanizam koji će populaciju "usmjeriti" prema rješenjima koja zadovoljavaju zadane uvjete – u ovom slučaju, ograničenje budžeta. Najčešći pristup za rješavanje ovog problema je korištenje kaznenih funkcija (\textit{penalty functions}), koje smanjuju fitness nevaljanih rješenja \cite{Goldberg1989}.
+
+U ovom radu primijenjena je stroga i direktna kaznena metoda. Ako ukupni trošak odabranog portfelja $S$ ne prelazi budžet, njegova pogodnost jednaka je pozitivnoj vrijednosti ukupnog ROI-a. Međutim, ako je budžet prekoračen, pogodnost postaje negativna vrijednost proporcionalna iznosu prekoračenja:
 $$
 \text{Fitness}(S) = 
 \begin{cases}
     \sum_{i \in S} \text{ROI}_i, & \text{ako } \sum_{i \in S} \text{Trošak}_i \leq \text{Budžet} \\
-    -\left(\sum_{i \in S} \text{Trošak}_i - \text{Budžet}\right), & \text{ako } \sum_{i \in S} \text{Trošak}_i > \text{Budžet}
+    -(\sum_{i \in S} \text{Trošak}_i - \text{Budžet}), & \text{ako } \sum_{i \in S} \text{Trošak}_i > \text{Budžet}
 \end{cases}
 $$
-Ovakav pristup osigurava da svako valjano rješenje (koje ima pozitivan fitness) uvijek bude ocijenjeno kao bolje od bilo kojeg nevaljanog rješenja (koje ima negativan fitness).    \item \textbf{Više-kriterijska optimizacija.}  
-    Za hibridni scenarij \texttt{GA+MC} korišten je napredni algoritam NSGA-II, s ciljem istovremene optimizacije dva suprotstavljena kriterija:
-    \begin{enumerate}
-        \item maksimizirati ROI,
-        \item minimizirati prosječno trajanje projekta, procijenjeno Monte Carlo simulacijom.
-    \end{enumerate}
-    Formalno:
-    \[
-    \begin{cases}
-    \max f_1(S) = ROI(S) \\
-    \min f_2(S) = \overline{T}(S)
-    \end{cases}
-    \]
-    gdje $\overline{T}(S)$ označava prosječno trajanje portfelja $S$.
+Odabir ovakve "smrtne kazne" (\textit{death penalty}) za nevaljana rješenja, gdje fitness postaje negativan, ima nekoliko prednosti. Prvo, implementacija je jednostavna i računalno efikasna. Drugo, stvara jasnu i oštru granicu između valjanog i nevaljanog prostora rješenja, garantirajući da će evolucijski proces uvijek preferirati bilo koje, pa i najlošije valjano rješenje (s pozitivnim fitnessom) u odnosu na bilo koje nevaljano rješenje (s negativnim fitnessom). Iako u literaturi postoje i napredniji pristupi, poput adaptivnih kazni (gdje se jačina kazne mijenja tijekom evolucije) ili algoritama za popravak (koji pokušavaju "popraviti" nevaljane jedinke), odabrana metoda se pokazala dovoljno robusnom i efikasnom za ovaj tip problema, izbjegavajući uvođenje dodatne složenosti.
+
+Ovakav pristup osigurava da genetski algoritam brzo nauči izbjegavati nevaljana područja i fokusira svoju pretragu na obećavajuće, profitabilne portfelje koji zadovoljavaju ključno poslovno ograničenje.
+
+    \item \textbf{Više-kriterijska optimizacija.}  
+Za razliku od jedno-kriterijskog pristupa, hibridni scenarij GA+MC usvaja realističniji, više-kriterijski pogled na problem, prepoznajući da uspjeh projektnog portfelja ne ovisi samo o financijskoj dobiti, već i o vremenskom riziku. Stoga su u ovom naprednom modelu, koji koristi NSGA-II algoritam, definirana dva suprotstavljena optimizacijska cilja:
+
+\begin{enumerate}
+    \item Maksimizacija ukupnog povrata na investiciju (ROI), kao mjera profitabilnosti.
+    \item Minimizacija prosječnog trajanja portfelja, procijenjenog Monte Carlo simulacijom, kao mjera rizika.
 \end{enumerate}
 
-
+Između ova dva cilja postoji fundamentalan i neizbježan kompromis (\textit{trade-off}). Portfelji koji teže maksimalnom ROI-u često uključuju veći broj aktivnosti ili one koje su dugotrajnije i rizičnije. S druge strane, portfelji koji minimiziraju trajanje obično su manji i konzervativniji, te posljedično imaju nižu ukupnu vrijednost. Zbog ovog konflikta, ne postoji jedno, savršeno rješenje koje je istovremeno najbolje po oba kriterija.
+Formalno, ovaj se više-kriterijski optimizacijski problem može zapisati kao:
+$$
+\begin{cases} 
+\max f_1(\mathbf{x}) = \sum_{i \in S(\mathbf{x})} v_i \\ 
+\min f_2(\mathbf{x}) = E[T(\mathbf{x})]
+\end{cases}
+$$
+gdje $S(\mathbf{x})$ označava skup odabranih aktivnosti za dani vektor odluke $\mathbf{x}$, a $E[T(\mathbf{x})]$ je očekivano trajanje tog portfelja dobiveno Monte Carlo simulacijom.
+U praktičnoj implementaciji, ovo se postiže pomoću funkcije pogodnosti (\texttt{multi\_objective\_fitness}) koja za svaku jedinku ne vraća jednu skalarnu vrijednost, već dvoelementni \textit{tuple} koji sadrži vrijednosti oba cilja (ROI, trajanje). Na temelju tih vektorskih vrijednosti, NSGA-II algoritam, detaljno opisan u Poglavlju 2, rangira populaciju i pretražuje prostor rješenja s ciljem pronalaženja Paretovog fronta – skupa optimalnih kompromisnih rješenja.
+\end{enumerate}
 \subsection{Vizualizacija i obrada rezultata}
 
-Za analizu i prikaz rezultata dobivenih optimizacijom korištene su biblioteke \texttt{pandas} za tabličnu obradu podataka te \texttt{Seaborn} i \texttt{Matplotlib} \cite{Waskom2021, Hunter2007} za grafičku vizualizaciju.
-Ovaj pristup omogućio je sustavnu prezentaciju statistički obrađenih podataka kroz detaljne tablice te vizualnu usporedbu modela pomoću stupčastih i raspršenih dijagrama. Posebno je značajan prikaz Paretovog fronta, koji jasno ilustrira kompromis (trade-off) između maksimizacije ROI-a i minimizacije trajanja, pružajući intuitivan uvid u kvalitetu rješenja dobivenih više-kriterijskom optimizacijom.
+Za analizu i prikaz rezultata dobivenih optimizacijom korištene su biblioteke \texttt{pandas} za tabličnu obradu podataka te \texttt{Seaborn} i \texttt{Matplotlib} \cite{Waskom2021, Hunter2007} za grafičku vizualizaciju. Kombinacija ovih alata odabrana je zbog njihove sinergije i efikasnosti u radu s podacima.
+\textbf{Pandas} je korišten kao temelj za organizaciju i manipulaciju eksperimentalnih podataka, omogućujući efikasnu filtraciju, sortiranje i agregiranje sirovih rezultata u strukturirane, pregledne tablice. Njegova snaga leži u mogućnosti brzog izračunavanja ključnih statistika (poput prosjeka i standardnih devijacija) potrebnih za usporedbu modela. Pandas je bio nezamjenjiv u ovoj fazi. Na primjer, nakon svake serije pokretanja algoritma, rezultati su se automatski spremali u \texttt{DataFrame} objekte, što je omogućilo lagano izračunavanje prosječnih vrijednosti i standardnih devijacija za usporedbu performansi. Uz to, Pandas je korišten za čitanje ulaznih podataka iz CSV datoteka, osiguravajući robustan i standardiziran ulazno-izlazni proces.
 
-Kombinacija alata omogućila je jasnu i preglednu prezentaciju rezultata 
-dobivenih iz eksperimentalnih scenarija.
+Za vizualizaciju, \textbf{Matplotlib} je služio kao osnovni "motor" za crtanje, dok je Seabornu dana prednost zbog njegove visoke razine apstrakcije i fokusiranosti na izradu statističkih grafova. Seaborn, izgrađen na Matplotlibu, omogućuje stvaranje estetski privlačnih i informativnih dijagrama s minimalno koda, automatski se brinući o bojama, temama i složenim prikazima odnosa među podacima. Upravo je ta jednostavnost i elegancija bila ključna za učinkovit prikaz rezultata više-kriterijske optimizacije.
+
+Ovaj pristup omogućio je sustavnu prezentaciju statistički obrađenih podataka kroz detaljne tablice te vizualnu usporedbu modela pomoću stupčastih i raspršenih dijagrama. Posebno je značajan prikaz Paretovog fronta, koji jasno ilustrira kompromis (\textit{trade-off}) između maksimizacije ROI-a i minimizacije trajanja, pružajući intuitivan uvid u kvalitetu rješenja dobivenih više-kriterijskom optimizacijom.
 
 Ključni vizualni elementi korišteni u ovom radu uključuju:
+\begin{itemize}
+    \item \textbf{Tablične prikaze:} Detaljne tablice s konačnim, statistički obrađenim rezultatima usporedbe različitih optimizacijskih scenarija, uključujući osnovne metrike poput prosječnog ROI-a, prosječnog trajanja te raspona vrijednosti.
+    \item \textbf{Stupčaste dijagrame:} Koristili su se za vizualnu usporedbu prosječnih vrijednosti (\textit{ROI} i trajanje) između različitih metodologija optimizacije, omogućujući brzu identifikaciju učinkovitijih pristupa.
+    \item \textbf{Raspršene dijagrame (\textit{Scatter Plot}):} Prikaz Paretovog fronta dobivenog NSGA-II algoritmom, koji jasno ilustrira kompromis (\textit{trade-off}) između dvaju suprotstavljenih ciljeva: maksimizacije ROI-a i minimizacije trajanja. Time se omogućuje intuitivna procjena učinkovitosti rješenja.
+\end{itemize}
 
-    \textbf{Tablične prikaze:} Detaljne tablice s konačnim, statistički obrađenim rezultatima 
-    usporedbe različitih optimizacijskih scenarija, uključujući osnovne metrike 
-    poput prosječnog ROI-a, prosječnog trajanja te raspona vrijednosti.
+Vizualizacija rezultata odigrala je ključnu ulogu u interpretaciji dobivenih podataka, posebno u scenarijima s više ciljeva, gdje tablični prikazi sami po sebi nisu dovoljni za uočavanje odnosa i kompromisa među varijablama.
 
-    \textbf{Stupčaste dijagrame:} Koristili su se za vizualnu usporedbu prosječnih vrijednosti 
-    (\textit{ROI} i trajanje) između različitih metodologija optimizacije, omogućujući brzu identifikaciju 
-    učinkovitijih pristupa.
-
-    \textbf{Raspršene dijagrame (Scatter Plot):} Prikaz Paretovog fronta dobivenog NSGA-II algoritmom, 
-    koji jasno ilustrira kompromis (\textit{trade-off}) između dvaju suprotstavljenih ciljeva:
-    maksimizacije ROI-a i minimizacije trajanja. Time se omogućuje intuitivna procjena 
-    učinkovitosti rješenja.
-
-Vizualizacija rezultata odigrala je ključnu ulogu u interpretaciji dobivenih podataka, 
-posebno u scenarijima s više ciljeva, gdje tablični prikazi sami po sebi nisu dovoljni 
-za uočavanje odnosa i kompromisa među varijablama.
-
+Sveobuhvatni metodološki okvir i detaljna implementacija opisana u ovom poglavlju služe kao temelj za daljnju analizu. Precizna konfiguracija sustava, od odabira biblioteka do implementacije prilagođenih genetskih operatora i funkcija pogodnosti, ključna je za osiguravanje pouzdanosti i valjanosti dobivenih rezultata. Ovaj okvir nije samo teorijski model, već robustan eksperimentalni sustav koji omogućuje testiranje i usporedbu različitih optimizacijskih scenarija u kontroliranom okruženju. S uspostavljenom arhitekturom i implementacijom svih ključnih modula, rad je spreman za sljedeću fazu – empirijsku evaluaciju i diskusiju rezultata, što je i fokus sljedećeg poglavlja.

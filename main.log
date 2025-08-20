@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  20 AUG 2025 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.16)  20 AUG 2025 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -678,7 +678,7 @@ l.62 \clearpage
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 ... {section}{Popis tablica}{35}{section*.30}
+l.58 ... {section}{Popis tablica}{37}{section*.30}
                                                   % [2
 
 ])
@@ -784,14 +784,14 @@ Package pdftex.def Info: slike/model_problema.png  used on input line 32.
 [14] (./4-implementacija.tex
 
 [15]
-Overfull \hbox (8.12103pt too wide) in paragraph at lines 29--30
+Overfull \hbox (8.12103pt too wide) in paragraph at lines 30--31
 \OT1/cmr/m/n/12 provo[]denje kona^^Tcne, sta-tisti^^Tcki ro-busne us-po-redbe triju razli^^Tcitih pris-tupa rje^^Tsavanju
  []
 
 <slike/tijek_istrazivanja.png, id=419, 552.0625pt x 916.42375pt>
 File: slike/tijek_istrazivanja.png Graphic file (type png)
 <use slike/tijek_istrazivanja.png>
-Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 34.
+Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 35.
 (pdftex.def)             Requested size: 375.14705pt x 622.76837pt.
 
 
@@ -800,47 +800,46 @@ Package pdftex.def Info: slike/tijek_istrazivanja.png  used on input line 34.
 [17 <./slike/tijek_istrazivanja.png (PNG copy)>] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 72.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 73.
 
 
 [18]
-Overfull \hbox (102.79549pt too wide) in paragraph at lines 115--116
- []\OT1/cmr/bx/n/12 Selekcija.[] \OT1/cmr/m/n/12 Za jedno-kriterijsku op-ti-mi-za-ciju oda-brana je tur-nir-ska se-lek-cija (\OT1/cmtt/m/n/12 tools.selTournament\OT1/cmr/m/n/12 ).
- []
 
-
-Overfull \hbox (15.96179pt too wide) in paragraph at lines 118--119
+[19]
+Overfull \hbox (15.96179pt too wide) in paragraph at lines 119--120
  []\OT1/cmr/bx/n/12 Kri^^Tzanje.[] \OT1/cmr/m/n/12 Kao glavni me-ha-ni-zam re-kom-bi-na-cije, oda-brano je dvo-to^^Tckovno kri^^Tzanje
  []
 
 
-
-[19]
-Overfull \hbox (51.40698pt too wide) in paragraph at lines 121--122
+Overfull \hbox (51.40698pt too wide) in paragraph at lines 122--123
  []\OT1/cmr/bx/n/12 Mutacija.[] \OT1/cmr/m/n/12 Oda-brana je stan-dardna mu-ta-cija slu^^Tcajne pro-mjene bita (\OT1/cmtt/m/n/12 tools.mutFlipBit\OT1/cmr/m/n/12 ).
  []
 
 
 
 [20]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 148.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 152.
  (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 148.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 152.
 
-Overfull \hbox (4.17703pt too wide) in paragraph at lines 183--185
+
+[21]
+
+[22]
+Overfull \hbox (4.17703pt too wide) in paragraph at lines 195--197
 \OT1/cmr/m/n/12 Za ana-lizu i pri-kaz re-zul-tata do-bi-ve-nih op-ti-mi-za-ci-jom kori^^Tstene su bi-bli-oteke \OT1/cmtt/m/n/12 pandas
  []
 
 
 
-[21])
+[23])
 
-[22] (./5-eksperimenti.tex
+[24] (./5-eksperimenti.tex
 
-[23]
+[25]
 Overfull \hbox (0.15723pt too wide) in paragraph at lines 23--24
 \OT1/cmr/m/n/12 nost op-ti-mi-za-cij-skih mo-dela, pri ^^Tcemu se o^^Tcekuje da ^^Sce ek-s-tremna ograni^^Tcenja
  []
@@ -850,64 +849,64 @@ Overfull \hbox (5.61546pt too wide) in paragraph at lines 36--47
  [][] 
  []
 
-<slike/ga_usporedba_roi.png, id=515, 578.16pt x 361.35pt>
+<slike/ga_usporedba_roi.png, id=525, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_roi.png Graphic file (type png)
 <use slike/ga_usporedba_roi.png>
 Package pdftex.def Info: slike/ga_usporedba_roi.png  used on input line 55.
 (pdftex.def)             Requested size: 200.078pt x 125.04633pt.
-<slike/ga_usporedba_trajanje.png, id=517, 578.16pt x 361.35pt>
+<slike/ga_usporedba_trajanje.png, id=527, 578.16pt x 361.35pt>
 File: slike/ga_usporedba_trajanje.png Graphic file (type png)
 <use slike/ga_usporedba_trajanje.png>
 Package pdftex.def Info: slike/ga_usporedba_trajanje.png  used on input line 62.
 (pdftex.def)             Requested size: 200.078pt x 125.04633pt.
 
 
-[24]
+[26]
 Overfull \hbox (0.8033pt too wide) in paragraph at lines 72--72
 []\OT1/cmr/bx/n/14.4 Eksperiment 2: Us-po-redna ana-liza op-ti-mi-za-cij-skih mo-
  []
 
 
 
-[25 <./slike/ga_usporedba_roi.png> <./slike/ga_usporedba_trajanje.png>]
-<slike/grafikoni_final/A_skalabilnost_roi.png, id=536, 867.24pt x 505.89pt>
+[27 <./slike/ga_usporedba_roi.png> <./slike/ga_usporedba_trajanje.png>]
+<slike/grafikoni_final/A_skalabilnost_roi.png, id=547, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_roi.png  used on input line 143.
 (pdftex.def)             Requested size: 200.078pt x 116.70732pt.
-<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=537, 867.24pt x 505.89pt>
+<slike/grafikoni_final/A_skalabilnost_trajanje.png, id=548, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/A_skalabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/A_skalabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/A_skalabilnost_trajanje.png  used on input line 149.
 (pdftex.def)             Requested size: 200.078pt x 116.70732pt.
 
 
-[26 <./slike/grafikoni_final/A_skalabilnost_roi.png> <./slike/grafikoni_final/A_skalabilnost_trajanje.png>]
-<slike/grafikoni_final/B_budzet_roi.png, id=548, 867.24pt x 505.89pt>
+[28 <./slike/grafikoni_final/A_skalabilnost_roi.png> <./slike/grafikoni_final/A_skalabilnost_trajanje.png>]
+<slike/grafikoni_final/B_budzet_roi.png, id=559, 867.24pt x 505.89pt>
 File: slike/grafikoni_final/B_budzet_roi.png Graphic file (type png)
 <use slike/grafikoni_final/B_budzet_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/B_budzet_roi.png  used on input line 161.
 (pdftex.def)             Requested size: 333.46758pt x 194.52509pt.
-<slike/grafikoni_final/C_stabilnost_roi.png, id=550, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_roi.png, id=561, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_roi.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_roi.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_roi.png  used on input line 173.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
-<slike/grafikoni_final/C_stabilnost_trajanje.png, id=551, 1011.78pt x 505.89pt>
+<slike/grafikoni_final/C_stabilnost_trajanje.png, id=562, 1011.78pt x 505.89pt>
 File: slike/grafikoni_final/C_stabilnost_trajanje.png Graphic file (type png)
 <use slike/grafikoni_final/C_stabilnost_trajanje.png>
 Package pdftex.def Info: slike/grafikoni_final/C_stabilnost_trajanje.png  used on input line 179.
 (pdftex.def)             Requested size: 200.078pt x 100.03375pt.
-<slike/grafikoni_final/D_pareto_front_scatter.png, id=553, 867.24pt x 578.16pt>
+<slike/grafikoni_final/D_pareto_front_scatter.png, id=564, 867.24pt x 578.16pt>
 File: slike/grafikoni_final/D_pareto_front_scatter.png Graphic file (type png)
 <use slike/grafikoni_final/D_pareto_front_scatter.png>
 Package pdftex.def Info: slike/grafikoni_final/D_pareto_front_scatter.png  used on input line 191.
 (pdftex.def)             Requested size: 375.14705pt x 250.09486pt.
 
 
-[27 <./slike/grafikoni_final/B_budzet_roi.png> <./slike/grafikoni_final/C_stabilnost_roi.png> <./slike/grafikoni_final/C_stabilnost_trajanje.png>]
+[29 <./slike/grafikoni_final/B_budzet_roi.png> <./slike/grafikoni_final/C_stabilnost_roi.png> <./slike/grafikoni_final/C_stabilnost_trajanje.png>]
 
-[28 <./slike/grafikoni_final/D_pareto_front_scatter.png>]
+[30 <./slike/grafikoni_final/D_pareto_front_scatter.png>]
 Overfull \hbox (18.68759pt too wide) in paragraph at lines 212--214
 []\OT1/cmr/m/n/12 Otkri^^Sce o ro-bus-nosti i krh-kosti mo-dela (H3): Kona^^Tcno, ana-liza utje-caja ograni^^Tcenja
  []
@@ -919,33 +918,33 @@ Overfull \hbox (15.51364pt too wide) in paragraph at lines 215--216
 
 )
 
-[29] (./X-zakljucak.tex
-
-[30])
-
-[31] (./main.bbl
+[31] (./X-zakljucak.tex
 
 [32])
 
-[33] (./main.lof)
+[33] (./main.bbl
+
+[34])
+
+[35] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
 
 
-[34] (./main.lot)
+[36] (./main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
 
 
-[35] (./main.lol)
+[37] (./main.lol)
 \tf@lol=\write8
 \openout8 = `main.lol'.
 
 
 
-[36] (./main.aux)
+[38] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -954,18 +953,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CB6B976706A1FE5F43A7C9EEBBDF11CC;10291.
  ) 
 Here is how much of TeX's memory you used:
- 25665 strings out of 474560
- 468846 string characters out of 5750494
- 1129738 words of memory out of 5000000
+ 25667 strings out of 474560
+ 468860 string characters out of 5750494
+ 1125247 words of memory out of 5000000
  48092 multiletter control sequences out of 15000+600000
  566742 words of font info for 63 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 84i,12n,91p,1432b,1354s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (41 pages, 2254317 bytes).
+ 84i,12n,91p,1432b,2123s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (43 pages, 2268173 bytes).
 PDF statistics:
- 739 PDF objects out of 1000 (max. 8388607)
- 641 compressed objects within 7 object streams
- 179 named destinations out of 1000 (max. 500000)
+ 756 PDF objects out of 1000 (max. 8388607)
+ 654 compressed objects within 7 object streams
+ 181 named destinations out of 1000 (max. 500000)
  404 words of extra memory for PDF output out of 10000 (max. 10000000)
 

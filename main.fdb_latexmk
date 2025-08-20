@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1755714162.44346 "main.aux" "main.bbl" "main" 1755714166.31758 0
+["bibtex main"] 1755716047.21451 "main.aux" "main.bbl" "main" 1755716436.94725 0
   "./literatura.bib" 1754942557.27416 8091 54ad30110078dbcd8334aebdf9ecacc2 ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1742685315 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1755714166.21465 16342 1f5adb6ff871251033fdcbbe2140fd30 "pdflatex"
+  "main.aux" 1755716436.84167 16366 fd09d62b6297ff50a8d42d52d80f248d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1755714162.46491 "main.tex" "main.pdf" "main" 1755714166.31777 0
+["pdflatex"] 1755716433.07643 "main.tex" "main.pdf" "main" 1755716436.94745 0
   "/home/giz73/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1752691859.86371 14040 b371160483960834a53419c25f9c70aa ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1742685315 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -35,6 +35,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1742685315 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1742685315 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1742685315 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1742685315 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1742685315 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1742685315 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1742685315 36741 fa121aac0049305630cf160b86157ee4 ""
@@ -190,17 +191,17 @@
   "1-uvod.tex" 1755426296.42849 7280 0f2102f2aff9b7fcccfa931b79acd09a ""
   "2-teorijska-podloga.tex" 1755630960.59588 19144 fe050c125bbeecfc438ef53871b1fd33 ""
   "3-model-problema.tex" 1755714157.27812 9471 79af4f71c7d5a8894a613e3474a23eb4 ""
-  "4-implementacija.tex" 1755711108.00601 16815 bddefe6ed496debc7914c4ba29f26b9c ""
+  "4-implementacija.tex" 1755716433.01172 22774 c18de1e441b6f6fb69e077c38fc69c4a ""
   "5-eksperimenti.tex" 1755456665.46281 19702 d3673ee27ed42c1bfbcae17d14c5dfb6 ""
   "X-zakljucak.tex" 1755454985.28143 5075 590f6388c9a9a253b6ed0fb043cd6ece ""
-  "main.aux" 1755714166.21465 16342 1f5adb6ff871251033fdcbbe2140fd30 "pdflatex"
-  "main.bbl" 1755714162.45804 4970 a11179eca8617b8018db776da8694ad4 "bibtex main"
-  "main.lof" 1755714166.21465 1485 e222e364086ed9681d204113bb486bbe "pdflatex"
-  "main.lol" 1755714166.21465 374 36d0b80b6517b848db427d99dbbd0430 "pdflatex"
-  "main.lot" 1755714166.21465 724 f793f4fc2b5f5fa2253644d913239279 "pdflatex"
-  "main.out" 1755714166.21465 10291 cb6b976706a1fe5f43a7c9eebbdf11cc "pdflatex"
+  "main.aux" 1755716436.84167 16366 fd09d62b6297ff50a8d42d52d80f248d "pdflatex"
+  "main.bbl" 1755716047.23064 4970 a11179eca8617b8018db776da8694ad4 "bibtex main"
+  "main.lof" 1755716436.84167 1485 675e5b77b6c8d38d68e94a2b01c80dba "pdflatex"
+  "main.lol" 1755716436.84167 374 36d0b80b6517b848db427d99dbbd0430 "pdflatex"
+  "main.lot" 1755716436.84167 724 a1948086b899c7cdc39930231cd4409f "pdflatex"
+  "main.out" 1755716436.84167 10291 cb6b976706a1fe5f43a7c9eebbdf11cc "pdflatex"
   "main.tex" 1755459149.01238 2369 227ab30dfa47b3b8a8486da6bcb378f2 ""
-  "main.toc" 1755714166.21465 5283 71f943305bb6e14eb60aed065ab3d1d2 "pdflatex"
+  "main.toc" 1755716436.84167 5283 f6493e7f549a479dc310b0559f26f8ce "pdflatex"
   "prva-i-druga-stranica/druga-stranica.tex" 1755369489.44007 774 18e6e8a45c835e133b6112772d76bbb3 ""
   "prva-i-druga-stranica/prva-stranica.tex" 1753775856.83461 349 9b0ebf992ed001aa0ea470e6b0c8ddb3 ""
   "sazetak.tex" 1754997850.3762 3255 76faa8cd19d20696a0d74b57184389c9 ""
