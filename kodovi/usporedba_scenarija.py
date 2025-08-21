@@ -3,14 +3,36 @@
 from functools import partial
 import random
 
-from deap import algorithms, base, creator, tools
 import numpy as np
 import pandas as pd
+
+from deap import algorithms, base, creator, tools
+
+# ==============================================================================
+# PRIVREMENI KONFIGURACIJSKI RJEČNIK (SAMO ZA TESTIRANJE)
+# ==============================================================================
+# CONFIG = {
+#    "SEED": 42,
+#    "RUNS": 1,  # <<< SMANJENO NA 1 ZA BRZI TEST
+#    "NUM_SIMULATIONS": 100,
+#    "experimental_series": [
+#        # Svi ostali eksperimenti su zakomentirani ili obrisani
+#        {
+#            "name": "A3_Slozeni",
+#            "NUM_ACTIVITIES": 100,
+#            "BUDGET": 5000,
+#            "POP_SIZE": 250,
+#            "NGEN": 200,
+#            "CX_PB": 0.7,
+#            "MUT_PB": 0.2,
+#        },
+#    ],
+# }
 
 # ==============================================================================
 # GLAVNI KONFIGURACIJSKI RJEČNIK
 # ==============================================================================
-# Ovdje definirajte SVE eksperimente koje želite provesti.
+# Ovdje su definirani SVE eksperimente koje želite provesti.
 # Skripta će automatski iterirati kroz ovu listu.
 
 
@@ -169,6 +191,7 @@ def run_ga_once(
     fitness_func,
     selection_func,
     algorithm_func,
+    return_logbook=False,  # NOVI ARGUMENT
     **kwargs,
 ):
     """Generička funkcija za pokretanje jedne instance GA."""
@@ -184,7 +207,6 @@ def run_ga_once(
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
     toolbox.register("mate", tools.cxTwoPoint)
     toolbox.register("mutate", tools.mutFlipBit, indpb=0.1)
-    # Koristimo partial da "zaključamo" argumente 'activities' i 'config' za fitness funkciju
     evaluate_partial = partial(fitness_func, activities=activities, config=config)
     toolbox.register("evaluate", evaluate_partial)
     toolbox.register("select", selection_func, **kwargs)
@@ -196,19 +218,31 @@ def run_ga_once(
         else tools.ParetoFront()
     )
 
+    # NOVI DIO: Inicijalizacija statistike ako je zatraženo
+    stats = tools.Statistics(lambda ind: ind.fitness.values[0])
+    stats.register("avg", np.mean)
+    stats.register("std", np.std)
+    stats.register("min", np.min)
+    stats.register("max", np.max)
+
+    # Inicijalizacija logbook-a
+    logbook = tools.Logbook()
+
     # Pokretanje odgovarajućeg DEAP algoritma
+    # DODAN 'stats' ARGUMENT U POZIV ALGORITMA
     if algorithm_func == algorithms.eaSimple:
-        algorithms.eaSimple(
+        pop, logbook = algorithms.eaSimple(
             pop,
             toolbox,
             cxpb=config["CX_PB"],
             mutpb=config["MUT_PB"],
             ngen=config["NGEN"],
+            stats=stats,
             halloffame=hof,
             verbose=False,
         )
     else:  # eaMuPlusLambda
-        algorithms.eaMuPlusLambda(
+        pop, logbook = algorithms.eaMuPlusLambda(
             pop,
             toolbox,
             mu=config["POP_SIZE"],
@@ -216,24 +250,33 @@ def run_ga_once(
             cxpb=config["CX_PB"],
             mutpb=config["MUT_PB"],
             ngen=config["NGEN"],
+            stats=stats,
             halloffame=hof,
             verbose=False,
         )
 
     if not hof:
+        # Ako nema rješenja, vraćamo prazne vrijednosti
+        if return_logbook:
+            return (0, 0), None
         return 0, 0
 
+    # NOVI DIO: Vraćanje logbook-a ako je zatraženo
+    if return_logbook:
+        best_ind = hof[0]
+        fitness_values = single_objective_fitness(best_ind, activities, config)
+        duration = monte_carlo_eval_duration(best_ind, activities, config)
+        return (fitness_values[0], duration), logbook
+
+    # Postojeća logika za standardni povrat
     if algorithm_func == algorithms.eaSimple:
         best_ind = hof[0]
-        roi, _ = calculate_metrics(best_ind, activities)
-        # Ponovno evaluiramo da dobijemo točan ROI ako je bio kažnjen
         fitness_values = single_objective_fitness(best_ind, activities, config)
         return fitness_values[0], monte_carlo_eval_duration(
             best_ind, activities, config
         )
     else:  # NSGA-II
         best_solution = max(hof, key=lambda ind: ind.fitness.values[0])
-        # vraća i reprezentativno rješenje i cijeli HallOfFame (Paretov front)
         return best_solution.fitness.values, hof
 
 
@@ -290,30 +333,48 @@ def run_full_study():
             run_rois, run_durations = [], []
 
             for i in range(config["RUNS"]):
-                # spremanje hof za scatter plot
-                if name == "GA+MC (NSGA-II)":
-                    (roi, duration), pareto_front = run_function()
-                    # Sprema Paretov front iz PRVOG pokretanja NAJSLOŽENIJEG eksperimenta
-                    if config["name"] == "A3_Slozeni" and i == 0:
-                        print("   -> SPREMAM PARETOV FRONT ZA VIZUALIZACIJU...")
-                        pareto_points = [
-                            {
-                                "ROI": ind.fitness.values[0],
-                                "Trajanje": ind.fitness.values[1],
-                            }
-                            for ind in pareto_front
-                        ]
-                        df_pareto = pd.DataFrame(pareto_points)
-                        df_pareto.to_csv("pareto_front_A3.csv", index=False)
+                # NOVI DIO: Posebna logika za hvatanje logbook-a
+                # Okida se samo za prvo pokretanje (i==0) A3_Slozeni GA (samo ROI) scenarija
+                if (
+                    config["name"] == "A3_Slozeni"
+                    and name == "GA (samo ROI)"
+                    and i == 0
+                ):
+                    print("    -> Bilježim statistike konvergencije...")
+                    # Pozivamo funkciju direktno s 'return_logbook=True'
+                    (roi, duration), logbook = run_ga_once(
+                        config,
+                        activities,
+                        creator.Individual,
+                        single_objective_fitness,
+                        tools.selTournament,
+                        algorithms.eaSimple,
+                        return_logbook=True,  # Postavljamo zastavicu
+                        tournsize=3,
+                    )
+
+                    # Spremanje logbook-a u CSV
+                    df_log = pd.DataFrame(logbook)
+                    df_log.to_csv("konvergencija_A3.csv", index=False)
+                    print(
+                        "    -> Podaci o konvergenciji spremljeni u 'konvergencija_A3.csv'"
+                    )
+
+                # Standardno pokretanje za sve ostale slučajeve
                 else:
-                    roi, duration = run_function()
+                    result = run_function()
+                    if name == "GA+MC (NSGA-II)":
+                        (roi, duration), _ = result  # Zanemarujemo pareto_front ovdje
+                    else:
+                        roi, duration = result
+
                 run_rois.append(roi)
                 run_durations.append(duration)
                 print(
                     f"  Run {i+1}/{config['RUNS']}: ROI={roi:.2f}, Trajanje={duration:.2f}"
                 )
 
-            # Spremanje rezultata uz oznaku eksperimenta
+            # Ostatak koda za agregiranje rezultata
             master_results.append(
                 {
                     "Eksperiment": config["name"],

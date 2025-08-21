@@ -217,3 +217,29 @@ Konačni rezultati svih eksperimenata:
 13         B3_Labav       GA (samo ROI)    79.065  5.180782e-01     562.191220      9.344893
 14         B3_Labav     GA+MC (NSGA-II)    76.949  4.873490e-01     526.611914     10.601788
 ```
+
+
+### Testiranje konvergencije:
+===== ZAPOČINJEM EKSPERIMENT: A3_Slozeni =====
+Korištena konfiguracija: {'RUNS': 1, 'NUM_SIMULATIONS': 100, 'name': 'A3_Slozeni', 'NUM_ACTIVITIES': 100, 'BUDGET': 5000, 'POP_SIZE': 250, 'NGEN': 200, 'CX_PB': 0.7, 'MUT_PB': 0.2}
+--- Pokrećem scenarij: Random Search (MC) (1 puta) ---
+  Run 1/1: ROI=95.95, Trajanje=726.93
+--------------------------------------------------
+--- Pokrećem scenarij: GA (samo ROI) (1 puta) ---
+    -> Bilježim statistike konvergencije...
+    -> Podaci o konvergenciji spremljeni u 'konvergencija_A3.csv'
+  Run 1/1: ROI=112.88, Trajanje=806.57
+--------------------------------------------------
+--- Pokrećem scenarij: GA+MC (NSGA-II) (1 puta) ---
+  Run 1/1: ROI=110.13, Trajanje=702.91
+--------------------------------------------------
+
+
+===== SVI EKSPERIMENTI SU ZAVRŠENI =====
+Konačni rezultati svih eksperimenata:
+  Eksperiment            Scenarij  ROI_mean  ROI_std  Trajanje_mean  Trajanje_std
+0  A3_Slozeni  Random Search (MC)     95.95      0.0     726.927993           0.0
+1  A3_Slozeni       GA (samo ROI)    112.88      0.0     806.570906           0.0
+2  A3_Slozeni     GA+MC (NSGA-II)    110.13      0.0     702.905747           0.0
+
+Rezultati spremljeni u 'master_rezultati.csv'

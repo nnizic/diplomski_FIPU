@@ -126,4 +126,9 @@ J.~D. Hunter.
 \newblock Matplotlib: A 2d graphics environment.
 \newblock {\em Computing in Science \& Engineering}, 9(3):90--95, 2007.
 
+\bibitem{Wolpert1997}
+David~H. Wolpert and William~G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 1(1):67--82, 1997.
+
 \end{thebibliography}
