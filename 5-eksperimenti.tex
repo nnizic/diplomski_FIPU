@@ -45,7 +45,7 @@ Prvi eksperiment imao je za cilj empirijski provjeriti utjecaj osnovnih genetski
     \end{tabular}
 \end{table}
 
-Rezultati ablacijske studije, prikazani u Tablici~\ref{tab:ga_ablation} i grafički na Slici~\ref{fig:ga_ablation}, pružaju dubok uvid u dinamiku i kalibraciju genetskog algoritma. Analiza je fokusirana na utjecaj pojedinih operatora i na usporedbu strategija pretrage.
+Rezultati ablacijske studije, prikazani u Tablici~\ref{tab:ga_ablation} i grafički na Slici~\ref{fig:ga_roi}, i Slici~\ref{fig:ga_trajanje} pružaju dubok uvid u dinamiku i kalibraciju genetskog algoritma. Analiza je fokusirana na utjecaj pojedinih operatora i na usporedbu strategija pretrage.
 
 Analiza utjecaja genetskih operatora potvrđuje njihovu fundamentalnu važnost. Operator križanja pokazao se ključnim za efikasnost algoritma. Njegovim uklanjanjem (\textbf{Bez križanja}), prosječni ROI drastično pada na samo 25.884, što je gotovo 11\% niže u odnosu na standardnu konfiguraciju. Bez rekombinacije "građevnih blokova", algoritam ne može efikasno kombinirati dobra rješenja iz različitih roditelja, što rezultira osjetnim padom performansi. Uklanjanje mutacije također ima negativan učinak, snižavajući prosječni ROI na 27.627. Iako je pad manje izražen, nedostatak mutacije smanjuje genetsku raznolikost populacije, što algoritam čini podložnijim preuranjenoj konvergenciji prema lokalnim, suboptimalnim rješenjima.
 
@@ -54,22 +54,16 @@ Nadalje, usporedba strategija pretrage - dubine nasuprot širini - donosi jasan 
 Na temelju ovih empirijskih rezultata, konfiguracija \emph{Veća populacija} odabrana je kao ``šampionska''. Njezini parametri (veći broj jedinki u populaciji, umjeren broj generacija) poslužili su kao osnova za definiranje optimalne konfiguracije genetskog algoritma za drugu fazu istraživanja.
 
 \begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{slike/ga_usporedba_roi.png}
-        \caption{Usporedba prosječnog ROI-a.}
+        \includegraphics[width=0.8\textwidth]{slike/ga_usporedba_roi.png}
+        \caption{Grafički prikaz rezultata ablacijske studije za genetski algoritam - Usporedba prosječnog ROI-a.}
         \label{fig:ga_roi}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+\end{figure}
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{slike/ga_usporedba_trajanje.png}
-        \caption{Usporedba prosječnog trajanja.}
+        \includegraphics[width=0.8\textwidth]{slike/ga_usporedba_trajanje.png}
+        \caption{Grafički prikaz rezultata ablacijske studije za genetski algoritam - Usporedba prosječnog trajanja.}
         \label{fig:ga_trajanje}
-    \end{subfigure}
-    \caption{Grafički prikaz rezultata ablacijske studije za genetski algoritam.}
-    \label{fig:ga_ablation}
 \end{figure}
 
 Na temelju empirijskih rezultata, odabrana je konfiguracija \emph{Veća populacija} i njezini parametri (\texttt{POP\_SIZE = 200}, \texttt{NGEN = 40}, itd.) poslužili su kao osnova za definiranje parametara u drugoj fazi istraživanja, uz nužne prilagodbe resursa s obzirom na složenost problema.
@@ -138,7 +132,7 @@ Svi konačni, agregirani rezultati dobiveni provođenjem Eksperimenta 2 sažeti 
 
 
 \textbf{Analiza Skalabilnosti i konvergencije (Serija A)}
-Serija A eksperimenata direktno testira hipotezu H1 o skalabilnosti modela. Kao što je vidljivo na Slikama~\ref{fig:a_skalabilnosti_roi, fig:a_skalabilnost_trajanje} , dok su na najjednostavnijem problemu (A1, 10 aktivnosti) sve metode, uključujući i \texttt{Random Search}, pronašle identično optimalno rješenje s prosječnim ROI-em od 17.14, s porastom složenosti jaz u performansama drastično se povećava.
+Serija A eksperimenata direktno testira hipotezu H1 o skalabilnosti modela. Kao što je vidljivo na Slici~\ref{fig:a_skalabilnost_roi}, i Slici~\ref{fig:a_skalabilnost_trajanje} , dok su na najjednostavnijem problemu (A1, 10 aktivnosti) sve metode, uključujući i \texttt{Random Search}, pronašle identično optimalno rješenje s prosječnim ROI-em od 17.14, s porastom složenosti jaz u performansama drastično se povećava.
 
 Već na srednjoj razini složenosti (A2, 50 aktivnosti), performanse se počinju razilaziti. Dok je \texttt{Random Search} postigao prosječni ROI od 40.11, \texttt{GA (samo ROI)} ga je nadmašio s impresivnih 46.13, što predstavlja poboljšanje od gotovo 15\%. Hibridni \texttt{GA+MC} model također je postigao superioran rezultat od 44.10. Na najvećoj složenosti (A3, 100 aktivnosti), jaz je eksponencijalno narastao. Prosječni \texttt{ROI GA (samo ROI)} modela, s 114.22, bio je gotovo 19\% viši od onog kod nasumične pretrage (95.84).
 
@@ -216,19 +210,15 @@ Zaključno, analiza stabilnosti jasno pokazuje da su genetski algoritmi, a poseb
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=0.8\textwidth]{slike/grafikoni_final/C_stabilnost_roi.png}
+        \caption{Grafički prikaz stabilnosti rješenja:Standardna devijacija za ROI-a.}
+        \label{fig:stabilnost_roi}
+    \end{figure}
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{slike/grafikoni_final/C_stabilnost_roi.png}
-        \caption{Stabilnost ROI-a.}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{slike/grafikoni_final/C_stabilnost_trajanje.png}
-        \caption{Stabilnost trajanja.}
-    \end{subfigure}
-    \caption{Grafički prikaz stabilnosti rješenja: Standardna devijacija za ROI i Trajanje.}
-    \label{fig:stabilnost}
+        \includegraphics[width=0.8\textwidth]{slike/grafikoni_final/C_stabilnost_trajanje.png}
+    \caption{Grafički prikaz stabilnosti rješenja: Standardna devijacija za Trajanje.}
+    \label{fig:stabilnost_trajanje}
 \end{figure}
 
 \textbf{Dubinska analiza kompromisa: Paretov front}

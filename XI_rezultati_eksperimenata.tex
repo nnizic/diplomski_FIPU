@@ -1,4 +1,4 @@
-\section*{Rezultati svih provedenih eksperimenata}
+\section{Rezultati svih provedenih eksperimenata}
 
 \subsection*{Eksperiment: \texttt{A1\_Osnovni}}
 Korištena konfiguracija: \texttt{'RUNS': 10, 'NUM\_SIMULATIONS': 100, 'name': 'A1\_Osnovni', 'NUM\_ACTIVITIES': 10, 'BUDGET': 1000, 'POP\_SIZE': 100, 'NGEN': 40, 'CX\_PB': 0.7, 'MUT\_PB': 0.2}
@@ -226,32 +226,6 @@ Korištena konfiguracija: \texttt{'RUNS': 10, 'NUM\_SIMULATIONS': 100, 'name': '
     \item Run 10/10: ROI=76.92, Trajanje=522.96
 \end{itemize}
 
-\subsection*{Konačni rezultati svih eksperimenata}
-\begin{tabular}{|l|l|c|c|c|c|}
-\hline
-\textbf{Eksperiment} & \textbf{Scenarij} & \textbf{\texttt{ROI\_mean}} & \textbf{\texttt{ROI\_std}} & \textbf{\texttt{Trajanje\_mean}} & \textbf{\texttt{Trajanje\_std}} \\
-\hline
-\texttt{A1\_Osnovni} & \texttt{Random Search (MC)} & 17.140 & 3.55e-15 & 144.151 & 0.911 \\
-\texttt{A1\_Osnovni} & \texttt{GA (samo ROI)} & 17.140 & 3.55e-15 & 143.103 & 1.239 \\
-\texttt{A1\_Osnovni} & \texttt{GA+MC (NSGA-II)} & 17.140 & 3.55e-15 & 142.003 & 0.372 \\
-\hline
-\texttt{A2\_Srednji} & \texttt{Random Search (MC)} & 40.108 & 0.703 & 341.024 & 9.405 \\
-\texttt{A2\_Srednji} & \texttt{GA (samo ROI)} & 46.125 & 0.412 & 363.632 & 7.843 \\
-\texttt{A2\_Srednji} & \texttt{GA+MC (NSGA-II)} & 44.099 & 0.980 & 319.210 & 13.171 \\
-\hline
-\texttt{A3\_Slozeni} & \texttt{Random Search (MC)} & 95.835 & 1.468 & 715.604 & 10.451 \\
-\texttt{A3\_Slozeni} & \texttt{GA (samo ROI)} & 114.224 & 0.891 & 792.300 & 11.933 \\
-\texttt{A3\_Slozeni} & \texttt{GA+MC (NSGA-II)} & 109.095 & 2.008 & 681.565 & 21.733 \\
-\hline
-\texttt{B1\_Restriktivan} & \texttt{Random Search (MC)} & 24.120 & 1.846 & 197.621 & 20.181 \\
-\texttt{B1\_Restriktivan} & \texttt{GA (samo ROI)} & 37.976 & 0.567 & 253.562 & 12.386 \\
-\texttt{B1\_Restriktivan} & \texttt{GA+MC (NSGA-II)} & 17.711 & 17.728 & 50104.382 & 49894.619 \\
-\hline
-\texttt{B3\_Labav} & \texttt{Random Search (MC)} & 71.379 & 1.114 & 536.901 & 16.247 \\
-\texttt{B3\_Labav} & \texttt{GA (samo ROI)} & 79.065 & 0.518 & 562.191 & 9.345 \\
-\texttt{B3\_Labav} & \texttt{GA+MC (NSGA-II)} & 76.949 & 0.487 & 526.612 & 10.602 \\
-\hline
-\end{tabular}
 
 \subsection*{Testiranje konvergencije:}
 Korištena konfiguracija: \texttt{'RUNS': 1, 'NUM\_SIMULATIONS': 100, 'name': 'A3\_Slozeni', 'NUM\_ACTIVITIES': 100, 'BUDGET': 5000, 'POP\_SIZE': 250, 'NGEN': 200, 'CX\_PB': 0.7, 'MUT\_PB': 0.2}
@@ -273,14 +247,4 @@ Korištena konfiguracija: \texttt{'RUNS': 1, 'NUM\_SIMULATIONS': 100, 'name': 'A
     \item Run 1/1: ROI=110.13, Trajanje=702.91
 \end{itemize}
 
-\subsection*{Konačni rezultati konvergencijskog testa}
-\begin{tabular}{|l|l|c|c|c|c|}
-\hline
-\textbf{Eksperiment} & \textbf{Scenarij} & \textbf{\texttt{ROI\_mean}} & \textbf{\texttt{ROI\_std}} & \textbf{\texttt{Trajanje\_mean}} & \textbf{\texttt{Trajanje\_std}} \\
-\hline
-\texttt{A3\_Slozeni} & \texttt{Random Search (MC)} & 95.95 & 0.0 & 726.928 & 0.0 \\
-\texttt{A3\_Slozeni} & \texttt{GA (samo ROI)} & 112.88 & 0.0 & 806.571 & 0.0 \\
-\texttt{A3\_Slozeni} & \texttt{GA+MC (NSGA-II)} & 110.13 & 0.0 & 702.906 & 0.0 \\
-\hline
-\end{tabular}
-\textit{Rezultati spremljeni u 'master\_rezultati.csv'}
+

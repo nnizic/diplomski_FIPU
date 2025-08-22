@@ -29,7 +29,12 @@ Prvi modul, \textbf{Modul za analizu i kalibraciju genetskog algoritma}, predsta
 
     Drugi, ključni modul je \textbf{Modul za usporednu analizu optimizacijskih scenarija}. On čini srž diplomskog rada i koristi "šampionsku" konfiguraciju za provođenje konačne, statistički robusne usporedbe triju različitih pristupa rješavanju problema: osnovnog modela nasumične pretrage, klasičnog genetskog algoritma usmjerenog isključivo na ROI, te hibridnog GA+MC modela (NSGA-II) koji provodi više-kriterijsku optimizaciju koja istovremeno maksimizira ROI i minimizira rizik trajanja procijenjen Monte Carlo simulacijom.  Izlaz ovog modula je konačna tablica s usporednim rezultatima performansii(ROI, trajanje) i stabilnosti(standardna devijacija) za svaki od triju scenarija.
 
-    Treći, \textbf{Modul za obradu i vizualizaciju rezultata}, služi kao pomoćni alat za interpretaciju podataka dobivenih iz prva dva modula. Njegova funkcionalnost obuhvaća generiranje preglednih tablica pomoću biblioteke \texttt{pandas}, spremanje rezultata u CSV format te stvaranje grafičkih prikaza, kao što su stupčasti dijagrami za usporedbu prosječnih vrijednosti ili 2D raspršeni dijagrami za prikaz Paretovog fronta.
+    Treći, \textbf{Modul za obradu i vizualizaciju rezultata}, služi kao pomoćni alat za interpretaciju podataka dobivenih iz prva dva modula. Njegova funkcionalnost obuhvaća obradu i transformaciju sirovih podataka u pregledne tablice pomoću biblioteke \texttt{pandas}, što olakšava strukturiranje rezultata i spremanje u CSV format. Za stvaranje grafičkih prikaza, kao što su stupčasti dijagrami za usporedbu prosječnih vrijednosti, 2D raspršeni dijagrami za prikaz Paretovog fronta ili dijagrami konvergencije, korištene su snažne biblioteke \texttt{matplotlib} i \texttt{seaborn}. Dok \texttt{matplotlib} pruža temelje za stvaranje raznih tipova grafova, \texttt{seaborn}, izgrađen na njemu, nudi naprednije statističke prikaze i atraktivniji, profesionalni izgled uz minimalno kodiranje.
+
+    Osim spomenutih funkcionalnosti, ključan zadatak ovog modula je \textbf{analiza i vizualizacija konvergencije algoritma}. Ova analiza pruža neposredan dokaz da je evolucijski proces bio uspješan. Konvergencija se prati kroz sve generacije bilježenjem promjena u fitnes vrijednostima (ROI-u) najbolje jedinke u svakoj generaciji. Uspješna konvergencija manifestira se u obliku krivulje koja naglo raste u početnim generacijama, a zatim se postupno izravnava, što ukazuje na to da je algoritam pronašao optimalno ili blizu-optimalno rješenje i da daljnja evolucija ne donosi značajna poboljšanja.
+
+Vizualni prikaz konvergencije, koji stavlja fitnes vrijednost na Y-os, a broj generacije na X-os, ključan je alat za potvrdu da algoritam nije stagnirao i da je dosegnuo stabilno stanje. Također pomaže u određivanju optimalnog broja generacija potrebnih za rješavanje problema, čime se direktno utječe na računalnu efikasnost. Na taj način, ovaj modul ne samo da prikazuje konačne rezultate, već i pruža uvid u sam proces optimizacije.   
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{slike/tijek_istrazivanja.png}
@@ -70,7 +75,12 @@ T_{\text{portfolio}} = \sum_{i \in S} t_i
 gdje je $S$ skup odabranih aktivnosti, a $t_i$ generirano trajanje aktivnosti $i$.
 
 Implementacija se temelji na \texttt{monte\_carlo\_eval\_duration} funkciji prikazanoj u Isječku koda \ref{lst:monte_carlo}, koja predstavlja konkretnu realizaciju teorijskog procesa opisanog u Poglavlju 2. 
-\begin{lstlisting}[language=Python, caption={Funkcija za Monte Carlo procjenu trajanja}, label={lst:monte_carlo}, captionpos=b]
+
+Objašnjenje \textbf{Isječka koda \ref{lst:monte_carlo}}:
+
+Funkcija \texttt{monte\_carlo\_eval\_duration} predstavlja srce Monte Carlo simulacije. Njezina je svrha procijeniti očekivano trajanje zadanog portfelja projekata, uzimajući u obzir inherentnu nesigurnost.
+
+\begin{lstlisting}[float, language=Python, caption={Funkcija za Monte Carlo procjenu trajanja}, label={lst:monte_carlo}, captionpos=b]
 def monte_carlo_eval_duration(individual, activities, config):
     selected = [act for i, act in enumerate(activities) if individual[i] == 1]
     if not selected:
@@ -85,6 +95,15 @@ def monte_carlo_eval_duration(individual, activities, config):
     return np.mean(durations)
 \end{lstlisting}
 
+\begin{description}
+    \item[\texttt{def monte\_carlo\_eval\_duration(individual, activities, config):}] Definira funkciju koja prihvaća tri ključna ulazna parametra: \texttt{individual} (binarni niz koji predstavlja jedinku, tj. odabrani portfelj), \texttt{activities} (lista svih dostupnih projekata) i \texttt{config} (rječnik s postavkama, npr. broj simulacija).
+    \item[\texttt{selected = [act for i, act in enumerate(activities) if individual[i] == 1]}] Ova linija koristi *list comprehension* kako bi, na temelju binarne reprezentacije \texttt{individual} jedinke, stvorila novu listu koja sadrži samo objekte (rječnike) za odabrane projekte.
+    \item[\texttt{if not selected: return 0.0}] Jednostavna provjera koja osigurava da funkcija pravilno postupa s praznim portfeljima, vraćajući \texttt{0.0} kao njihovo trajanje.
+    \item[\texttt{durations = [...]}] Ovaj dio je srž simulacije. Vanjska *list comprehension* \texttt{for \_ in range(config["NUM\_SIMULATIONS"])} osigurava da se proces ponovi točno onoliko puta koliko je zadano u konfiguraciji. Unutarnja petlja \texttt{for act in selected} prolazi kroz svaki odabrani projekt u jednoj simulaciji.
+    \item[\texttt{random.triangular(act["optimistic"], act["realistic"], act["pessimistic"])}] Ovo je ključni poziv funkciji iz Pythonove \texttt{random} biblioteke. Ona generira jednu slučajnu vrijednost trajanja za svaki projekt, koristeći njegove tri točke procjene (optimistična, najvjerojatnija, pesimistična).
+    \item[\texttt{sum(...)}] Suma se koristi za zbrajanje trajanja svih projekata u toj jednoj simulaciji, čime se dobiva jedno moguće ukupno trajanje portfelja.
+    \item[\texttt{return np.mean(durations)}] Konačno, funkcija vraća prosječnu vrijednost svih \texttt{NUM\_SIMULATIONS} trajanja. Ova prosječna vrijednost služi kao statistički pouzdana procjena očekivanog trajanja portfelja i koristi se u funkciji pogodnosti.
+\end{description}
 
 \paragraph{Agregiranje rezultata.}
 Funkcija za zadani portfelj provodi velik broj simulacija $(\text{NUM\_SIMULATIONS})$. U svakoj simulaciji, za svaku odabranu aktivnost generira se slučajno trajanje iz Trokutaste distribucije, zbrajaju se trajanja unutar te simulacije, a na kraju se vraća prosječna vrijednost svih simuliranih ukupnih trajanja.
@@ -125,7 +144,10 @@ Vjerojatnosti primjene križanja (\texttt{CX\_PB}) i mutacije (\texttt{MUT\_PB})
 
 Koncept Toolbox u DEAP biblioteci omogućuje iznimnu modularnost i fleksibilnost. Umjesto da se operatori pozivaju direktno, oni se registriraju u Toolbox objektu pod aliasima (\texttt{mate},\texttt{mutate},\texttt{select},\texttt{evaluate}). Ova 'registracija' stvara apstrakciju koja omogućava lako zamjenjivanje, testiranje i prebacivanje između različitih operatora bez promjene osnovne strukture evolucijskog petlje, što je bilo presudno za fazu kalibracije algoritma u prvom eksperimentu
 
-\begin{lstlisting}[language=Python, caption={Primjer konfiguracije DEAP Toolbox-a za genetske operatore.}, label={lst:toolbox}]
+Objašnjenje \textbf{Isječka koda \ref{lst:toolbox}}:
+Ovaj isječak prikazuje konfiguraciju ``kutije s alatima'' (\texttt{Toolbox}) iz \texttt{DEAP} biblioteke.
+
+\begin{lstlisting}[float, language=Python, caption={Primjer konfiguracije DEAP Toolbox-a za genetske operatore.}, label={lst:toolbox}, captionpos=b]
 
 Inicijalizacija Toolbox objekta
 toolbox = base.Toolbox()
@@ -143,10 +165,23 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("evaluate", single_objective_fitness)
 \end{lstlisting}
 
+\begin{description}
+    \item[\texttt{toolbox = base.Toolbox()}] Inicijalizira prazan \texttt{Toolbox} objekt koji će služiti kao registar za sve komponente algoritma.
+    \item[\texttt{toolbox.register("attr\_bool", random.randint, 0, 1)}] Registrira funkciju \texttt{random.randint} pod aliasom ``\texttt{attr\_bool}''. Ova funkcija bit će odgovorna za generiranje pojedinačnih gena (0 ili 1) za kromosom.
+    \item[\texttt{toolbox.register("individual", tools.initRepeat, creator.Individual, ...)}] Koristi \texttt{tools.initRepeat} za kreiranje cijele jedinke. Drugim riječima, kreira niz gena pozivajući ``\texttt{attr\_bool}'' onoliko puta koliko je zadano brojem projekata (\texttt{NUM\_ACTIVITIES}).
+    \item[\texttt{toolbox.register("population", tools.initRepeat, list, toolbox.individual)}] Slično, registrira funkciju za kreiranje populacije, koja se sastoji od ponovljenog pozivanja funkcije ``\texttt{individual}''.
+    \item[\texttt{toolbox.register("mate", tools.cxTwoPoint)}, \texttt{toolbox.register("mutate", tools.mutFlipBit, indpb=0.1)}, \texttt{toolbox.register("select", tools.selTournament, tournsize=3)}] Ove tri linije registriraju ključne genetske operatore. Pod aliasima \texttt{mate}, \texttt{mutate} i \texttt{select} skrivaju se specifične funkcije za križanje, mutaciju i selekciju, što omogućuje njihovu laku zamjenu (npr. promjenu iz turnirske selekcije u \texttt{NSGA-II} selekciju).
+    \item[\texttt{toolbox.register("evaluate", single\_objective\_fitness)}] Ovo je ključna linija koja povezuje genetski algoritam s funkcijom pogodnosti. Ona govori algoritmu koju funkciju treba pozvati kako bi izračunao ``dobrotu'' svake jedinke, čime se završava priprema za evolucijsku petlju.
+\end{description}
+
 \paragraph{implementacija funkcija pogodnosti (Fitness Function).}
 Ključni dio implementacije su funkcije pogodnosti. Ovisno o scenariju, korištene su dvije različite funkcije. Za jedno-kriterijsku optimizaciju (GA samo ROI), implementirana je funkcija koja maksimizira ROI i primjenjuje strogu kaznenu metodu za rješenja koja prekoračuju budžet, osiguravajući da su sva nevaljana rješenja lošija od bilo kojeg valjanog.
 Za hibridni scenarij (GA+MC), implementirana je više-kriterijska funkcija pogodnosti koja predstavlja srž ovog rada. Kao što je prikazano u Isječku koda \ref{lst:fitness_function}, ova funkcija unutar jedne evaluacije objedinjuje deterministički izračun (ukupni trošak i ROI) i poziv stohastičke Monte Carlo simulacije za procjenu rizika (očekivano trajanje). Vraća tuple s dvije vrijednosti, omogućujući NSGA-II algoritmu da istovremeno optimizira oba cilja.
-\begin{lstlisting}[language=Python, caption={Više-kriterijska funkcija pogodnosti}, label={lst:fitness_function}, captionpos=b ]
+
+Objašnjenje \textbf{Isječka koda \ref{lst:fitness_function}}:
+Ova funkcija predstavlja srž više-kriterijske optimizacije. Za razliku od jedno-kriterijskog pristupa, ona ne vraća jednu vrijednost, već tuple koji \texttt{NSGA-II} algoritam koristi za rangiranje jedinki i pronalaženje Paretovog fronta.
+
+\begin{lstlisting}[float, language=Python, caption={Više-kriterijska funkcija pogodnosti}, label={lst:fitness_function}, captionpos=b ]
 def multi_objective_fitness(individual, activities, config):
     total_cost, total_roi = calculate_metrics(individual, activities)
     if total_cost > config["BUDGET"]:
@@ -154,6 +189,15 @@ def multi_objective_fitness(individual, activities, config):
     avg_duration = monte_carlo_eval_duration(individual, activities, config)
     return total_roi, avg_duration
 \end{lstlisting}
+
+\begin{description}
+    \item[\texttt{def multi\_objective\_fitness(individual, activities, config):}] Definira funkciju pogodnosti koja prima jedinku, listu aktivnosti i konfiguracijske parametre.
+    \item[\texttt{total\_cost, total\_roi = calculate\_metrics(individual, activities)}] Ova linija poziva pomoćnu funkciju \texttt{calculate\_metrics} (čiji kod nije prikazan, ali je opisana njezina funkcija). Ona izračunava ukupni trošak i \texttt{ROI} odabranog portfelja, koristeći determinističke vrijednosti.
+    \item[\texttt{if total\_cost > config["BUDGET"]: return 0, 99999}] Ovo je implementacija stroge kaznene funkcije. Ako portfelj prekoračuje budžet, funkcija odmah vraća loše vrijednosti (niski \texttt{ROI}, iznimno dugo trajanje), osiguravajući da \texttt{NSGA-II} algoritam odbaci takva nevaljana rješenja.
+    \item[\texttt{avg\_duration = monte\_carlo\_eval\_duration(individual, activities, config)}] Ovo je točka u kojoj se događa stvarna sinergija. Unutar funkcije pogodnosti, koja se poziva za svaku jedinku u svakoj generaciji, poziva se funkcija za Monte Carlo simulaciju kako bi se dobila statistički stabilna procjena trajanja portfelja.
+    \item[\texttt{return total\_roi, avg\_duration}] Konačno, funkcija vraća `tuple` s dvije vrijednosti: izračunatim \texttt{ROI}-em i procijenjenim trajanjem. Ove dvije vrijednosti predstavljaju dva optimizacijska cilja (maksimizacija \texttt{ROI}-a i minimizacija trajanja) na temelju kojih \texttt{NSGA-II} rangira jedinke i pretražuje prostor rješenja.
+\end{description}
+
 Ovisno o eksperimentalnom scenariju, korištene su dvije vrste funkcije pogodnosti:
 \begin{enumerate}
     \item \textbf{Jedno-kriterijska optimizacija.}  
@@ -203,6 +247,8 @@ Ključni vizualni elementi korišteni u ovom radu uključuju:
 \begin{itemize}
     \item \textbf{Tablične prikaze:} Detaljne tablice s konačnim, statistički obrađenim rezultatima usporedbe različitih optimizacijskih scenarija, uključujući osnovne metrike poput prosječnog ROI-a, prosječnog trajanja te raspona vrijednosti.
     \item \textbf{Stupčaste dijagrame:} Koristili su se za vizualnu usporedbu prosječnih vrijednosti (\textit{ROI} i trajanje) između različitih metodologija optimizacije, omogućujući brzu identifikaciju učinkovitijih pristupa.
+
+   \item \textbf{Dijagrame konvergencije:} Linijski dijagrami koji prikazuju evoluciju fitnes vrijednosti najbolje jedinke (ROI-a) kroz generacije. Ovi dijagrami ključni su za potvrdu da algoritam nije stagnirao i da je uspješno konvergirao prema optimalnom rješenju.
     \item \textbf{Raspršene dijagrame (\textit{Scatter Plot}):} Prikaz Paretovog fronta dobivenog NSGA-II algoritmom, koji jasno ilustrira kompromis (\textit{trade-off}) između dvaju suprotstavljenih ciljeva: maksimizacije ROI-a i minimizacije trajanja. Time se omogućuje intuitivna procjena učinkovitosti rješenja.
 \end{itemize}
 
