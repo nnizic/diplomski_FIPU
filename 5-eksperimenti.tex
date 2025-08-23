@@ -14,19 +14,29 @@ Kako bi se osigurala metodološka ispravnost i izbjegli proizvoljni zaključci, 
 \end{itemize}
 
 \subsubsection{Istraživačke hipoteze}
-Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, definirane su sljedeće tri glavne hipoteze koje se provjeravaju kroz eksperimente:
+Na temelju teorijske podloge i postavljenih istraživačkih pitanja iz Uvoda, definirane su sljedeće tri glavne hipoteze koje su vođene ovim istraživanjem i  predstavljaju temelj za analizu i interpretaciju eksperimentalnih rezultata:
 
 \begin{description}
-    \item[H1 (Hipoteza o Skalabilnosti):] Povećanjem složenosti problema (broja aktivnosti), performanse modela temeljenog na nasumičnoj pretrazi (Random Search) će se značajno smanjiti u usporedbi s modelima temeljenim na genetskim algoritmima.
-    \item[H2 (Hipoteza o Kompromisu):] Hibridni `GA+MC` model će, za razliku od klasičnog `GA (samo ROI)` modela, uspješno identificirati rješenja koja predstavljaju superioran kompromis između profitabilnosti (ROI) i rizika (trajanje projekta), posebno na problemima veće složenosti.
-    \item[H3 (Hipoteza o Utjecaju Ograničenja):] Restriktivnost problema, specifično kroz promjenu raspoloživog budžeta, značajno utječe na performanse i stabilnost optimizacijskih modela, pri čemu se očekuje da će ekstremna ograničenja predstavljati najveći izazov za najsloženije modele.
+
+\item \textbf{H1 (Hipoteza o Skalabilnosti):} ``Povećanjem složenosti problema (broja aktivnosti), performanse modela temeljenog na nasumičnoj pretrazi (\texttt{Random Search}) će se značajno smanjiti u usporedbi s modelima temeljenim na genetskim algoritmima.''
+Ova hipoteza testira temeljnu prednost inteligentnih metaheuristika. Svrha je dokazati da se, u problemskom prostoru koji eksponencijalno raste s brojem projekata, slijepa, nasumična pretraga brzo gubi u ``astronomski velikom'' prostoru rješenja. S druge strane, genetski algoritmi, s mehanizmima kao što su križanje i mutacija, inteligentno istražuju prostor, usmjeravajući se prema obećavajućim područjima. Ova hipoteza predviđa da će se razlika u performansama između ove dvije metodologije drastično povećati s porastom složenosti problema, čime će se potvrditi nužnost primjene naprednijih metoda.
+
+\item \textbf{H2 (Hipoteza o Kompromisu):} ``Hibridni `GA+MC` model će, za razliku od klasičnog `GA (samo ROI)` modela, uspješno identificirati rješenja koja predstavljaju superioran kompromis između profitabilnosti (\texttt{ROI}) i rizika (trajanje projekta), posebno na problemima veće složenosti.''
+
+Ova hipoteza je srž cijelog rada i istražuje višeciljnu prirodu problema. Dok klasični \texttt{GA} model vidi samo jednu dimenziju (profit), hibridni model, integracijom Monte Carlo simulacije, ``vidi'' i drugu dimenziju (rizik trajanja). Hipoteza predviđa da ova sposobnost istovremene optimizacije dva suprotstavljena cilja neće rezultirati samo jednim rješenjem, već cijelim skupom ne-dominiranih rješenja poznatim kao Pareto front. Očekuje se da će taj skup rješenja pružiti neprocjenjivu stratešku vrijednost, omogućujući menadžeru da kvantificira i odabere optimalan kompromis između maksimizacije profita i minimizacije rizika.
+
+\item \textbf{H3 (Hipoteza o Utjecaju Ograničenja):} ``Restriktivnost problema, specifično kroz promjenu raspoloživog budžeta, značajno utječe na performanse i stabilnost optimizacijskih modela, pri čemu se očekuje da će ekstremna ograničenja predstavljati najveći izazov za najsloženije modele.''
+
+Ova hipoteza testira robusnost modela u nerealističnim, ali izazovnim uvjetima. Umjesto jednostavnog zaključka da je složeniji model uvijek bolji, ova hipoteza predviđa paradoksalan nalaz. Očekuje se da će hibridni, više-kriterijski model, koji briljira u ``otvorenom'' prostoru rješenja, pokazati neočekivanu krhkost kada se prostor rješenja drastično suzi ekstremno niskim budžetom. S druge strane, jednostavniji model fokusiran na jedan cilj (\texttt{ROI}) mogao bi se pokazati robusnijim i stabilnijim u takvim uvjetima. Ova hipoteza naglašava da je odabir najprikladnijeg alata kontekstualan i ovisi o prirodi problema.
 \end{description}
 
 \subsection{Eksperiment 1: Analiza parametara i kalibracija genetskog algoritma}
 
 Prvi eksperiment imao je za cilj empirijski provjeriti utjecaj osnovnih genetskih operatora i parametara na performanse algoritma te odabrati optimalnu konfiguraciju za daljnje testiranje. U tu svrhu provedena je ablacijska studija s pet različitih konfiguracija, gdje je svaka pokrenuta 10 puta (\texttt{RUNS = 10}) radi statističke pouzdanosti. Testirane konfiguracije su bile: \emph{Standardni GA}, \emph{Bez mutacije}, \emph{Bez križanja}, \emph{Više generacija} i \emph{Veća populacija}.
 
-\subsubsection{Rezultati i diskusija ablacijske studije} Rezultati ablacijske studije, prikazani u Tablici~\ref{tab:ga_ablation} te grafički na Slici~\ref{fig:ga_ablation}, pružaju dubok uvid u dinamiku genetskog algoritma.
+\subsubsection{Rezultati i diskusija ablacijske studije} 
+
+Rezultati ablacijske studije, prikazani u Tablici~\ref{tab:ga_ablation} i grafički na Slici~\ref{fig:ga_roi}, i Slici~\ref{fig:ga_trajanje} pružaju dubok uvid u dinamiku i kalibraciju genetskog algoritma. Analiza je fokusirana na utjecaj pojedinih operatora i na usporedbu strategija pretrage.
 
 \begin{table}[H]
     \centering
@@ -45,7 +55,6 @@ Prvi eksperiment imao je za cilj empirijski provjeriti utjecaj osnovnih genetski
     \end{tabular}
 \end{table}
 
-Rezultati ablacijske studije, prikazani u Tablici~\ref{tab:ga_ablation} i grafički na Slici~\ref{fig:ga_roi}, i Slici~\ref{fig:ga_trajanje} pružaju dubok uvid u dinamiku i kalibraciju genetskog algoritma. Analiza je fokusirana na utjecaj pojedinih operatora i na usporedbu strategija pretrage.
 
 Analiza utjecaja genetskih operatora potvrđuje njihovu fundamentalnu važnost. Operator križanja pokazao se ključnim za efikasnost algoritma. Njegovim uklanjanjem (\textbf{Bez križanja}), prosječni ROI drastično pada na samo 25.884, što je gotovo 11\% niže u odnosu na standardnu konfiguraciju. Bez rekombinacije "građevnih blokova", algoritam ne može efikasno kombinirati dobra rješenja iz različitih roditelja, što rezultira osjetnim padom performansi. Uklanjanje mutacije također ima negativan učinak, snižavajući prosječni ROI na 27.627. Iako je pad manje izražen, nedostatak mutacije smanjuje genetsku raznolikost populacije, što algoritam čini podložnijim preuranjenoj konvergenciji prema lokalnim, suboptimalnim rješenjima.
 
