@@ -1,4 +1,4 @@
-\section{Teorijske osnove i srodni radovi}
+\section{Teorijski okvir i pregled literature}
 \label{chap:teorija}
 
 Ovo poglavlje pruža sveobuhvatan pregled temeljnih teorijskih koncepata koji čine okosnicu predloženog modela optimizacije. Započet će se s formalizacijom problema odabira projektnog portfelja kroz analogiju s klasičnim problemom ruksaka. Zatim slijedi detaljna razrada genetskih algoritama kao odabrane optimizacijske metaheuristike, s posebnim osvrtom na njihove ključne komponente i više-kriterijsku inačicu NSGA-II. Poglavlje se nastavlja analizom Monte Carlo simulacije kao alata za kvantifikaciju rizika, te završava opisom metoda za modeliranje nesigurnosti projektnih aktivnosti.
@@ -32,7 +32,7 @@ Uspješnost genetskog algoritma ovisi o pažljivom odabiru i implementaciji njeg
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{slike/crossover_diagram.png}
-    \caption{Vizualni prikaz operatora dvo-točkovnog križanja (Two-Point Crossover). Segmenti između dviju nasumično odabranih točaka loma se razmjenjuju između roditeljskih kromosoma kako bi se stvorili potomci.}
+    \caption{Vizualni prikaz operatora dvo-točkovnog križanja (Two-Point Crossover). Segmenti između dviju nasumično odabranih točaka loma se razmjenjuju između roditeljskih kromosoma kako bi se stvorili potomci.(Izrada autora)}
     \label{fig:crossover}
 \end{figure}
 \paragraph{Mutacija.} Mutacija je primarni mehanizam istraživanja i osigurava genetsku raznolikost. Ona nasumično mijenja pojedine gene u kromosomu s vrlo malom vjerojatnošću. Iako se može činiti kao destruktivan proces, Holland \cite{Holland1975} je naglasio njenu ključnu ulogu u sprječavanju prerane konvergencije, tj. situacije u kojoj cijela populacija postane previše slična i algoritam "zaglavi" u lokalnom optimumu.
@@ -72,7 +72,7 @@ Monte Carlo simulacija (MCS) je moćna računska metoda koja koristi ponovljeno 
 
 Temeljna vrijednost Monte Carlo simulacije, kako ističe Vose \cite{Vose2008}, leži u njenoj sposobnosti da transformira nesigurnost ulaznih varijabli u distribuciju vjerojatnosti izlaznih rezultata. Umjesto da projektni menadžer dobije jednu, često pogrešnu, točku procjene (npr. "projekt će trajati 350 dana"), MCS generira cijeli spektar mogućih ishoda (npr. histogram trajanja projekta). Analizom te izlazne distribucije moguće je donijeti puno informiranije odluke, odgovarajući na ključna pitanja poput: "Koja je vjerojatnost da ćemo završiti projekt unutar 400 dana?" ili "Koji je raspon trajanja u kojem se s 90\% pouzdanosti možemo očekivati završetak?".
 
-Sam proces simulacije odvija se u nekoliko logičkih koraka. Prvo se identificiraju ključne ulazne varijable čije su vrijednosti neizvjesne, poput trajanja pojedinih aktivnosti. Za svaku takvu varijablu odabire se distribucija vjerojatnosti koja najbolje opisuje raspon i vjerojatnost njenih mogućih vrijednosti. Zatim, algoritam iterativno provodi tisuće "eksperimenata": u svakoj iteraciji, za svaku nesigurnu varijablu generira se jedna nasumična vrijednost iz njene definirane distribucije te se na temelju tih vrijednosti izračunava ishod modela (npr. ukupno trajanje projekta).
+Sam proces simulacije odvija se u nekoliko logičkih koraka. Prvo se identificiraju ključne ulazne varijable čije su vrijednosti neizvjesne, poput trajanja pojedinih aktivnosti. Za svaku takvu varijablu odabire se distribucija vjerojatnosti koja najbolje opisuje raspon i vjerojatnost njenih mogućih vrijednosti.  Zatim, algoritam iterativno provodi tisuće \textbf{simulacijskih pokretanja}: u svakoj iteraciji, za svaku nesigurnu varijablu generira se jedna nasumična vrijednost iz njene definirane distribucije te se na temelju tih vrijednosti izračunava ishod modela (npr. ukupno trajanje projekta).
 
 Pouzdanost ove metode, kako objašnjavaju Rubinstein i Kroese \cite{Rubinstein2016}, temelji se na fundamentalnom statističkom principu – Zakonu velikih brojeva. On jamči da će prosječna vrijednost rezultata dobivenih iz velikog broja neovisnih simulacija konvergirati prema stvarnoj očekivanoj vrijednosti sustava. Ponavljanjem procesa velik broj puta, dobiva se empirijska distribucija mogućih ishoda koja pruža dublji uvid od jedne determinističke procjene i iz koje se mogu iščitati ključni statistički pokazatelji poput očekivane vrijednosti, standardne devijacije i vjerojatnosti prekoračenja određenih pragova.
 Njena matematička podloga leži u \textbf{Zakonu velikih brojeva}, koji garantira da će prosječna vrijednost rezultata dobivenih iz velikog broja simulacija konvergirati prema stvarnoj očekivanoj vrijednosti.

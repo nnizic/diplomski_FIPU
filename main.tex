@@ -11,6 +11,15 @@
 \usepackage{geometry}
 \usepackage{listings}       % za formatiranje koda
 \usepackage{xcolor}         % za boje koda
+\usepackage{url}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
 \geometry{
  a4paper,
  left=1.25in,
@@ -107,6 +116,13 @@
 \lstlistoflistings
 \newpage
 
+\section*{Izvori koda i alata}
+\addcontentsline{toc}{section}{Izvori koda i alata}
+\input{XII_linkovi}
+\newpage
+
+\section*{Rezultati svih eksperimenata}
+\addcontentsline{toc}{section}{Rezultati svih eksperimenata}
 \input{XI_rezultati_eksperimenata}
 \newpage
 
