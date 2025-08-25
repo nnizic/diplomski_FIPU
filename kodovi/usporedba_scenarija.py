@@ -1,4 +1,4 @@
-"""Eksperimenti - Diplomski rad - Neven Nižić"""
+"""Eksperiment 2 - Diplomski rad - Neven Nižić"""
 
 from functools import partial
 import random
@@ -102,7 +102,7 @@ creator.create("FitnessMulti", base.Fitness, weights=(1.0, -1.0))
 creator.create("IndividualMulti", list, fitness=creator.FitnessMulti)
 
 # ==============================================================================
-# POMOĆNE FUNKCIJE (sada primaju 'config' i 'activities')
+# POMOĆNE FUNKCIJE (primaju 'config' i 'activities')
 # ==============================================================================
 
 
@@ -144,7 +144,7 @@ def monte_carlo_eval_duration(individual, activities, config):
 
 
 # ==============================================================================
-# FITNESS FUNKCIJE (sada primaju 'config' i 'activities')
+# FITNESS FUNKCIJE (primaju 'config' i 'activities')
 # ==============================================================================
 
 
@@ -166,7 +166,7 @@ def multi_objective_fitness(individual, activities, config):
 
 
 # ==============================================================================
-# FUNKCIJE ZA POKRETANJE SCENARIJA (sada primaju 'config' i 'activities')
+# FUNKCIJE ZA POKRETANJE SCENARIJA (primaju 'config' i 'activities')
 # ==============================================================================
 
 
@@ -256,7 +256,7 @@ def run_ga_once(
         )
 
     if not hof:
-        # Ako nema rješenja, vraćamo prazne vrijednosti
+        # Ako nema rješenja, vraća prazne vrijednosti
         if return_logbook:
             return (0, 0), None
         return 0, 0

@@ -5,7 +5,7 @@ import pandas as pd
 import seaborn as sns
 
 # ==============================================================================
-# 📌 GLOBALNE POSTAVKE
+#  GLOBALNE POSTAVKE
 # ==============================================================================
 # Naziv datoteke s rezultatima
 CSV_FILE = "master_rezultati.csv"
@@ -155,7 +155,7 @@ def plot_stability_analysis(df):
         )
     ]
 
-    # 1. Crtanje stabilnosti ROI-a
+    #  Crtanje stabilnosti ROI-a
     plt.figure(figsize=(14, 7))
     sns.barplot(
         data=df_stability, x="Eksperiment", y="ROI_std", hue="Scenarij", palette=PALETTE
@@ -170,7 +170,7 @@ def plot_stability_analysis(df):
     plt.savefig(os.path.join(OUTPUT_DIR, "C_stabilnost_roi.png"), dpi=300)
     plt.close()
 
-    # 2. Crtanje stabilnosti Trajanja
+    #  Crtanje stabilnosti Trajanja
     plt.figure(figsize=(14, 7))
     sns.barplot(
         data=df_stability,

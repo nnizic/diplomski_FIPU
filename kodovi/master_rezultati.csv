@@ -1,4 +1,0 @@
-Eksperiment,Scenarij,ROI_mean,ROI_std,Trajanje_mean,Trajanje_std
-A3_Slozeni,Random Search (MC),95.95,0.0,726.9279934071767,0.0
-A3_Slozeni,GA (samo ROI),112.88,0.0,806.5709058218457,0.0
-A3_Slozeni,GA+MC (NSGA-II),110.13,0.0,702.9057468788883,0.0

@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# 📌 Globalne postavke (lako mijenjati na jednom mjestu)
+# Globalne postavke
 CSV_FILE = "usporedni_rezultati.csv"
 OUTPUT_DIR = "slike"
 
@@ -26,7 +26,7 @@ def plot_results():
     # Kreiraj folder za slike ako ne postoji
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # 1️⃣ Graf ROI-a
+    #  Graf ROI-a
     plt.figure(figsize=(8, 5))
     plt.bar(df[COL_SCENARIO], df[COL_ROI_MEAN], color=BAR_COLORS[: len(df)])
     plt.ylabel("ROI (mean)")
@@ -37,7 +37,7 @@ def plot_results():
     plt.savefig(f"{OUTPUT_DIR}/usporedba_roi.png", dpi=300)
     plt.close()
 
-    # 2️⃣ Graf prosječnog trajanja
+    #  Graf prosječnog trajanja
     plt.figure(figsize=(8, 5))
     plt.bar(df[COL_SCENARIO], df[COL_DURATION_MEAN], color=BAR_COLORS[: len(df)])
     plt.ylabel("Trajanje (dani, mean)")

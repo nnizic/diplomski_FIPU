@@ -1,4 +1,4 @@
-"""Eksperimenti - diplomski rad - Neven Nižić"""
+"""Eksperiment 1 - diplomski rad - Neven Nižić"""
 
 import random
 
@@ -239,7 +239,7 @@ def run_ablation_study():
     df.to_csv("ablation_results.csv", index=False)
     print("\n--- Ablation Study Rezultati ---")
     print(df.to_string())
-    print("✅ Rezultati spremljeni u 'ablation_results.csv'")
+    print("Rezultati spremljeni u 'ablation_results.csv'")
 
 
 # ------------------------------
