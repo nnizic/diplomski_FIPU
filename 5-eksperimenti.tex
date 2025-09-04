@@ -1,13 +1,13 @@
 \section{Eksperimentalna evaluacija i diskusija rezultata}
 \label{chap:eksperimenti}
-Nakon definiranja teorijskih osnova i implementacije modela, ovo poglavlje posvećeno je empirijskoj validaciji i analizi. Detaljno se opisuje eksperimentalni postav, provedba dvo-faznog istraživanja, te se provodi dubinska analiza i interpretacija dobivenih rezultata. Cilj je kvantificirati performanse predloženih modela i donijeti utemeljene zaključke o njihovoj primjenjivosti.
+Nakon definiranja teorijskih osnova i implementacije modela, ovo poglavlje posvećeno je empirijskoj validaciji i analizi. Detaljno se opisuje eksperimentalni postav, provedba dvofaznog istraživanja, te se provodi dubinska analiza i interpretacija dobivenih rezultata. Cilj je kvantificirati performanse predloženih modela i donijeti utemeljene zaključke o njihovoj primjenjivosti.
 
 \subsection{Postavke okruženja i testni podaci}
 Svi eksperimenti provedeni su u programskom okruženju \textbf{Python (verzija 3.x)} na standardnom osobnom računalu. Kako bi se osigurala ponovljivost i kontrolirani uvjeti, za potrebe istraživanja generiran je sintetički skup podataka koji oponaša realističan projektni portfelj.  Generiranje podataka je parametrizirano kako bi se mogli stvoriti problemi različite složenosti (broj aktivnosti od 10 do 100). Za svaku aktivnost, vrijednosti troška, ROI-a i trotočkovne procjene trajanja generirane su nasumično unutar realističnih raspona: \textbf{Trošak (\texttt{cost}):} slučajna cjelobrojna vrijednost između 50 i 200, \textbf{ROI (\texttt{roi}):} slučajna decimalna vrijednost između 1.0 i 3.0, i \textbf{Procjene trajanja:} optimistično (između 5 i 10 dana), najvjerojatnije (između 10 i 20 dana) i pesimistično (između 20 i 40 dana).
 Ukupni raspoloživi budžet za portfelj (\texttt{BUDGET}) bio je skaliran u skladu sa složenošću problema kako bi se održala slična razina restriktivnosti.
 
 \subsection{Eksperimentalni dizajn}
-Kako bi se osigurala metodološka ispravnost i izbjegli proizvoljni zaključci, istraživanje je provedeno kroz dvo-fazni eksperimentalni proces:
+Kako bi se osigurala metodološka ispravnost i izbjegli proizvoljni zaključci, istraživanje je provedeno kroz dvofazni eksperimentalni proces:
 \begin{itemize}
     \item \textbf{Faza 1: Analiza i kalibracija genetskog algoritma.} U prvoj fazi provedena je detaljna ablacijska studija kako bi se utvrdilo koji parametri genetskog algoritma daju najkvalitetnija i najstabilnija rješenja za reprezentativni tip problema (50 aktivnosti). Cilj je bio pronaći ``šampionsku'' konfiguraciju GA.
     \item \textbf{Faza 2: Usporedna analiza optimizacijskih modela.} U drugoj fazi, ``šampionska'' konfiguracija GA, dobivena u prvoj fazi, korištena je kao osnova za provođenje konačne usporedbe triju različitih optimizacijskih scenarija i evaluaciju istraživačkih hipoteza: \textbf{H1 (Skalabilnost), H2 (Kompromis) i H3 (Utjecaj Ograničenja)} rada na problemima različite skale i restriktivnosti.
@@ -64,13 +64,13 @@ Na temelju ovih empirijskih rezultata, konfiguracija \emph{Veća populacija} oda
 
 \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{slike/ga_usporedba_roi.png}
+        \includegraphics[width=0.8\textwidth]{slike/grafikoni_final/ga_boxplot_roi.png}
         \caption{Grafički prikaz rezultata ablacijske studije za genetski algoritam - Usporedba prosječnog ROI-a.}
         \label{fig:ga_roi}
 \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{slike/ga_usporedba_trajanje.png}
+        \includegraphics[width=0.8\textwidth]{slike/grafikoni_final/ga_boxplot_trajanje.png}
         \caption{Grafički prikaz rezultata ablacijske studije za genetski algoritam - Usporedba prosječnog trajanja.}
         \label{fig:ga_trajanje}
 \end{figure}
